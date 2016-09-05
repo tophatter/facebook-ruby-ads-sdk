@@ -279,15 +279,6 @@ account.campaigns.last.ad_insights
 account.campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
 ```
 
-### Fetch All Objects
-
-```ruby
-campaigns = account.campaigns(effective_status: nil)
-ad_images = account.ad_images
-ad_creatives = account.ad_creatives
-ad_sets = campaigns.map { |campaign| campaign.ad_sets(effective_status: nil) }.flatten
-```
-
 ### @TODO:
 
 * Unit tests.
