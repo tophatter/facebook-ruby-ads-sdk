@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'facebook_ads'
-  s.version     = '4.0.0'
+  s.version     = '0.1.0'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
@@ -17,13 +17,12 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '~> 2.0'
 
-  s.add_dependency 'activesupport'
-  s.add_dependency 'httmultiparty'
-  s.add_dependency 'hashie'
+  s.add_dependency 'activesupport', '~> 4.2'
+  s.add_dependency 'httmultiparty', '~> 0.3'
+  s.add_dependency 'hashie', '~> 3.4'
 
   s.add_development_dependency 'bundler', '~> 1.7'
   s.add_development_dependency 'rake', '~> 10.0'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'awesome_print'
-  s.add_development_dependency 'builder'
+  s.add_development_dependency 'pry', '~> 0.10'
+  s.add_development_dependency 'awesome_print', '~> 1.7'
 end
