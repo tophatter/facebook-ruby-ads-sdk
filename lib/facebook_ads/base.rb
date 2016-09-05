@@ -11,7 +11,9 @@ module FacebookAds
         get!("/#{id}", objectify: true)
       end
 
-      # HTTMultiParty wrappers
+      protected
+
+      # HTTMultiParty wrappers.
 
       def get!(path, query: {}, objectify: false, fields: true)
         query = query.merge(access_token: FacebookAds.access_token)
@@ -37,6 +39,8 @@ module FacebookAds
         response = delete(path, query: query).parsed_response
         response = parse(response, objectify: false)
       end
+
+      # Pagination helper.
 
       def paginate!(path, query: {})
         response = get!(path, query: query)
@@ -73,17 +77,6 @@ module FacebookAds
           end
         else
           response
-        end
-      end
-
-      def before(*names)
-        names.each do |name|
-          m = instance_method(name)
-
-          define_method(name) do |*args, &block|
-            yield
-            m.bind(self).(*args, &block)
-          end
         end
       end
 
