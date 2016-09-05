@@ -116,6 +116,9 @@ ad_images.map(&:destroy)
 
 ### [Ad Creatives](https://developers.facebook.com/docs/marketing-api/reference/ad-creative) (Fetch, Find, Create, Update, Destroy)
 
+Notes:
+* I'd like to add a configuration object that allows you to specify the Facebook Page, Instagram account, website, iOS app and/or Android app that you will be advertising. This is needed when creating both Ad Creative objects and Ad Set objects.
+
 ```ruby
 # Fetch all creatives owned by an account:
 ad_creatives = account.ad_creatives
@@ -170,6 +173,9 @@ image_ad_creative.destroy
 
 ### [Ad Sets](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign) (Fetch, Find, Create, Update, Destroy)
 
+Notes:
+* It's important to make sure your targeting spec makes sense in the context of the promoted object. For example if the promoted object is an iOS app and the targeting spec specifies Android devices your ads are not likely to perform well since no one will be able to download your iOS app.
+
 ```ruby
 # You interact with ad sets via a campaign:
 campaign = account.campaigns(effective_status: nil).first
@@ -222,7 +228,7 @@ ad_set.update(status: 'PAUSED', daily_budget: 500) # Returns a boolean.
 ad_set.destroy
 ```
 
-### [Ads](https://developers.facebook.com/docs/marketing-api/reference/adgroup)
+### [Ads](https://developers.facebook.com/docs/marketing-api/reference/adgroup) (Fetch, Find, Create, Update, Destroy)
 
 ```ruby
 # You interact with ads via an ad set:
@@ -281,3 +287,9 @@ ad_images = account.ad_images
 ad_creatives = account.ad_creatives
 ad_sets = campaigns.map { |campaign| campaign.ad_sets(effective_status: nil) }.flatten
 ```
+
+### @TODO:
+
+* Unit tests.
+* [Batch operations](https://developers.facebook.com/docs/marketing-api/batch-requests).
+* Upgrade to [2.7](https://developers.facebook.com/docs/marketing-api/versions).
