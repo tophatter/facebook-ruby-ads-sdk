@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/facebook_ads.svg)](https://badge.fury.io/rb/facebook_ads)
+
 ## [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) SDK for Ruby
 
 ![Facebook Ads](http://i.imgur.com/GrxAj07.png)
