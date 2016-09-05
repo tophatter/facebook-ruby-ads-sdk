@@ -38,7 +38,7 @@ echo [YOUR_ACCESS_TOKEN] > test_access_token
 bin/console
 ```
 
-### [Ad Accounts](https://developers.facebook.com/docs/marketing-api/reference/ad-account) (Fetch, Find)
+### [Ad Accounts](https://developers.facebook.com/docs/marketing-api/reference/ad-account) (Fetch, Find, Update)
 
 ```ruby
 # Fetch all accounts that can be accessed using your access token:
@@ -49,9 +49,15 @@ account = FacebookAds::AdAccount.find('act_1132789356764349')
 
 # Find an account by name:
 account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
+
+# Update an account (using both .save() and .update()):
+account.name = 'ReFuel4 [Updated]'
+account = account.save # Returns the updated object.
+account.update(name: 'ReFuel4') # Returns a boolean.
+# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating
 ```
 
-### [Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Destroy)
+### [Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
 
 ```ruby
 # Fetch all active campaigns:
@@ -73,11 +79,23 @@ campaign = account.create_campaign(
 # Find a campaign by ID:
 campaign = FacebookAds::Campaign.find(campaign.id)
 
+# Update a campaign (using both .save() and .update()):
+campaign.status = 'ACTIVE'
+campaign = campaign.save # Returns the updated object.
+campaign.update(status: 'PAUSED') # Returns a boolean.
+# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#Updating
+
 # Destroy a campaign:
 campaign.destroy
 ```
 
 ### [Ad Images](https://developers.facebook.com/docs/marketing-api/reference/ad-image) (Fetch, Find, Create, Destroy)
+
+Notes:
+* Images cannot be updated.
+* You can upload the same image multiple times and Facebook will de-duplicate them server side.
+* An image will always generate the same hash on Facebook's end - event across ad accounts.
+* Image uploading via a URL currently assumes a \*nix system (Mac OS, linux). It likely will fail on Windows. A cross-platform tempfile-based solution is in the works.
 
 ```ruby
 # Fetch all images owned by an account:
@@ -96,7 +114,7 @@ ad_images = account.ad_images(hashes: ad_images.map(&:hash))
 ad_images.map(&:destroy)
 ```
 
-### [Ad Creatives](https://developers.facebook.com/docs/marketing-api/reference/ad-creative) (Fetch, Find, Create, Destroy)
+### [Ad Creatives](https://developers.facebook.com/docs/marketing-api/reference/ad-creative) (Fetch, Find, Create, Update, Destroy)
 
 ```ruby
 # Fetch all creatives owned by an account:
@@ -139,12 +157,18 @@ image_ad_creative = account.create_ad_creative({
 # Find a creative by ID:
 carousel_ad_creative = FacebookAds::AdCreative.find(carousel_ad_creative.id)
 
+# Update a creative (using both .save() and .update()):
+carousel_ad_creative.name = 'Test Carousel Creative [Updated]'
+ad_creative = carousel_ad_creative.save # Returns the updated object.
+ad_creative.update(name: 'Test Carousel Creative') # Returns a boolean.
+# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-creative#Updating
+
 # Destroy a creative:
 carousel_ad_creative.destroy
 image_ad_creative.destroy
 ```
 
-### [Ad Sets](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign) (Fetch, Find, Create, Destroy)
+### [Ad Sets](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign) (Fetch, Find, Create, Update, Destroy)
 
 ```ruby
 # You interact with ad sets via a campaign:
@@ -168,7 +192,6 @@ targeting.countries         = ['US']
 targeting.user_os           = [FacebookAds::TargetingSpec::ANDROID_OS]
 targeting.user_device       = FacebookAds::TargetingSpec::ANDROID_DEVICES
 targeting.app_install_state = FacebookAds::TargetingSpec::NOT_INSTALLED
-targeting.validate!
 
 # Create an ad set to drive installs to an Android app using the targeting above:
 ad_set = campaign.create_ad_set(
@@ -188,6 +211,13 @@ ad_set = campaign.create_ad_set(
 # Find an ad set by ID:
 ad_set = FacebookAds::AdSet.find(ad_set.id)
 
+# Update an ad set (using both .save() and .update()):
+ad_set.status = 'ACTIVE'
+ad_set.daily_budget = 400
+ad_set = ad_set.save # Returns the updated object.
+ad_set.update(status: 'PAUSED', daily_budget: 500) # Returns a boolean.
+# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign#Updating
+
 # Destroy an ad set:
 ad_set.destroy
 ```
@@ -196,8 +226,7 @@ ad_set.destroy
 
 ```ruby
 # You interact with ads via an ad set:
-account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
-ad_set = account.campaigns(effective_status: nil).first.ad_sets(effective_status: nil).first
+ad_set = account.ad_sets(effective_status: nil).first
 
 # Fetch all active ads for an ad set:
 ads = ad_set.ads
@@ -217,13 +246,31 @@ ad = ad_set.create_ad(name: 'Test Ad', creative_id: ad_creative.id)
 # Find an ad by ID:
 ad = FacebookAds::Ad.find(ad.id)
 
+# Update an ad (using both .save() and .update()):
+ad.name = 'Test Ad [Updated]'
+ad.status = 'ACTIVE'
+ad = ad.save # Returns the updated object.
+ad.update(name: 'Test Ad', status: 'PAUSED') # Returns a boolean.
+# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/adgroup#Updating
+
 # Destroy an ad:
 ad.destroy
 ```
 
-### [Ad Insights](https://developers.facebook.com/docs/marketing-api/insights/overview)
+### [Ad Insights](https://developers.facebook.com/docs/marketing-api/insights/overview) (Fetch)
 
 ```ruby
+# Fetch today's insights for an account:
+account.ad_insights
+
+# Fetch yesterday's insights for an account:
+account.ad_insights(range: Date.yesterday..Date.yesterday)
+
+# Fetch today's insights for a campaign:
+account.campaigns.last.ad_insights
+
+# Fetch yesterday's insights for a campaign:
+account.campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
 ```
 
 ### Fetch All Objects

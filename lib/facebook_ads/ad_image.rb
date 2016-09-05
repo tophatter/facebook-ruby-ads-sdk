@@ -14,14 +14,12 @@ module FacebookAds
       self[:hash]
     end
 
-    def destroy
-      response = self.class.delete!("/act_#{account_id}/adimages", query: { hash: hash })
+    def update(data)
+      raise Exception, 'NOT IMPLEMENTED'
+    end
 
-      if response.key?('success')
-        response['success']
-      else
-        raise Exception, "Invalid response from DELETE operation: #{response.inspect}"
-      end
+    def destroy
+      super(path: "/act_#{account_id}/adimages", query: { hash: hash })
     end
 
   end

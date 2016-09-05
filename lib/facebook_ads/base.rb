@@ -76,22 +76,83 @@ module FacebookAds
         end
       end
 
+      def before(*names)
+        names.each do |name|
+          m = instance_method(name)
+
+          define_method(name) do |*args, &block|
+            yield
+            m.bind(self).(*args, &block)
+          end
+        end
+      end
+
     end
+
+    attr_accessor :changes
 
     def initialize(data)
       data.each_pair do |key, value|
         self[key] = value
       end
+
+      self.changes = {}
     end
 
-    def destroy
-      response = self.class.delete!("/#{id}")
+    def update(data)
+      if data.present?
+        response = self.class.post!("/#{id}", query: data)
+
+        if response.key?('success')
+          response['success']
+        else
+          raise Exception, "Invalid response from update: #{response.inspect}"
+        end
+      else
+        false
+      end
+    end
+
+    def save
+      if changes.present?
+        data = {}
+        changes.keys.each { |key| data[key] = self[key] }
+
+        if update(data)
+          self.class.find(id)
+        else
+          nil
+        end
+      else
+        nil
+      end
+    end
+
+    def destroy(path: nil, query: {})
+      response = self.class.delete!(path || "/#{id}", query: query)
 
       if response.key?('success')
         response['success']
       else
-        raise Exception, "Invalid response from DELETE operation: #{response.inspect}"
+        raise Exception, "Invalid response from destroy: #{response.inspect}"
       end
+    end
+
+    private
+
+    def []=(key, value)
+      old_value = self[key]
+      new_value = super(key, value)
+
+      self.changes ||= {}
+
+      if old_value != new_value
+        self.changes[key] = [old_value, new_value]
+      else
+        self.changes.delete(key)
+      end
+
+      new_values
     end
 
   end

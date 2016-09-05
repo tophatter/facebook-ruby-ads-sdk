@@ -40,11 +40,12 @@ module FacebookAds
 
     # has_many ad_insights
 
-    def ad_insights(range: Date.today..Date.today)
-      query    = FacebookAds::AdInsight.default_query.merge(level: 'ad', time_increment: 1, time_range: { 'since': range.first.to_s, 'until': range.last.to_s })
-      response = get!("/#{id}/insights", query: query)
-      data     = FacebookAds::AdInsight.paginate(response)
-      data.present? ? data.map { |hash| FacebookAds::AdInsight.new(hash) } : []
+    def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
+      FacebookAds::AdInsight.paginate!("/#{id}/insights", query: {
+        level: level,
+        time_increment: time_increment,
+        time_range: { 'since': range.first.to_s, 'until': range.last.to_s }
+      })
     end
 
   end

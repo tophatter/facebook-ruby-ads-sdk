@@ -95,12 +95,30 @@ module FacebookAds
       FacebookAds::AdCreative.find(creative.id)
     end
 
+    # has_many ad_sets
+
+    def ad_sets(effective_status: ['ACTIVE'], limit: 100)
+      FacebookAds::AdSet.paginate!("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+    end
+
+    # has_many ads
+
+    def ads(effective_status: ['ACTIVE'], limit: 100)
+      FacebookAds::Ad.paginate!("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
+    end
+
     # has_many ad_insights
 
-    def ad_insights(range: Date.today..Date.today)
+    def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
       campaigns.map do |campaign|
-        campaign.ad_insights(range: range)
+        campaign.ad_insights(range: range, level: level, time_increment: time_increment)
       end.flatten
+    end
+
+    # has_many applications
+
+    def applications
+      self.class.get!("/#{id}/advertisable_applications", fields: false)
     end
 
   end
