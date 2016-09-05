@@ -1,4 +1,4 @@
-## [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) - Ruby SDK
+## [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) SDK for Ruby
 
 ![Facebook Ads](http://i.imgur.com/GrxAj07.png)
 
