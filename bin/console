@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'facebook_ads'
+require 'awesome_print'
+require 'pry'
+
+FacebookAds.access_token = File.read('test_access_token').squish
+AwesomePrint.pry!
+binding.pry

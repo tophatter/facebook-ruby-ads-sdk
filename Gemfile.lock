@@ -1,0 +1,66 @@
+PATH
+  remote: .
+  specs:
+    facebook_ads (4.0.0)
+      activesupport
+      hashie
+      httmultiparty
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.6)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    awesome_print (1.6.1)
+    builder (3.2.2)
+    coderay (1.1.1)
+    ffi (1.9.10-java)
+    hashie (3.4.4)
+    httmultiparty (0.3.16)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
+    i18n (0.7.0)
+    json (1.8.3)
+    method_source (0.8.2)
+    mimemagic (0.3.1)
+    minitest (5.9.0)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry (0.10.3-java)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+      spoon (~> 0.0)
+    rake (10.4.2)
+    slop (3.6.0)
+    spoon (0.0.4)
+      ffi
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  builder
+  bundler (~> 1.7)
+  facebook_ads!
+  pry
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.12.5
