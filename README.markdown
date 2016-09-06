@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/facebook_ads.svg)](https://badge.fury.io/rb/facebook_ads)
+[![Build Status](https://travis-ci.org/cte/facebook-ads-sdk-ruby.svg?branch=master)](https://travis-ci.org/cte/facebook-ads-sdk-ruby)
 
 ## [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) SDK for Ruby
 
