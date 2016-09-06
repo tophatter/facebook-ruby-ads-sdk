@@ -77,10 +77,6 @@ account.update(name: 'ReFuel4') # Returns a boolean.
 # The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating
 ```
 
-### Usage Examples
-
-
-
 ### [Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
 
 ```ruby
