@@ -10,6 +10,38 @@ The basic object structure:
 
 ![Facebook Ads Object Structure](http://i.imgur.com/Ak4FQ4H.jpg)
 
+### Install
+
+```bash
+gem install facebook_ads
+```
+
+Or, add the following to your Gemfile:
+
+```ruby
+gem 'facebook_ads', '~> 0.1'
+```
+
+### Permissions
+
+You'll need an [Access Token](https://developers.facebook.com/docs/marketing-api/authentication) with `ads_management` permissions in order to use Facebook's Marketing API.
+
+```ruby
+FacebookAds.access_token = '[YOUR_ACCESS_TOKEN]'
+```
+
+### Console
+
+This gem provides a console using [Pry](https://github.com/pry/pry) and [AwesomePrint](https://github.com/awesome-print/awesome_print) for you to test & debug.
+It reads the Access Token from a file called test_access_token.
+
+```bash
+echo [YOUR_ACCESS_TOKEN] > test_access_token
+bin/console
+```
+
+### Usage Examples
+
 In total, there are 7 Facebook Ads objects that can be interacted with via this gem: AdAccount, Campaign, AdImage, AdCreative, AdSet, Ad and AdInsight. You'll find code examples below for each of these objects.
 
 The typical flow is as follows:
@@ -22,21 +54,7 @@ The typical flow is as follows:
 6. Monitor the performance of the **Ad** from #5 using **AdInsights**.
 7. Update the daily budget of the **AdSet** from #4 as needed.
 
-### Getting Started
-
-You'll need an [Access Token](https://developers.facebook.com/docs/marketing-api/authentication) with `ads_management` permissions.
-
-```ruby
-FacebookAds.access_token = '[YOUR_ACCESS_TOKEN]'
-```
-
-This gem provides a console using [Pry](https://github.com/pry/pry) and [AwesomePrint](https://github.com/awesome-print/awesome_print) for you to test & debug.
-It reads the Access Token from a file called test_access_token.
-
-```bash
-echo [YOUR_ACCESS_TOKEN] > test_access_token
-bin/console
-```
+You'll find usage examples for each of these 7 objects below.
 
 ### [Ad Accounts](https://developers.facebook.com/docs/marketing-api/reference/ad-account) (Fetch, Find, Update)
 
@@ -56,6 +74,10 @@ account = account.save # Returns the updated object.
 account.update(name: 'ReFuel4') # Returns a boolean.
 # The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating
 ```
+
+### Usage Examples
+
+
 
 ### [Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
 
