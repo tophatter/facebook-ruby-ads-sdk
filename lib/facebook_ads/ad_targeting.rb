@@ -1,6 +1,6 @@
 # https://developers.facebook.com/docs/marketing-api/targeting-specs
 module FacebookAds
-  class TargetingSpec
+  class AdTargeting
 
     MEN                = 1
     WOMEN              = 2
@@ -30,7 +30,7 @@ module FacebookAds
     def validate!
       { gender: genders, countries: countries, user_os: user_os, user_device: user_device }.each_pair do |key, array|
         if array.present? && !array.is_a?(Array)
-          raise Exception, "TargetingSpec: #{key} must be an array"
+          raise Exception, "#{self.class.name}: #{key} must be an array"
         end
       end
 
@@ -38,7 +38,7 @@ module FacebookAds
         provided, acceptable = provided_and_acceptable
 
         if provided.present? && (invalid = provided.detect { |value| !acceptable.include?(value) }).present?
-          raise Exception, "TargetingSpec: #{bad} is an invalid #{key}"
+          raise Exception, "#{self.class.name}: #{bad} is an invalid #{key}"
         end
       end
 

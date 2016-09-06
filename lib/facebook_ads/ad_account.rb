@@ -2,7 +2,7 @@
 module FacebookAds
   class AdAccount < Base
 
-    FIELDS = %w(id account_id account_status age created_time currency min_campaign_group_spend_cap min_daily_budget name amount_spent spend_cap balance last_used_time)
+    FIELDS = %w(id account_id account_status age created_time currency name last_used_time)
 
     class << self
       def all
@@ -21,14 +21,14 @@ module FacebookAds
     # has_many campaigns
 
     def campaigns(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::Campaign.paginate!("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
+      FacebookAds::AdCampaign.paginate!("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
     end
 
     def create_campaign(name:, objective:, status: 'ACTIVE')
-      raise Exception, "Objective must be one of: #{FacebookAds::Campaign::OBJECTIVES.to_sentence}" unless FacebookAds::Campaign::OBJECTIVES.include?(objective)
-      raise Exception, "Status must be one of: #{FacebookAds::Campaign::STATUSES.to_sentence}" unless FacebookAds::Campaign::STATUSES.include?(status)
-      campaign = FacebookAds::Campaign.post!("/#{id}/campaigns", query: { name: name, objective: objective, status: status })
-      FacebookAds::Campaign.find(campaign.id)
+      raise Exception, "Objective must be one of: #{FacebookAds::AdCampaign::OBJECTIVES.to_sentence}" unless FacebookAds::AdCampaign::OBJECTIVES.include?(objective)
+      raise Exception, "Status must be one of: #{FacebookAds::AdCampaign::STATUSES.to_sentence}" unless FacebookAds::AdCampaign::STATUSES.include?(status)
+      campaign = FacebookAds::AdCampaign.post!("/#{id}/campaigns", query: { name: name, objective: objective, status: status })
+      FacebookAds::AdCampaign.find(campaign.id)
     end
 
     # has_many ad_images

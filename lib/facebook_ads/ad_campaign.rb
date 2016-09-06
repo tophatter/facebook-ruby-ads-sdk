@@ -1,6 +1,6 @@
 # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
 module FacebookAds
-  class Campaign < Base
+  class AdCampaign < Base
 
     FIELDS     = %w(id account_id buying_type can_use_spend_cap configured_status created_time effective_status name objective start_time stop_time updated_time spend_cap)
     STATUSES   = %w(ACTIVE PAUSED DELETED PENDING_REVIEW DISAPPROVED PREAPPROVED PENDING_BILLING_INFO CAMPAIGN_PAUSED ARCHIVED ADSET_PAUSED)

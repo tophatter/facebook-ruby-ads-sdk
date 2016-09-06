@@ -19,7 +19,7 @@ module FacebookAds
         query = query.merge(access_token: FacebookAds.access_token)
         query = query.merge(fields: self::FIELDS.join(',')) if fields
         query = query.compact
-        puts "GET #{path} #{query.inspect}"
+        FacebookAds.logger.debug "GET #{base_uri}#{path}?#{query.to_query}"
         response = get(path, query: query).parsed_response
         response = parse(response, objectify: objectify)
       end
@@ -28,14 +28,14 @@ module FacebookAds
         query = query.merge(access_token: FacebookAds.access_token)
         query = query.merge(fields: self::FIELDS.join(',')) if fields
         query = query.compact
-        puts "POST #{path} #{query.inspect}"
+        FacebookAds.logger.debug "POST #{base_uri}#{path}?#{query.to_query}"
         response = post(path, query: query).parsed_response
         response = parse(response, objectify: objectify)
       end
 
       def delete!(path, query: {})
         query = query.merge(access_token: FacebookAds.access_token)
-        puts "DELETE #{path} #{query.inspect}"
+        FacebookAds.logger.debug "DELETE #{base_uri}#{path}?#{query.to_query}"
         response = delete(path, query: query).parsed_response
         response = parse(response, objectify: false)
       end

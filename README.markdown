@@ -44,14 +44,14 @@ The basic object structure:
 
 ![Facebook Ads Object Structure](http://i.imgur.com/Ak4FQ4H.jpg)
 
-In total, there are 7 Facebook Ads objects that can be interacted with via this gem: AdAccount, Campaign, AdImage, AdCreative, AdSet, Ad and AdInsight.
+In total, there are 7 Facebook Ads objects that can be interacted with via this gem: AdAccount, AdCampaign, AdImage, AdCreative, AdSet, Ad and AdInsight.
 
 The typical flow is as follows:
 
-1. Create a **Campaign** for an **AdAccount**.
+1. Create an **AdCampaign** for an **AdAccount**.
 2. Create **AdImages** for an **AdAccount**.
 3. Create an **AdCreative** for an **AdAccount** using the **AdImages** from #2.
-4. Create ad **AdSet** for the **Campaign** from #1.
+4. Create ad **AdSet** for the **AdCampaign** from #1.
 5. Create an **Ad** for the **AdSet** from #4 using the **AdCreative** from #3.
 6. Monitor the performance of the **Ad** from #5 using **AdInsights**.
 7. Update the daily budget of the **AdSet** from #4 as needed.
@@ -77,14 +77,14 @@ account.update(name: 'ReFuel4') # Returns a boolean.
 # The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating
 ```
 
-### [Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
+### [Ad Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
 
 ```ruby
 # Fetch all active campaigns:
 campaigns = account.campaigns
 
 # Fetch all paused campaigns (can pass multiple statuses in the array):
-campaigns = account.campaigns(effective_status: ['PAUSED']) # See FacebookAds::Campaign::STATUSES for a list of all statuses.
+campaigns = account.campaigns(effective_status: ['PAUSED']) # See FacebookAds::AdCampaign::STATUSES for a list of all statuses.
 
 # Fetch all campaigns:
 campaigns = account.campaigns(effective_status: nil)
@@ -92,12 +92,12 @@ campaigns = account.campaigns(effective_status: nil)
 # Create a new campaign for website conversions that is initially paused:
 campaign = account.create_campaign(
   name: 'Test Campaign',
-  objective: 'CONVERSIONS', # See FacebookAds::Campaign::OBJECTIVES for a list of all objectives.
+  objective: 'CONVERSIONS', # See FacebookAds::AdCampaign::OBJECTIVES for a list of all objectives.
   status: 'PAUSED'
 )
 
 # Find a campaign by ID:
-campaign = FacebookAds::Campaign.find(campaign.id)
+campaign = FacebookAds::AdCampaign.find(campaign.id)
 
 # Update a campaign (using both .save() and .update()):
 campaign.status = 'ACTIVE'
@@ -210,14 +210,14 @@ ad_sets = campaign.ad_sets(effective_status: ['PAUSED']) # See FacebookAds::AdSe
 ad_sets = campaign.ad_sets(effective_status: nil)
 
 # Specify the audience targeted by this ad set (https://developers.facebook.com/docs/marketing-api/targeting-specs):
-targeting                   = FacebookAds::TargetingSpec.new
-targeting.genders           = [FacebookAds::TargetingSpec::WOMEN]
+targeting                   = FacebookAds::AdTargeting.new
+targeting.genders           = [FacebookAds::AdTargeting::WOMEN]
 targeting.age_min           = 29
 targeting.age_max           = 65
 targeting.countries         = ['US']
-targeting.user_os           = [FacebookAds::TargetingSpec::ANDROID_OS]
-targeting.user_device       = FacebookAds::TargetingSpec::ANDROID_DEVICES
-targeting.app_install_state = FacebookAds::TargetingSpec::NOT_INSTALLED
+targeting.user_os           = [FacebookAds::AdTargeting::ANDROID_OS]
+targeting.user_device       = FacebookAds::AdTargeting::ANDROID_DEVICES
+targeting.app_install_state = FacebookAds::AdTargeting::NOT_INSTALLED
 
 # Create an ad set to drive installs to an Android app using the targeting above:
 ad_set = campaign.create_ad_set(

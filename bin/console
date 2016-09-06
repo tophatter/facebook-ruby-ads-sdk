@@ -6,5 +6,8 @@ require 'awesome_print'
 require 'pry'
 
 FacebookAds.access_token = File.read('test_access_token').squish
+FacebookAds.logger = Logger.new(STDOUT)
+FacebookAds.logger.level = Logger::Severity::DEBUG
+
 AwesomePrint.pry!
 binding.pry
