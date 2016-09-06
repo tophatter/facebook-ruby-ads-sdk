@@ -4,11 +4,7 @@
 
 ![Facebook Ads](http://i.imgur.com/GrxAj07.png)
 
-This gem allows you to manage your Facebook Ads using a ruby interface. It allows you to create, updated and destroy Facebook Ad objects (campaigns, ad sets, ads, etc) and get real-time insights about the performance of Facebook Ads. A strong understanding of the Facebook Ads [object structure](https://developers.facebook.com/docs/marketing-api/buying-api) will greatly help you use this gem.
-
-The basic object structure:
-
-![Facebook Ads Object Structure](http://i.imgur.com/Ak4FQ4H.jpg)
+This gem allows you to manage your Facebook Ads using a ruby interface. It allows you to list, create, update and destroy Facebook Ad objects (campaigns, ad sets, ads, etc) and get real-time insights about the performance of Facebook Ads.
 
 ### Install
 
@@ -42,7 +38,13 @@ bin/console
 
 ### Usage Examples
 
-In total, there are 7 Facebook Ads objects that can be interacted with via this gem: AdAccount, Campaign, AdImage, AdCreative, AdSet, Ad and AdInsight. You'll find code examples below for each of these objects.
+A strong understanding of the Facebook Ads [object structure](https://developers.facebook.com/docs/marketing-api/buying-api) will greatly help you use this gem.
+
+The basic object structure:
+
+![Facebook Ads Object Structure](http://i.imgur.com/Ak4FQ4H.jpg)
+
+In total, there are 7 Facebook Ads objects that can be interacted with via this gem: AdAccount, Campaign, AdImage, AdCreative, AdSet, Ad and AdInsight.
 
 The typical flow is as follows:
 
