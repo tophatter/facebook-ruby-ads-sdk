@@ -6,5 +6,19 @@ module FacebookAds
 
     FIELDS = %w(ad_id objective impressions unique_actions cost_per_unique_action_type clicks cpc cpm ctr spend)
 
+    class << self
+      def find(id)
+        raise Exception, 'NOT IMPLEMENTED'
+      end
+    end
+
+    def update(data)
+      raise Exception, 'NOT IMPLEMENTED'
+    end
+
+    def destroy
+      raise Exception, 'NOT IMPLEMENTED'
+    end
+
   end
 end

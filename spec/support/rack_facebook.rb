@@ -3,32 +3,12 @@ require 'sinatra/base'
 
 class RackFacebook < Sinatra::Base
 
-  get '/v2.6/me/adaccounts' do
-    json_response 200, 'adaccounts.json'
+  get '/v2.6/:object_id' do
+    json_response 200, "#{params['object_id']}.json"
   end
 
-  get '/v2.6/act_861827983860489' do
-    json_response 200, 'act_861827983860489.json'
-  end
-
-  get '/v2.6/act_861827983860489/campaigns' do
-    json_response 200, 'campaigns.json'
-  end
-
-  get '/v2.6/act_861827983860489/adimages' do
-    json_response 200, 'adimages.json'
-  end
-
-  get '/v2.6/act_861827983860489/adcreatives' do
-    json_response 200, 'adcreatives.json'
-  end
-
-  get '/v2.6/act_861827983860489/adsets' do
-    json_response 200, 'adsets.json'
-  end
-
-  get '/v2.6/act_861827983860489/ads' do
-    json_response 200, 'ads.json'
+  get '/v2.6/:object_id/:edge' do
+    json_response 200, "#{params['object_id']}/#{params['edge']}.json"
   end
 
   private
