@@ -283,12 +283,14 @@ ad_set = campaign.create_ad_set(
     object_store_url: 'http://play.google.com/store/apps/details?id=com.tophatter',
     custom_event_type: 'PURCHASE'
   },
-  optimization_goal: 'OFFSITE_CONVERSIONS', # See FacebookAds::AdSet::OPTIMIZATION_GOALS.
+  optimization_goal: 'OFFSITE_CONVERSIONS',
   daily_budget: 500, # This is in cents, so the daily budget here is $5.
-  billing_event: 'IMPRESSIONS', # See FacebookAds::AdSet::BILLING_EVENTS for a list of all billing events.
+  billing_event: 'IMPRESSIONS',
   status: 'PAUSED'
 )
 ```
+See FacebookAds::AdSet::OPTIMIZATION_GOALS for a list of all optimization goals.
+See FacebookAds::AdSet::BILLING_EVENTS for a list of all billing events.
 
 Find an ad set by ID:
 ```ruby
