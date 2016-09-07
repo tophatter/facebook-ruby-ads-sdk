@@ -39,13 +39,23 @@ module FacebookAds
         end
 
         if data.present?
-          data.map { |hash| new(hash) }
+          data.map { |hash| instantiate(hash) }
         else
           []
         end
       end
 
       private
+
+      def instantiate(hash)
+        object = new
+
+        hash.each_pair do |key, value|
+          object.send("#{key}=", value)
+        end
+
+        object
+      end
 
       def pack(hash, objectify)
         hash = hash.merge(access_token: FacebookAds.access_token)
@@ -65,23 +75,15 @@ module FacebookAds
 
         if objectify
           if response.key?('data') && (data = response['data']).is_a?(Array)
-            data.map { |hash| new(hash) }
+            data.map { |hash| instantiate(hash) }
           else
-            new(response)
+            instantiate(response)
           end
         else
           response
         end
       end
 
-    end
-
-    def initialize(data)
-      data.each_pair do |key, value|
-        self[key] = value
-      end
-
-      self.changes = {}
     end
 
     def update(data)

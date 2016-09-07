@@ -111,8 +111,8 @@ module FacebookAds
     # has_many ad_insights
 
     def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
-      campaigns.map do |campaign|
-        campaign.ad_insights(range: range, level: level, time_increment: time_increment)
+      ad_campaigns.map do |ad_campaign|
+        ad_campaign.ad_insights(range: range, level: level, time_increment: time_increment)
       end.flatten
     end
 
