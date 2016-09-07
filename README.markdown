@@ -2,13 +2,13 @@
 [![Build Status](https://travis-ci.org/cte/facebook-ads-sdk-ruby.svg?branch=master)](https://travis-ci.org/cte/facebook-ads-sdk-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/cte/facebook-ads-sdk-ruby/badge.svg)](https://coveralls.io/github/cte/facebook-ads-sdk-ruby)
 
-## [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) SDK for Ruby
+# [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) SDK for Ruby
 
 ![Facebook Ads](http://i.imgur.com/GrxAj07.png)
 
 This gem allows you to manage your Facebook Ads using a ruby interface. It allows you to list, create, update and destroy Facebook Ad objects (campaigns, ad sets, ads, etc) and get real-time insights about the performance of Facebook Ads.
 
-### Install
+## Install
 
 ```bash
 gem install facebook_ads
@@ -20,7 +20,7 @@ Or, add the following to your Gemfile:
 gem 'facebook_ads', '~> 0.1'
 ```
 
-### Permissions
+## Permissions
 
 You'll need an [Access Token](https://developers.facebook.com/docs/marketing-api/authentication) with `ads_management` permissions in order to use Facebook's Marketing API.
 
@@ -28,7 +28,7 @@ You'll need an [Access Token](https://developers.facebook.com/docs/marketing-api
 FacebookAds.access_token = '[YOUR_ACCESS_TOKEN]'
 ```
 
-### Console
+## Console
 
 This gem provides a console using [Pry](https://github.com/pry/pry) and [AwesomePrint](https://github.com/awesome-print/awesome_print) for you to test & debug.
 It reads the Access Token from a file called test_access_token.
@@ -38,7 +38,7 @@ echo [YOUR_ACCESS_TOKEN] > test_access_token
 bin/console
 ```
 
-### Usage Examples
+## Usage Examples
 
 A strong understanding of the Facebook Ads [object structure](https://developers.facebook.com/docs/marketing-api/buying-api) will greatly help you use this gem.
 
@@ -59,6 +59,8 @@ The typical flow is as follows:
 7. Update the daily budget of the **AdSet** from #4 as needed.
 
 You'll find usage examples for each of these 7 objects below.
+
+___
 
 ### [Ad Accounts](https://developers.facebook.com/docs/marketing-api/reference/ad-account) (Fetch, Find, Update)
 
@@ -85,6 +87,8 @@ account.update(name: 'ReFuel4') # Returns a boolean.
 ```
 
 The list of fields that can be updated is [here](https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating).
+
+___
 
 ### [Ad Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
 
@@ -132,6 +136,8 @@ Destroy a campaign:
 campaign.destroy
 ```
 
+___
+
 ### [Ad Images](https://developers.facebook.com/docs/marketing-api/reference/ad-image) (Fetch, Find, Create, Destroy)
 
 Notes:
@@ -163,6 +169,8 @@ Destroy images:
 ```ruby
 ad_images.map(&:destroy)
 ```
+
+___
 
 ### [Ad Creatives](https://developers.facebook.com/docs/marketing-api/reference/ad-creative) (Fetch, Find, Create, Update, Destroy)
 
@@ -223,6 +231,8 @@ Destroy a creative:
 ```ruby
 ad_creative.destroy
 ```
+
+___
 
 ### [Ad Sets](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign) (Fetch, Find, Create, Update, Destroy)
 
@@ -299,6 +309,8 @@ Destroy an ad set:
 ad_set.destroy
 ```
 
+___
+
 ### [Ads](https://developers.facebook.com/docs/marketing-api/reference/adgroup) (Fetch, Find, Create, Update, Destroy)
 
 You interact with ads via an ad set:
@@ -351,6 +363,8 @@ Destroy an ad:
 ad.destroy
 ```
 
+___
+
 ### [Ad Insights](https://developers.facebook.com/docs/marketing-api/insights/overview) (Fetch)
 
 Fetch today's insights for an account:
@@ -373,7 +387,7 @@ Fetch yesterday's insights for a campaign:
 account.ad_campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
 ```
 
-### @TODO:
+## @TODO:
 
 * Unit tests (add rspec - need to build out the tests now).
 * [Batch operations](https://developers.facebook.com/docs/marketing-api/batch-requests).
