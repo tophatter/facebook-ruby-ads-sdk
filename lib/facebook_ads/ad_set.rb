@@ -1,5 +1,6 @@
-# https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
 module FacebookAds
+  # An ad set belongs to a campaign and has many ads.
+  # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
   class AdSet < Base
 
     FIELDS             = %w(id account_id campaign_id adlabels adset_schedule bid_amount bid_info billing_event configured_status created_time creative_sequence effective_status end_time frequency_cap frequency_cap_reset_period frequency_control_specs is_autobid lifetime_frequency_cap lifetime_imps name optimization_goal promoted_object rf_prediction_id rtb_flag start_time targeting updated_time use_new_app_click pacing_type budget_remaining daily_budget lifetime_budget)

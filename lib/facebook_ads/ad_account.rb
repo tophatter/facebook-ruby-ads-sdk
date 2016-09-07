@@ -1,5 +1,6 @@
-# https://developers.facebook.com/docs/marketing-api/reference/ad-account
 module FacebookAds
+  # An ad account has many ad campaigns, ad images, and ad creatives.
+  # https://developers.facebook.com/docs/marketing-api/reference/ad-account
   class AdAccount < Base
 
     FIELDS = %w(id account_id account_status age created_time currency name last_used_time)

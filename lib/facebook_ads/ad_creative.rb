@@ -1,5 +1,6 @@
-# https://developers.facebook.com/docs/marketing-api/reference/ad-creative
 module FacebookAds
+  # Ad ad creative has many ad images and belongs to an ad account.
+  # https://developers.facebook.com/docs/marketing-api/reference/ad-creative
   class AdCreative < Base
 
     FIELDS               = %w(id name object_story_id object_story_spec object_type thumbnail_url run_status)

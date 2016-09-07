@@ -7,6 +7,7 @@ require 'hashie'
 require 'facebook_ads/base'
 Dir[File.expand_path('../facebook_ads/*.rb', __FILE__)].each { |f| require f }
 
+# The primary namespace for this gem.
 module FacebookAds
 
   def self.logger=(logger)

@@ -1,5 +1,7 @@
-# https://developers.facebook.com/docs/marketing-api/reference/ad-image
 module FacebookAds
+  # An ad image belongs to an ad account.
+  # An image will always produce the same hash.
+  # https://developers.facebook.com/docs/marketing-api/reference/ad-image
   class AdImage < Base
 
     FIELDS = %w(id hash account_id name permalink_url original_width original_height)

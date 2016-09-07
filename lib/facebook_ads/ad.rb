@@ -1,5 +1,6 @@
-# https://developers.facebook.com/docs/marketing-api/reference/adgroup
 module FacebookAds
+  # An ad belongs to an ad set. It is created using an ad creative.
+  # https://developers.facebook.com/docs/marketing-api/reference/adgroup
   class Ad < Base
 
     FIELDS   = %w(id account_id campaign_id adset_id adlabels bid_amount bid_info bid_type configured_status conversion_specs created_time creative effective_status last_updated_by_app_id name tracking_specs updated_time ad_review_feedback)
