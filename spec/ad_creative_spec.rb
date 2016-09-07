@@ -7,6 +7,7 @@ describe FacebookAds::AdCreative do
       id = '6057824295570'
       creative = FacebookAds::AdCreative.find(id)
       expect(creative.id).to eql(id)
+      expect(creative.object_story_spec.class).to eql(Hash)
     end
   end
 

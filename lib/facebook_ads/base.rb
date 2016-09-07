@@ -51,7 +51,8 @@ module FacebookAds
         object = new
 
         hash.each_pair do |key, value|
-          object.send("#{key}=", value)
+          # https://github.com/intridea/hashie/blob/master/lib/hashie/mash.rb#L111
+          object.custom_writer(key, value, false)
         end
 
         object
