@@ -16,7 +16,7 @@ module FacebookAds
     # has_many ad_sets
 
     def ad_sets(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::AdSet.paginate!("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+      FacebookAds::AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
     end
 
     def create_ad_set(name:, promoted_object:, targeting:, daily_budget:, optimization_goal:, billing_event: 'IMPRESSIONS', status: 'ACTIVE', is_autobid: true)
@@ -25,7 +25,7 @@ module FacebookAds
 
       targeting.validate! # Will raise if invalid.
 
-      ad_set = FacebookAds::AdSet.post!("/act_#{account_id}/adsets", query: { # Returns a FacebookAds::AdSet instance.
+      ad_set = FacebookAds::AdSet.post("/act_#{account_id}/adsets", query: { # Returns a FacebookAds::AdSet instance.
         campaign_id: id,
         name: name,
         targeting: targeting.to_hash.to_json,
@@ -35,14 +35,14 @@ module FacebookAds
         billing_event: billing_event,
         status: status,
         is_autobid: is_autobid
-      })
+      }, objectify: true)
       FacebookAds::AdSet.find(ad_set.id)
     end
 
     # has_many ad_insights
 
     def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
-      FacebookAds::AdInsight.paginate!("/#{id}/insights", query: {
+      FacebookAds::AdInsight.paginate("/#{id}/insights", query: {
         level: level,
         time_increment: time_increment,
         time_range: { 'since': range.first.to_s, 'until': range.last.to_s }

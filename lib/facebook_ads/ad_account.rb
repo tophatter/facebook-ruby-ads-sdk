@@ -7,7 +7,7 @@ module FacebookAds
 
     class << self
       def all
-        get!('/me/adaccounts', objectify: true)
+        get('/me/adaccounts', objectify: true)
       end
 
       def find_by(conditions)
@@ -22,13 +22,13 @@ module FacebookAds
     # has_many campaigns
 
     def campaigns(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::AdCampaign.paginate!("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
+      FacebookAds::AdCampaign.paginate("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
     end
 
     def create_campaign(name:, objective:, status: 'ACTIVE')
       raise Exception, "Objective must be one of: #{FacebookAds::AdCampaign::OBJECTIVES.to_sentence}" unless FacebookAds::AdCampaign::OBJECTIVES.include?(objective)
       raise Exception, "Status must be one of: #{FacebookAds::AdCampaign::STATUSES.to_sentence}" unless FacebookAds::AdCampaign::STATUSES.include?(status)
-      campaign = FacebookAds::AdCampaign.post!("/#{id}/campaigns", query: { name: name, objective: objective, status: status })
+      campaign = FacebookAds::AdCampaign.post("/#{id}/campaigns", query: { name: name, objective: objective, status: status }, objectify: true)
       FacebookAds::AdCampaign.find(campaign.id)
     end
 
@@ -36,9 +36,9 @@ module FacebookAds
 
     def ad_images(hashes: nil, limit: 100)
       if hashes.present?
-        FacebookAds::AdImage.get!("/#{id}/adimages", query: { hashes: hashes }, objectify: true)
+        FacebookAds::AdImage.get("/#{id}/adimages", query: { hashes: hashes }, objectify: true)
       else
-        FacebookAds::AdImage.paginate!("/#{id}/adimages", query: { limit: limit })
+        FacebookAds::AdImage.paginate("/#{id}/adimages", query: { limit: limit })
       end
     end
 
@@ -46,7 +46,7 @@ module FacebookAds
       files = urls.collect do |url|
         pathname = Pathname.new(url)
         name = "#{pathname.dirname.basename}.jpg"
-        data = self.class.get(url).body
+        data = HTTParty.get(url).body
         file = File.open("/tmp/#{name}", 'w') # Assume *nix-based system.
         file.binmode
         file.write(data)
@@ -54,7 +54,7 @@ module FacebookAds
         [name, File.open(file.path)]
       end.to_h
 
-      response = FacebookAds::AdImage.post!("/#{id}/adimages", query: files, objectify: false) # detect_mime_type: true
+      response = FacebookAds::AdImage.post("/#{id}/adimages", query: files, objectify: false)
       files.values.each { |file| File.delete(file.path) }
 
       if response['images'].present?
@@ -68,7 +68,7 @@ module FacebookAds
     # has_many ad_creatives
 
     def ad_creatives(limit: 100)
-      FacebookAds::AdCreative.paginate!("/#{id}/adcreatives", query: { limit: limit })
+      FacebookAds::AdCreative.paginate("/#{id}/adcreatives", query: { limit: limit })
     end
 
     def create_ad_creative(creative, carousel: true)
@@ -92,20 +92,20 @@ module FacebookAds
         FacebookAds::AdCreative.photo(creative)
       end
 
-      creative = FacebookAds::AdCreative.post!("/#{id}/adcreatives", query: query) # Returns a FacebookAds::AdCreative instance.
+      creative = FacebookAds::AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns a FacebookAds::AdCreative instance.
       FacebookAds::AdCreative.find(creative.id)
     end
 
     # has_many ad_sets
 
     def ad_sets(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::AdSet.paginate!("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+      FacebookAds::AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
     end
 
     # has_many ads
 
     def ads(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::Ad.paginate!("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
+      FacebookAds::Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
     end
 
     # has_many ad_insights
@@ -119,7 +119,7 @@ module FacebookAds
     # has_many applications
 
     def applications
-      self.class.get!("/#{id}/advertisable_applications", fields: false)
+      self.class.get("/#{id}/advertisable_applications", objectify: false)
     end
 
   end

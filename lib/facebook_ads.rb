@@ -23,6 +23,18 @@ module FacebookAds
     @logger
   end
 
+  def self.base_uri=(base_uri)
+    @base_uri = base_uri
+  end
+
+  def self.base_uri
+    unless defined?(@base_uri)
+      @base_uri = 'https://graph.facebook.com/v2.6'
+    end
+
+    @base_uri
+  end
+
   def self.access_token=(access_token)
     @access_token = access_token
   end

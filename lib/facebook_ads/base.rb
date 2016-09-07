@@ -1,53 +1,39 @@
 module FacebookAds
   class Base < Hashie::Mash
 
-    include HTTMultiParty
-
-    base_uri 'https://graph.facebook.com/v2.6'
-
     class << self
 
       def find(id)
-        get!("/#{id}", objectify: true)
+        get("/#{id}", objectify: true)
       end
 
-      protected
-
-      # HTTMultiParty wrappers.
-
-      def get!(path, query: {}, objectify: false, fields: true)
-        query = query.merge(access_token: FacebookAds.access_token)
-        query = query.merge(fields: self::FIELDS.join(',')) if fields
-        query = query.compact
-        FacebookAds.logger.debug "GET #{base_uri}#{path}?#{query.to_query}"
-        response = get(path, query: query).parsed_response
-        response = parse(response, objectify: objectify)
+      def get(path, query: {}, objectify:)
+        query = pack(query, objectify) # Adds access token, fields, etc.
+        FacebookAds.logger.debug "GET #{FacebookAds.base_uri}#{path}?#{query.to_query}"
+        response = HTTParty.get("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
+        response = unpack(response, objectify: objectify)
       end
 
-      def post!(path, query: {}, objectify: true, fields: false)
-        query = query.merge(access_token: FacebookAds.access_token)
-        query = query.merge(fields: self::FIELDS.join(',')) if fields
-        query = query.compact
-        FacebookAds.logger.debug "POST #{base_uri}#{path}?#{query.to_query}"
-        response = post(path, query: query).parsed_response
-        response = parse(response, objectify: objectify)
+      def post(path, query: {}, objectify:)
+        query = pack(query, objectify)
+        FacebookAds.logger.debug "POST #{FacebookAds.base_uri}#{path}?#{query.to_query}"
+        response = HTTMultiParty.post("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
+        response = unpack(response, objectify: objectify)
       end
 
-      def delete!(path, query: {})
-        query = query.merge(access_token: FacebookAds.access_token)
-        FacebookAds.logger.debug "DELETE #{base_uri}#{path}?#{query.to_query}"
-        response = delete(path, query: query).parsed_response
-        response = parse(response, objectify: false)
+      def delete(path, query: {})
+        query = pack(query, false)
+        FacebookAds.logger.debug "DELETE #{FacebookAds.base_uri}#{path}?#{query.to_query}"
+        response = HTTParty.delete("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
+        response = unpack(response, objectify: false)
       end
 
-      # Pagination helper.
-
-      def paginate!(path, query: {})
-        response = get!(path, query: query)
+      def paginate(path, query: {})
+        response = get(path, query: query.merge(fields: self::FIELDS.join(',')), objectify: false)
         data = response['data'].present? ? response['data'] : []
 
         while (paging = response['paging']).present? && (url = paging['next']).present?
-          response = get(url)
+          response = get(url, objectify: false)
           data += response['data'] if response['data'].present?
         end
 
@@ -60,10 +46,13 @@ module FacebookAds
 
       private
 
-      # Facebook Marketing API specific parsing for JSON responses.
-      def parse(response, objectify:)
-        response = response.is_a?(String) ? JSON.parse(response) : response
+      def pack(hash, objectify)
+        hash = hash.merge(access_token: FacebookAds.access_token)
+        hash = hash.merge(fields: self::FIELDS.join(',')) if objectify
+        hash.compact
+      end
 
+      def unpack(response, objectify:)
         if response['error'].present?
           # Let's have different Exception subclasses for different error codes.
           raise Exception, "#{response['error']['code']}: #{response['error']['message']} | #{response.inspect}"
@@ -82,8 +71,6 @@ module FacebookAds
 
     end
 
-    attr_accessor :changes
-
     def initialize(data)
       data.each_pair do |key, value|
         self[key] = value
@@ -94,7 +81,7 @@ module FacebookAds
 
     def update(data)
       if data.present?
-        response = self.class.post!("/#{id}", query: data)
+        response = self.class.post("/#{id}", query: data, objectify: false)
 
         if response.key?('success')
           response['success']
@@ -122,7 +109,7 @@ module FacebookAds
     end
 
     def destroy(path: nil, query: {})
-      response = self.class.delete!(path || "/#{id}", query: query)
+      response = self.class.delete(path || "/#{id}", query: query)
 
       if response.key?('success')
         response['success']
@@ -130,6 +117,10 @@ module FacebookAds
         raise Exception, "Invalid response from destroy: #{response.inspect}"
       end
     end
+
+    protected
+
+    attr_accessor :changes
 
     private
 

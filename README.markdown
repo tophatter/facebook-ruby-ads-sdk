@@ -61,52 +61,73 @@ You'll find usage examples for each of these 7 objects below.
 
 ### [Ad Accounts](https://developers.facebook.com/docs/marketing-api/reference/ad-account) (Fetch, Find, Update)
 
+Fetch all accounts that can be accessed using your access token:
 ```ruby
-# Fetch all accounts that can be accessed using your access token:
 accounts = FacebookAds::AdAccount.all
+```
 
-# Find an account by ID:
+Find an account by ID:
+```ruby
 account = FacebookAds::AdAccount.find('act_1132789356764349')
+```
 
-# Find an account by name:
+Find an account by name:
+```ruby
 account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
+```
 
-# Update an account (using both .save() and .update()):
+Update an account (using both .save() and .update()):
+```ruby
 account.name = 'ReFuel4 [Updated]'
 account = account.save # Returns the updated object.
 account.update(name: 'ReFuel4') # Returns a boolean.
-# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating
 ```
+
+The list of fields that can be updated is [here](https://developers.facebook.com/docs/marketing-api/reference/ad-account#Updating).
 
 ### [Ad Campaigns](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group) (Fetch, Find, Create, Update, Destroy)
 
+Fetch all active campaigns:
 ```ruby
-# Fetch all active campaigns:
 campaigns = account.campaigns
+```
 
-# Fetch all paused campaigns (can pass multiple statuses in the array):
-campaigns = account.campaigns(effective_status: ['PAUSED']) # See FacebookAds::AdCampaign::STATUSES for a list of all statuses.
+Fetch all paused campaigns (can pass multiple statuses in the array):
+```ruby
+campaigns = account.campaigns(effective_status: ['PAUSED'])
+```
+See FacebookAds::AdCampaign::STATUSES for a list of all statuses.
 
-# Fetch all campaigns:
+Fetch all campaigns:
+```ruby
 campaigns = account.campaigns(effective_status: nil)
+```
 
-# Create a new campaign for website conversions that is initially paused:
+Create a new campaign for website conversions that is initially paused:
+```ruby
 campaign = account.create_campaign(
   name: 'Test Campaign',
-  objective: 'CONVERSIONS', # See FacebookAds::AdCampaign::OBJECTIVES for a list of all objectives.
+  objective: 'CONVERSIONS',
   status: 'PAUSED'
 )
+```
+See FacebookAds::AdCampaign::OBJECTIVES for a list of all objectives.
 
-# Find a campaign by ID:
+Find a campaign by ID:
+```ruby
 campaign = FacebookAds::AdCampaign.find(campaign.id)
+```
 
-# Update a campaign (using both .save() and .update()):
+Update a campaign (using both .save() and .update()):
+```ruby
 campaign.status = 'ACTIVE'
 campaign = campaign.save # Returns the updated object.
 campaign.update(status: 'PAUSED') # Returns a boolean.
-# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#Updating
+```
+The list of fields that can be updated is [here](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group#Updating).
 
-# Destroy a campaign:
+Destroy a campaign:
+```ruby
 campaign.destroy
 ```
 
@@ -117,21 +138,28 @@ Notes:
 * You can upload the same image multiple times and Facebook will de-duplicate them server side.
 * An image will always generate the same hash on Facebook's end - event across ad accounts.
 * Image uploading via a URL currently assumes a \*nix system (Mac OS, linux). It likely will fail on Windows. A cross-platform tempfile-based solution is in the works.
+* You can't destroy an image if its being used by a creative. You have to destroy the creative first.
 
+Fetch all images owned by an account:
 ```ruby
-# Fetch all images owned by an account:
 ad_images = account.ad_images
+```
 
-# Create images using an array of URLs:
+Create images using an array of URLs:
+```ruby
 ad_images = account.create_ad_images([
   'https://d38eepresuu519.cloudfront.net/485674b133dc2f1d66d20c9d52c62bec/original.jpg',
   'https://d38eepresuu519.cloudfront.net/3977d2a47b584820969e2acf4d923e33/original.jpg'
 ])
+```
 
-# Find images using their hash values:
+Find images using their hash values:
+```ruby
 ad_images = account.ad_images(hashes: ad_images.map(&:hash))
+```
 
-# Destroy images:
+Destroy images:
+```ruby
 ad_images.map(&:destroy)
 ```
 
@@ -140,17 +168,13 @@ ad_images.map(&:destroy)
 Notes:
 * I'd like to add a configuration object that allows you to specify the Facebook Page, Instagram account, website, iOS app and/or Android app that you will be advertising. This is needed when creating both Ad Creative objects and Ad Set objects.
 
+Fetch all creatives owned by an account:
 ```ruby
-# Fetch all creatives owned by an account:
 ad_creatives = account.ad_creatives
+```
 
-# Create two images that we'll use in our creatives:
-ad_images = account.create_ad_images([
-  'https://d38eepresuu519.cloudfront.net/485674b133dc2f1d66d20c9d52c62bec/original.jpg',
-  'https://d38eepresuu519.cloudfront.net/3977d2a47b584820969e2acf4d923e33/original.jpg'
-])
-
-# Create a carousel creative driving installs for an Android app:
+Create a carousel creative driving installs for an Android app:
+```ruby
 carousel_ad_creative = account.create_ad_creative({
   name: 'Test Carousel Creative',
   page_id: '300664329976860', # Add your Facebook Page ID here.
@@ -160,12 +184,15 @@ carousel_ad_creative = account.create_ad_creative({
     { hash: ad_images.first.hash, title: 'Image #1 Title' },
     { hash: ad_images.second.hash, title: 'Image #2 Title' }
   ],
-  call_to_action_type: 'SHOP_NOW', # See FacebookAds::AdCreative::CALL_TO_ACTION_TYPES for a list of all call to action types.
+  call_to_action_type: 'SHOP_NOW',
   multi_share_optimized: true,
   multi_share_end_card: false
 }, carousel: true)
+```
+See FacebookAds::AdCreative::CALL_TO_ACTION_TYPES for a list of all call to action types.
 
-# Create a single image creative advertising an Android app:
+Create a single image creative advertising an Android app:
+```ruby
 image_ad_creative = account.create_ad_creative({
   name: 'Test Single Image Creative',
   page_id: '300664329976860', # Add your Facebook Page ID here.
@@ -175,21 +202,25 @@ image_ad_creative = account.create_ad_creative({
   image_hash: ad_images.first.hash,
   call_to_action_type: 'SHOP_NOW'
 }, carousel: false)
+```
+The options will be different depending on the thing being advertised (Android app, iOS app or website).
 
-# The options will be different depending on the thing being advertised (Android app, iOS app or website).
+Find a creative by ID:
+```ruby
+ad_creative = FacebookAds::AdCreative.find(ad_creative.id)
+```
 
-# Find a creative by ID:
-carousel_ad_creative = FacebookAds::AdCreative.find(carousel_ad_creative.id)
-
-# Update a creative (using both .save() and .update()):
-carousel_ad_creative.name = 'Test Carousel Creative [Updated]'
-ad_creative = carousel_ad_creative.save # Returns the updated object.
+Update a creative (using both .save() and .update()):
+```ruby
+ad_creative.name = 'Test Carousel Creative [Updated]'
+ad_creative = ad_creative.save # Returns the updated object.
 ad_creative.update(name: 'Test Carousel Creative') # Returns a boolean.
-# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-creative#Updating
+```
+The list of fields that can be updated is [here](https://developers.facebook.com/docs/marketing-api/reference/ad-creative#Updating).
 
-# Destroy a creative:
-carousel_ad_creative.destroy
-image_ad_creative.destroy
+Destroy a creative:
+```ruby
+ad_creative.destroy
 ```
 
 ### [Ad Sets](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign) (Fetch, Find, Create, Update, Destroy)
@@ -197,20 +228,29 @@ image_ad_creative.destroy
 Notes:
 * It's important to make sure your targeting spec makes sense in the context of the promoted object. For example if the promoted object is an iOS app and the targeting spec specifies Android devices your ads are not likely to perform well since no one will be able to download your iOS app.
 
+You interact with ad sets via a campaign:
 ```ruby
-# You interact with ad sets via a campaign:
 campaign = account.campaigns(effective_status: nil).first
+```
 
-# Fetch all active ad sets for a campaign:
+Fetch all active ad sets for a campaign:
+```ruby
 ad_sets = campaign.ad_sets
+```
 
-# Fetch all paused ad sets for a campaign (can pass multiple statuses in the array):
-ad_sets = campaign.ad_sets(effective_status: ['PAUSED']) # See FacebookAds::AdSet::STATUSES for a list of all statuses.
+Fetch all paused ad sets for a campaign (can pass multiple statuses in the array):
+```ruby
+ad_sets = campaign.ad_sets(effective_status: ['PAUSED'])
+```
+See FacebookAds::AdSet::STATUSES for a list of all statuses.
 
-# Fetch all ad sets for a campaign:
+Fetch all ad sets for a campaign:
+```ruby
 ad_sets = campaign.ad_sets(effective_status: nil)
+```
 
-# Specify the audience targeted by this ad set (https://developers.facebook.com/docs/marketing-api/targeting-specs):
+Specify the audience targeted by this ad set:
+```ruby
 targeting                   = FacebookAds::AdTargeting.new
 targeting.genders           = [FacebookAds::AdTargeting::WOMEN]
 targeting.age_min           = 29
@@ -219,8 +259,11 @@ targeting.countries         = ['US']
 targeting.user_os           = [FacebookAds::AdTargeting::ANDROID_OS]
 targeting.user_device       = FacebookAds::AdTargeting::ANDROID_DEVICES
 targeting.app_install_state = FacebookAds::AdTargeting::NOT_INSTALLED
+```
+A lot can be done with targeting. You can learn more about targeting specs [here](https://developers.facebook.com/docs/marketing-api/targeting-specs).
 
-# Create an ad set to drive installs to an Android app using the targeting above:
+Create an ad set to drive installs to an Android app using the targeting above:
+```ruby
 ad_set = campaign.create_ad_set(
   name: 'Test Ad Set',
   targeting: targeting,
@@ -234,74 +277,103 @@ ad_set = campaign.create_ad_set(
   billing_event: 'IMPRESSIONS', # See FacebookAds::AdSet::BILLING_EVENTS for a list of all billing events.
   status: 'PAUSED'
 )
+```
 
-# Find an ad set by ID:
+Find an ad set by ID:
+```ruby
 ad_set = FacebookAds::AdSet.find(ad_set.id)
+```
 
-# Update an ad set (using both .save() and .update()):
+Update an ad set (using both .save() and .update()):
+```ruby
 ad_set.status = 'ACTIVE'
 ad_set.daily_budget = 400
 ad_set = ad_set.save # Returns the updated object.
 ad_set.update(status: 'PAUSED', daily_budget: 500) # Returns a boolean.
-# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign#Updating
+```
+The list of fields that can be updated is [here](https://developers.facebook.com/docs/marketing-api/reference/ad-campaign#Updating).
 
-# Destroy an ad set:
+Destroy an ad set:
+```ruby
 ad_set.destroy
 ```
 
 ### [Ads](https://developers.facebook.com/docs/marketing-api/reference/adgroup) (Fetch, Find, Create, Update, Destroy)
 
+You interact with ads via an ad set:
 ```ruby
-# You interact with ads via an ad set:
 ad_set = account.ad_sets(effective_status: nil).first
+```
 
-# Fetch all active ads for an ad set:
+Fetch all active ads for an ad set:
+```ruby
 ads = ad_set.ads
+```
 
-# Fetch all paused ads for an ad set (can pass multiple statuses in the array):
-ads = ad_set.ads(effective_status: ['PAUSED']) # See FacebookAds::Ad::STATUSES for a list of all statuses.
+Fetch all paused ads for an ad set (can pass multiple statuses in the array):
+```ruby
+ads = ad_set.ads(effective_status: ['PAUSED'])
+```
+See FacebookAds::Ad::STATUSES for a list of all statuses.
 
-# Fetch all ads for an ad set:
+Fetch all ads for an ad set:
+```ruby
 ads = ad_set.ads(effective_status: nil)
+```
 
-# Fetch a creative that we'll use to create an ad:
+Fetch a creative that we'll use to create an ad:
+```ruby
 ad_creative = account.ad_creatives.first
+```
 
-# Create an ad:
+Create an ad:
+```ruby
 ad = ad_set.create_ad(name: 'Test Ad', creative_id: ad_creative.id)
+```
 
-# Find an ad by ID:
+Find an ad by ID:
+```ruby
 ad = FacebookAds::Ad.find(ad.id)
+```
 
-# Update an ad (using both .save() and .update()):
+Update an ad (using both .save() and .update()):
+```ruby
 ad.name = 'Test Ad [Updated]'
 ad.status = 'ACTIVE'
 ad = ad.save # Returns the updated object.
 ad.update(name: 'Test Ad', status: 'PAUSED') # Returns a boolean.
-# The list of fields that can be updated is here: https://developers.facebook.com/docs/marketing-api/reference/adgroup#Updating
+```
+The list of fields that can be updated is [here](https://developers.facebook.com/docs/marketing-api/reference/adgroup#Updating).
 
-# Destroy an ad:
+Destroy an ad:
+```ruby
 ad.destroy
 ```
 
 ### [Ad Insights](https://developers.facebook.com/docs/marketing-api/insights/overview) (Fetch)
 
+Fetch today's insights for an account:
 ```ruby
-# Fetch today's insights for an account:
 account.ad_insights
+```
 
-# Fetch yesterday's insights for an account:
+Fetch yesterday's insights for an account:
+```ruby
 account.ad_insights(range: Date.yesterday..Date.yesterday)
+```
 
-# Fetch today's insights for a campaign:
+Fetch today's insights for a campaign:
+```ruby
 account.campaigns.last.ad_insights
+```
 
-# Fetch yesterday's insights for a campaign:
+Fetch yesterday's insights for a campaign:
+```ruby
 account.campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
 ```
 
 ### @TODO:
 
-* Unit tests.
+* Unit tests (add rspec - need to build out the tests now).
 * [Batch operations](https://developers.facebook.com/docs/marketing-api/batch-requests).
 * Upgrade to [2.7](https://developers.facebook.com/docs/marketing-api/versions).
