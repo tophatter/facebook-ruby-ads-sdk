@@ -2,3 +2,4 @@ language: ruby
 rvm:
  - 2.2
 script: bundle exec rspec spec
+after_success: COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN COVERALLS_PUSH=1 bundle exec coveralls push
