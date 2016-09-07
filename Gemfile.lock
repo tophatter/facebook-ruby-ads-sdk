@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    facebook_ads (0.1.4)
+    facebook_ads (0.1.5)
       activesupport (~> 4.2)
       hashie (~> 3.4)
       httmultiparty (~> 0.3)
