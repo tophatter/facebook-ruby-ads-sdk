@@ -10,3 +10,6 @@ end
 
 require 'facebook_ads'
 FacebookAds.access_token = 'FAKE_ACCESS_TOKEN'
+
+require 'coveralls'
+Coveralls.wear!
