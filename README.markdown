@@ -106,7 +106,7 @@ campaigns = account.ad_campaigns(effective_status: nil)
 
 Create a new campaign for website conversions that is initially paused:
 ```ruby
-campaign = account.create_campaign(
+campaign = account.create_ad_campaign(
   name: 'Test Campaign',
   objective: 'CONVERSIONS',
   status: 'PAUSED'
