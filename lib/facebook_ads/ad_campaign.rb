@@ -36,6 +36,7 @@ module FacebookAds
         status: status,
         is_autobid: is_autobid
       }, objectify: true)
+
       FacebookAds::AdSet.find(ad_set.id)
     end
 

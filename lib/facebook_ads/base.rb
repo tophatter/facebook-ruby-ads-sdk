@@ -33,7 +33,8 @@ module FacebookAds
         data = response['data'].present? ? response['data'] : []
 
         while (paging = response['paging']).present? && (url = paging['next']).present?
-          response = get(url, objectify: false)
+          FacebookAds.logger.debug "GET #{url}"
+          response = HTTParty.get(url).parsed_response # This should be raw since the URL has the host already.
           data += response['data'] if response['data'].present?
         end
 
@@ -53,6 +54,10 @@ module FacebookAds
       end
 
       def unpack(response, objectify:)
+        if response.nil? || !response.is_a?(Hash)
+          raise Exception, "Invalid response: #{response.inspect}"
+        end
+
         if response['error'].present?
           # Let's have different Exception subclasses for different error codes.
           raise Exception, "#{response['error']['code']}: #{response['error']['message']} | #{response.inspect}"
@@ -83,7 +88,7 @@ module FacebookAds
       if data.present?
         response = self.class.post("/#{id}", query: data, objectify: false)
 
-        if response.key?('success')
+        if response.is_a?(Hash) && response.key?('success')
           response['success']
         else
           raise Exception, "Invalid response from update: #{response.inspect}"

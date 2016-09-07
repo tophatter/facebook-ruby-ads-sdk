@@ -90,18 +90,18 @@ The list of fields that can be updated is [here](https://developers.facebook.com
 
 Fetch all active campaigns:
 ```ruby
-campaigns = account.campaigns
+campaigns = account.ad_campaigns
 ```
 
 Fetch all paused campaigns (can pass multiple statuses in the array):
 ```ruby
-campaigns = account.campaigns(effective_status: ['PAUSED'])
+campaigns = account.ad_campaigns(effective_status: ['PAUSED'])
 ```
 See FacebookAds::AdCampaign::STATUSES for a list of all statuses.
 
 Fetch all campaigns:
 ```ruby
-campaigns = account.campaigns(effective_status: nil)
+campaigns = account.ad_campaigns(effective_status: nil)
 ```
 
 Create a new campaign for website conversions that is initially paused:
@@ -231,7 +231,7 @@ Notes:
 
 You interact with ad sets via a campaign:
 ```ruby
-campaign = account.campaigns(effective_status: nil).first
+campaign = account.ad_campaigns(effective_status: nil).first
 ```
 
 Fetch all active ad sets for a campaign:
@@ -365,12 +365,12 @@ account.ad_insights(range: Date.yesterday..Date.yesterday)
 
 Fetch today's insights for a campaign:
 ```ruby
-account.campaigns.last.ad_insights
+account.ad_campaigns.last.ad_insights
 ```
 
 Fetch yesterday's insights for a campaign:
 ```ruby
-account.campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
+account.ad_campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
 ```
 
 ### @TODO:

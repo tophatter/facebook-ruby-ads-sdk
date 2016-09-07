@@ -21,11 +21,11 @@ module FacebookAds
 
     # has_many campaigns
 
-    def campaigns(effective_status: ['ACTIVE'], limit: 100)
+    def ad_campaigns(effective_status: ['ACTIVE'], limit: 100)
       FacebookAds::AdCampaign.paginate("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
     end
 
-    def create_campaign(name:, objective:, status: 'ACTIVE')
+    def create_ad_campaign(name:, objective:, status: 'ACTIVE')
       raise Exception, "Objective must be one of: #{FacebookAds::AdCampaign::OBJECTIVES.to_sentence}" unless FacebookAds::AdCampaign::OBJECTIVES.include?(objective)
       raise Exception, "Status must be one of: #{FacebookAds::AdCampaign::STATUSES.to_sentence}" unless FacebookAds::AdCampaign::STATUSES.include?(status)
       campaign = FacebookAds::AdCampaign.post("/#{id}/campaigns", query: { name: name, objective: objective, status: status }, objectify: true)
