@@ -1,4 +1,3 @@
-# spec/support/fake_facebook.rb
 require 'sinatra/base'
 
 class RackFacebook < Sinatra::Base
