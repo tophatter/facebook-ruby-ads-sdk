@@ -5,7 +5,21 @@ require 'facebook_ads'
 require 'awesome_print'
 require 'pry'
 
-FacebookAds.access_token = File.read('test_access_token').squish
+begin
+  FacebookAds.access_token = File.read('test_access_token').squish
+  puts "access_token: #{FacebookAds.access_token}"
+rescue Errno::ENOENT
+  puts "Create a test_access_token file and add your access token to it."
+  exit
+end
+
+begin
+  FacebookAds.business_id = File.read('test_business_id').squish
+  puts "business_id: #{FacebookAds.business_id}"
+rescue Errno::ENOENT
+  # Proceed without a business_id.
+end
+
 FacebookAds.logger = Logger.new(STDOUT)
 FacebookAds.logger.level = Logger::Severity::DEBUG
 

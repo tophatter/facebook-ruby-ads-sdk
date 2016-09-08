@@ -43,4 +43,12 @@ module FacebookAds
     @access_token
   end
 
+  def self.business_id=(business_id)
+    @business_id = business_id
+  end
+
+  def self.business_id
+    @business_id
+  end
+
 end

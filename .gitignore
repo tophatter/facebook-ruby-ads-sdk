@@ -1,4 +1,5 @@
 .DS_Store
 test_access_token
+test_business_id
 coverage
 *.gem
