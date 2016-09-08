@@ -10,7 +10,7 @@ module FacebookAds
       def get(path, query: {}, objectify:)
         query = pack(query, objectify) # Adds access token, fields, etc.
         FacebookAds.logger.debug "GET #{FacebookAds.base_uri}#{path}?#{query.to_query}"
-        response = HTTParty.get("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
+        response = HTTParty.get("#{FacebookAds.base_uri}#{path}", query: query, timeout: 30).parsed_response
         response = unpack(response, objectify: objectify)
       end
 
@@ -35,6 +35,7 @@ module FacebookAds
         while (paging = response['paging']).present? && (url = paging['next']).present?
           FacebookAds.logger.debug "GET #{url}"
           response = HTTParty.get(url).parsed_response # This should be raw since the URL has the host already.
+          response = unpack(response, objectify: false)
           data += response['data'] if response['data'].present?
         end
 
@@ -65,13 +66,22 @@ module FacebookAds
       end
 
       def unpack(response, objectify:)
+        # Certain errors won't get parsed by HTTParty#parsed_response.
+        if response.present? && response.is_a?(String)
+          response = begin
+            JSON.parse(response)
+          rescue JSON::ParserError
+            raise Exception, "Invalid JSON response: #{response.inspect}"
+          end
+        end
+
         if response.nil? || !response.is_a?(Hash)
           raise Exception, "Invalid response: #{response.inspect}"
         end
 
         if response['error'].present?
           # Let's have different Exception subclasses for different error codes.
-          raise Exception, "#{response['error']['code']}: #{response['error']['message']} | #{response.inspect}"
+          raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}"
         end
 
         if objectify
