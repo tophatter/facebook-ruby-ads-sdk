@@ -23,7 +23,7 @@ module FacebookAds
       raise Exception, "Optimization goal must be one of: #{FacebookAds::AdSet::OPTIMIZATION_GOALS.to_sentence}" unless FacebookAds::AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
       raise Exception, "Billing event must be one of: #{FacebookAds::AdSet::BILLING_EVENTS.to_sentence}" unless FacebookAds::AdSet::BILLING_EVENTS.include?(billing_event)
 
-      if targeting.is_a(Hash)
+      if targeting.is_a?(Hash)
         # NOP
       else
         targeting.validate! # Will raise if invalid.
