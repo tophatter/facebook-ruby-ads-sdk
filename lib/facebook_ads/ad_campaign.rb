@@ -23,12 +23,17 @@ module FacebookAds
       raise Exception, "Optimization goal must be one of: #{FacebookAds::AdSet::OPTIMIZATION_GOALS.to_sentence}" unless FacebookAds::AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
       raise Exception, "Billing event must be one of: #{FacebookAds::AdSet::BILLING_EVENTS.to_sentence}" unless FacebookAds::AdSet::BILLING_EVENTS.include?(billing_event)
 
-      targeting.validate! # Will raise if invalid.
+      if targeting.is_a(Hash)
+        # NOP
+      else
+        targeting.validate! # Will raise if invalid.
+        targeting = targeting.to_hash
+      end
 
       ad_set = FacebookAds::AdSet.post("/act_#{account_id}/adsets", query: { # Returns a FacebookAds::AdSet instance.
         campaign_id: id,
         name: name,
-        targeting: targeting.to_hash.to_json,
+        targeting: targeting.to_json,
         promoted_object: promoted_object.to_json,
         optimization_goal: optimization_goal,
         daily_budget: daily_budget,
