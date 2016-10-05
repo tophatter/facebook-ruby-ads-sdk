@@ -2,22 +2,22 @@ PATH
   remote: .
   specs:
     facebook_ads (0.1.5)
-      activesupport
+      activesupport (~> 4.2)
       hashie (~> 3.4)
       httmultiparty (~> 0.3)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.0.0.1)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
+    activesupport (4.2.7.1)
       i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
     awesome_print (1.7.0)
     coderay (1.1.1)
-    concurrent-ruby (1.0.2)
     coveralls (0.8.15)
       json (>= 1.8, < 3)
       simplecov (~> 0.12.0)
@@ -37,7 +37,7 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
-    json (2.0.2)
+    json (1.8.3)
     method_source (0.8.2)
     mimemagic (0.3.2)
     minitest (5.9.1)
@@ -92,7 +92,6 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print (~> 1.7)
-  bundler (~> 1.7)
   coveralls
   facebook_ads!
   pry (~> 0.10)
@@ -101,4 +100,4 @@ DEPENDENCIES
   webmock (~> 2.1)
 
 BUNDLED WITH
-   1.13.1
+   1.13.2

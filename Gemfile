@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem 'bundler', '~> 1.7'
   gem 'pry', '~> 0.10'
   gem 'awesome_print', '~> 1.7'
 end
