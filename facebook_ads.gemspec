@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '~> 2.0'
 
-  s.add_dependency 'activesupport', '>= 4.2'
+  s.add_dependency 'activesupport'
   s.add_dependency 'httmultiparty', '~> 0.3'
   s.add_dependency 'hashie', '~> 3.4'
 end
