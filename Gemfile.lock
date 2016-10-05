@@ -50,7 +50,6 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
-    rake (10.5.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -97,7 +96,6 @@ DEPENDENCIES
   coveralls
   facebook_ads!
   pry (~> 0.10)
-  rake (~> 10.0)
   rspec (~> 3.4)
   sinatra (~> 1.4)
   webmock (~> 2.1)
