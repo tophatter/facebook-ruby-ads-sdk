@@ -9,18 +9,18 @@ module FacebookAds
     # belongs_to ad_account
 
     def ad_account
-      @ad_account ||= FacebookAds::AdAccount.find("act_#{account_id}")
+      @ad_account ||= AdAccount.find("act_#{account_id}")
     end
 
     # has_many ad_sets
 
     def ad_sets(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+      AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
     end
 
     def create_ad_set(name:, promoted_object:, targeting:, daily_budget:, optimization_goal:, billing_event: 'IMPRESSIONS', status: 'ACTIVE', is_autobid: true)
-      raise Exception, "Optimization goal must be one of: #{FacebookAds::AdSet::OPTIMIZATION_GOALS.to_sentence}" unless FacebookAds::AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
-      raise Exception, "Billing event must be one of: #{FacebookAds::AdSet::BILLING_EVENTS.to_sentence}" unless FacebookAds::AdSet::BILLING_EVENTS.include?(billing_event)
+      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.to_sentence}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+      raise Exception, "Billing event must be one of: #{AdSet::BILLING_EVENTS.to_sentence}" unless AdSet::BILLING_EVENTS.include?(billing_event)
 
       if targeting.is_a?(Hash)
         # NOP
@@ -40,8 +40,8 @@ module FacebookAds
         status: status,
         is_autobid: is_autobid
       }
-      ad_set = FacebookAds::AdSet.post("/act_#{account_id}/adsets", query: query, objectify: true) # Returns a FacebookAds::AdSet instance.
-      FacebookAds::AdSet.find(ad_set.id)
+      ad_set = AdSet.post("/act_#{account_id}/adsets", query: query, objectify: true) # Returns an AdSet instance.
+      AdSet.find(ad_set.id)
     end
 
     # has_many ad_insights
@@ -52,7 +52,7 @@ module FacebookAds
         time_increment: time_increment,
         time_range: { 'since': range.first.to_s, 'until': range.last.to_s }
       }
-      FacebookAds::AdInsight.paginate("/#{id}/insights", query: query)
+      AdInsight.paginate("/#{id}/insights", query: query)
     end
   end
 end

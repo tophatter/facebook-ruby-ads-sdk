@@ -113,6 +113,10 @@ module FacebookAds
 
     attr_accessor :changes
 
+    def persisted?
+      id.present?
+    end
+
     private
 
     def []=(key, value)

@@ -8,25 +8,25 @@ module FacebookAds
     # belongs_to ad_account
 
     def ad_account
-      @ad_set ||= FacebookAds::AdAccount.find(account_id)
+      @ad_set ||= AdAccount.find(account_id)
     end
 
     # belongs_to ad_campaign
 
     def ad_campaign
-      @ad_set ||= FacebookAds::AdCampaign.find(campaign_id)
+      @ad_set ||= AdCampaign.find(campaign_id)
     end
 
     # belongs_to ad_set
 
     def ad_set
-      @ad_set ||= FacebookAds::AdSet.find(adset_id)
+      @ad_set ||= AdSet.find(adset_id)
     end
 
     # belongs_to ad_creative
 
     def ad_creative
-      @ad_creative ||= FacebookAds::AdCreative.find(creative['id'])
+      @ad_creative ||= AdCreative.find(creative['id'])
     end
   end
 end

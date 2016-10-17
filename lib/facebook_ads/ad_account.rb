@@ -21,23 +21,23 @@ module FacebookAds
     # has_many campaigns
 
     def ad_campaigns(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::AdCampaign.paginate("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
+      AdCampaign.paginate("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
     end
 
     def create_ad_campaign(name:, objective:, status: 'ACTIVE')
-      raise Exception, "Objective must be one of: #{FacebookAds::AdCampaign::OBJECTIVES.to_sentence}" unless FacebookAds::AdCampaign::OBJECTIVES.include?(objective)
-      raise Exception, "Status must be one of: #{FacebookAds::AdCampaign::STATUSES.to_sentence}" unless FacebookAds::AdCampaign::STATUSES.include?(status)
-      campaign = FacebookAds::AdCampaign.post("/#{id}/campaigns", query: { name: name, objective: objective, status: status }, objectify: true)
-      FacebookAds::AdCampaign.find(campaign.id)
+      raise Exception, "Objective must be one of: #{AdCampaign::OBJECTIVES.to_sentence}" unless AdCampaign::OBJECTIVES.include?(objective)
+      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.to_sentence}" unless AdCampaign::STATUSES.include?(status)
+      campaign = AdCampaign.post("/#{id}/campaigns", query: { name: name, objective: objective, status: status }, objectify: true)
+      AdCampaign.find(campaign.id)
     end
 
     # has_many ad_images
 
     def ad_images(hashes: nil, limit: 100)
       if hashes.present?
-        FacebookAds::AdImage.get("/#{id}/adimages", query: { hashes: hashes }, objectify: true)
+        AdImage.get("/#{id}/adimages", query: { hashes: hashes }, objectify: true)
       else
-        FacebookAds::AdImage.paginate("/#{id}/adimages", query: { limit: limit })
+        AdImage.paginate("/#{id}/adimages", query: { limit: limit })
       end
     end
 
@@ -47,7 +47,7 @@ module FacebookAds
         [name, File.open(path)]
       end.to_h
 
-      response = FacebookAds::AdImage.post("/#{id}/adimages", query: files, objectify: false)
+      response = AdImage.post("/#{id}/adimages", query: files, objectify: false)
       files.values.each { |file| File.delete(file.path) }
       response['images'].present? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
     end
@@ -55,7 +55,7 @@ module FacebookAds
     # has_many ad_creatives
 
     def ad_creatives(limit: 100)
-      FacebookAds::AdCreative.paginate("/#{id}/adcreatives", query: { limit: limit })
+      AdCreative.paginate("/#{id}/adcreatives", query: { limit: limit })
     end
 
     def create_ad_creative(creative, carousel: true)
@@ -65,13 +65,13 @@ module FacebookAds
     # has_many ad_sets
 
     def ad_sets(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+      AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
     end
 
     # has_many ads
 
     def ads(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
+      Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
     end
 
     # has_many ad_insights
@@ -97,10 +97,10 @@ module FacebookAds
         raise Exception, "Creative is missing the following: #{keys.to_sentence}"
       end
 
-      raise Exception, "Creative call_to_action_type must be one of: #{FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
-      query = FacebookAds::AdCreative.carousel(creative)
-      creative = FacebookAds::AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns a FacebookAds::AdCreative instance.
-      FacebookAds::AdCreative.find(creative.id)
+      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      query = AdCreative.carousel(creative)
+      creative = AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns an AdCreative instance.
+      AdCreative.find(creative.id)
     end
 
     def create_image_ad_creative(creative)
@@ -110,10 +110,10 @@ module FacebookAds
         raise Exception, "Creative is missing the following: #{keys.to_sentence}"
       end
 
-      raise Exception, "Creative call_to_action_type must be one of: #{FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
-      query = FacebookAds::AdCreative.photo(creative)
-      creative = FacebookAds::AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns a FacebookAds::AdCreative instance.
-      FacebookAds::AdCreative.find(creative.id)
+      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      query = AdCreative.photo(creative)
+      creative = AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns an AdCreative instance.
+      AdCreative.find(creative.id)
     end
 
     def download(url)
