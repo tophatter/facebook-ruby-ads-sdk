@@ -14,6 +14,17 @@ module FacebookAds
       end
     end
 
+    # has_many ad_product_feeds
+
+    def ad_product_feeds
+      AdProductFeed.paginate("/#{id}/product_feeds")
+    end
+
+    def create_ad_product_feed(name:)
+      feed = AdProductCatalog.post("/#{id}/product_feeds", query: { name: name }, objectify: true)
+      AdProductFeed.find(feed.id)
+    end
+
     # has_many ad_products
 
     def ad_products
