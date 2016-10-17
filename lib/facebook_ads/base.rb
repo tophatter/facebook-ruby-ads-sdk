@@ -1,8 +1,7 @@
 module FacebookAds
+  # The base class for all ads objects.
   class Base < Hashie::Mash
-
     class << self
-
       def find(id)
         get("/#{id}", objectify: true)
       end
@@ -11,21 +10,21 @@ module FacebookAds
         query = pack(query, objectify) # Adds access token, fields, etc.
         FacebookAds.logger.debug "GET #{FacebookAds.base_uri}#{path}?#{query.to_query}"
         response = HTTParty.get("#{FacebookAds.base_uri}#{path}", query: query, timeout: 30).parsed_response
-        response = unpack(response, objectify: objectify)
+        unpack(response, objectify: objectify)
       end
 
       def post(path, query: {}, objectify:)
         query = pack(query, objectify)
         FacebookAds.logger.debug "POST #{FacebookAds.base_uri}#{path}?#{query.to_query}"
         response = HTTMultiParty.post("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
-        response = unpack(response, objectify: objectify)
+        unpack(response, objectify: objectify)
       end
 
       def delete(path, query: {})
         query = pack(query, false)
         FacebookAds.logger.debug "DELETE #{FacebookAds.base_uri}#{path}?#{query.to_query}"
         response = HTTParty.delete("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
-        response = unpack(response, objectify: false)
+        unpack(response, objectify: false)
       end
 
       def paginate(path, query: {})
@@ -66,8 +65,10 @@ module FacebookAds
       end
 
       def unpack(response, objectify:)
+        raise Exception, 'Invalid nil response' if response.nil?
+
         # Certain errors won't get parsed by HTTParty#parsed_response.
-        if response.present? && response.is_a?(String)
+        if response.is_a?(String)
           response = begin
             JSON.parse(response)
           rescue JSON::ParserError
@@ -75,65 +76,37 @@ module FacebookAds
           end
         end
 
-        if response.nil? || !response.is_a?(Hash)
-          raise Exception, "Invalid response: #{response.inspect}"
-        end
+        raise Exception, "Invalid response: #{response.inspect}" unless response.is_a?(Hash)
+        raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}" if response['error'].present?
+        return response unless objectify
 
-        if response['error'].present?
-          # Let's have different Exception subclasses for different error codes.
-          raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}"
-        end
-
-        if objectify
-          if response.key?('data') && (data = response['data']).is_a?(Array)
-            data.map { |hash| instantiate(hash) }
-          else
-            instantiate(response)
-          end
+        if response.key?('data') && (data = response['data']).is_a?(Array)
+          data.map { |hash| instantiate(hash) }
         else
-          response
+          instantiate(response)
         end
       end
-
     end
 
     def update(data)
-      if data.present?
-        response = self.class.post("/#{id}", query: data, objectify: false)
-
-        if response.is_a?(Hash) && response.key?('success')
-          response['success']
-        else
-          raise Exception, "Invalid response from update: #{response.inspect}"
-        end
-      else
-        false
-      end
+      return false unless data.present?
+      response = self.class.post("/#{id}", query: data, objectify: false)
+      raise Exception, "Invalid response from update: #{response.inspect}" unless @response.is_a?(Hash) && response.key?('success')
+      response['success']
     end
 
     def save
-      if changes.present?
-        data = {}
-        changes.keys.each { |key| data[key] = self[key] }
-
-        if update(data)
-          self.class.find(id)
-        else
-          nil
-        end
-      else
-        nil
-      end
+      return nil unless changes.present?
+      data = {}
+      changes.keys.each { |key| data[key] = self[key] }
+      return nil unless update(data)
+      self.class.find(id)
     end
 
     def destroy(path: nil, query: {})
       response = self.class.delete(path || "/#{id}", query: query)
-
-      if response.key?('success')
-        response['success']
-      else
-        raise Exception, "Invalid response from destroy: #{response.inspect}"
-      end
+      raise Exception, "Invalid response from destroy: #{response.inspect}" unless response.key?('success')
+      response['success']
     end
 
     protected
@@ -156,6 +129,5 @@ module FacebookAds
 
       new_values
     end
-
   end
 end

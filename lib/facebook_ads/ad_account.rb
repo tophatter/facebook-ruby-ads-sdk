@@ -2,8 +2,7 @@ module FacebookAds
   # An ad account has many ad campaigns, ad images, and ad creatives.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-account
   class AdAccount < Base
-
-    FIELDS = %w(id account_id account_status age created_time currency name last_used_time)
+    FIELDS = %w(id account_id account_status age created_time currency name last_used_time).freeze
 
     class << self
       def all
@@ -43,26 +42,14 @@ module FacebookAds
     end
 
     def create_ad_images(urls)
-      files = urls.collect do |url|
-        pathname = Pathname.new(url)
-        name = "#{pathname.dirname.basename}.jpg"
-        data = HTTParty.get(url).body
-        file = File.open("/tmp/#{name}", 'w') # Assume *nix-based system.
-        file.binmode
-        file.write(data)
-        file.close
-        [name, File.open(file.path)]
+      files = urls.map do |url|
+        name, path = download(url)
+        [name, File.open(path)]
       end.to_h
 
       response = FacebookAds::AdImage.post("/#{id}/adimages", query: files, objectify: false)
       files.values.each { |file| File.delete(file.path) }
-
-      if response['images'].present?
-        hashes = response['images'].map { |key, hash| hash['hash'] }
-        ad_images(hashes: hashes)
-      else
-        []
-      end
+      response['images'].present? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
     end
 
     # has_many ad_creatives
@@ -72,28 +59,7 @@ module FacebookAds
     end
 
     def create_ad_creative(creative, carousel: true)
-      optional = %i(instagram_actor_id)
-
-      required = if carousel
-        %i(name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card)
-      else
-        %i(name page_id message link link_title image_hash call_to_action_type)
-      end
-
-      if (keys = required - creative.keys).present?
-        raise Exception, "Creative is missing the following: #{keys.to_sentence}"
-      end
-
-      raise Exception, "Creative call_to_action_type must be one of: #{FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
-
-      query = if carousel
-        FacebookAds::AdCreative.carousel(creative)
-      else
-        FacebookAds::AdCreative.photo(creative)
-      end
-
-      creative = FacebookAds::AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns a FacebookAds::AdCreative instance.
-      FacebookAds::AdCreative.find(creative.id)
+      carousel ? create_carousel_ad_creative(creative) : create_image_ad_creative(creative)
     end
 
     # has_many ad_sets
@@ -122,5 +88,43 @@ module FacebookAds
       self.class.get("/#{id}/advertisable_applications", objectify: false)
     end
 
+    private
+
+    def create_carousel_ad_creative(creative)
+      required = %i(name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card)
+
+      if (keys = required - creative.keys).present?
+        raise Exception, "Creative is missing the following: #{keys.to_sentence}"
+      end
+
+      raise Exception, "Creative call_to_action_type must be one of: #{FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      query = FacebookAds::AdCreative.carousel(creative)
+      creative = FacebookAds::AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns a FacebookAds::AdCreative instance.
+      FacebookAds::AdCreative.find(creative.id)
+    end
+
+    def create_image_ad_creative(creative)
+      required = %i(name page_id message link link_title image_hash call_to_action_type)
+
+      if (keys = required - creative.keys).present?
+        raise Exception, "Creative is missing the following: #{keys.to_sentence}"
+      end
+
+      raise Exception, "Creative call_to_action_type must be one of: #{FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless FacebookAds::AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      query = FacebookAds::AdCreative.photo(creative)
+      creative = FacebookAds::AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns a FacebookAds::AdCreative instance.
+      FacebookAds::AdCreative.find(creative.id)
+    end
+
+    def download(url)
+      pathname = Pathname.new(url)
+      name = "#{pathname.dirname.basename}.jpg"
+      data = HTTParty.get(url).body
+      file = File.open("/tmp/#{name}", 'w') # Assume *nix-based system.
+      file.binmode
+      file.write(data)
+      file.close
+      [name, file.path]
+    end
   end
 end

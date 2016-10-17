@@ -2,10 +2,9 @@ module FacebookAds
   # An ad campaign has many ad sets and belongs to an ad account.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
   class AdCampaign < Base
-
-    FIELDS     = %w(id account_id buying_type can_use_spend_cap configured_status created_time effective_status name objective start_time stop_time updated_time spend_cap)
-    STATUSES   = %w(ACTIVE PAUSED DELETED PENDING_REVIEW DISAPPROVED PREAPPROVED PENDING_BILLING_INFO CAMPAIGN_PAUSED ARCHIVED ADSET_PAUSED)
-    OBJECTIVES = %w(CONVERSIONS MOBILE_APP_INSTALLS) # %w(BRAND_AWARENESS CANVAS_APP_ENGAGEMENT CANVAS_APP_INSTALLS CONVERSIONS EVENT_RESPONSES EXTERNAL LEAD_GENERATION LINK_CLICKS LOCAL_AWARENESS MOBILE_APP_ENGAGEMENT MOBILE_APP_INSTALLS OFFER_CLAIMS PAGE_LIKES POST_ENGAGEMENT PRODUCT_CATALOG_SALES REACH VIDEO_VIEWS)
+    FIELDS     = %w(id account_id buying_type can_use_spend_cap configured_status created_time effective_status name objective start_time stop_time updated_time spend_cap).freeze
+    STATUSES   = %w(ACTIVE PAUSED DELETED PENDING_REVIEW DISAPPROVED PREAPPROVED PENDING_BILLING_INFO CAMPAIGN_PAUSED ARCHIVED ADSET_PAUSED).freeze
+    OBJECTIVES = %w(CONVERSIONS MOBILE_APP_INSTALLS).freeze
 
     # belongs_to ad_account
 
@@ -30,7 +29,7 @@ module FacebookAds
         targeting = targeting.to_hash
       end
 
-      ad_set = FacebookAds::AdSet.post("/act_#{account_id}/adsets", query: { # Returns a FacebookAds::AdSet instance.
+      query = {
         campaign_id: id,
         name: name,
         targeting: targeting.to_json,
@@ -40,20 +39,20 @@ module FacebookAds
         billing_event: billing_event,
         status: status,
         is_autobid: is_autobid
-      }, objectify: true)
-
+      }
+      ad_set = FacebookAds::AdSet.post("/act_#{account_id}/adsets", query: query, objectify: true) # Returns a FacebookAds::AdSet instance.
       FacebookAds::AdSet.find(ad_set.id)
     end
 
     # has_many ad_insights
 
     def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
-      FacebookAds::AdInsight.paginate("/#{id}/insights", query: {
+      query = {
         level: level,
         time_increment: time_increment,
         time_range: { 'since': range.first.to_s, 'until': range.last.to_s }
-      })
+      }
+      FacebookAds::AdInsight.paginate("/#{id}/insights", query: query)
     end
-
   end
 end

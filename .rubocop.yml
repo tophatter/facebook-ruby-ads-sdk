@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - bin/console
+  TargetRubyVersion: 2.2
+Metrics/AbcSize:
+  Max: 999
+Metrics/CyclomaticComplexity:
+  Max: 999
+Metrics/PerceivedComplexity:
+  Max: 999
+Metrics/LineLength:
+  Max: 999
+Metrics/ClassLength:
+  Max: 999
+Metrics/MethodLength:
+  Max: 50
+Metrics/ParameterLists:
+  Max: 10

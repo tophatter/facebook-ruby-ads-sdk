@@ -9,7 +9,7 @@ begin
   FacebookAds.access_token = File.read('test_access_token').squish
   puts "access_token: #{FacebookAds.access_token}"
 rescue Errno::ENOENT
-  puts "Create a test_access_token file and add your access token to it."
+  puts 'Create a test_access_token file and add your Access Token to it.'
   exit
 end
 
@@ -17,7 +17,7 @@ begin
   FacebookAds.business_id = File.read('test_business_id').squish
   puts "business_id: #{FacebookAds.business_id}"
 rescue Errno::ENOENT
-  # Proceed without a business_id.
+  puts 'Create a test_business_id file and add your Business ID to it.'
 end
 
 FacebookAds.logger = Logger.new(STDOUT)

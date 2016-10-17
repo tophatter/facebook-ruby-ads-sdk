@@ -1,29 +1,28 @@
-# https://developers.facebook.com/docs/marketing-api/targeting-specs
 module FacebookAds
+  # https://developers.facebook.com/docs/marketing-api/targeting-specs
   class AdTargeting
-
     MEN                = 1
     WOMEN              = 2
-    GENDERS            = [MEN, WOMEN]
-    ANDROID_OS         = 'Android'
-    APPLE_OS           = 'iOS'
-    OSES               = [ANDROID_OS, APPLE_OS]
-    ANDROID_DEVICES    = %w(Android_Smartphone Android_Tablet)
-    APPLE_DEVICES      = %w(iPhone iPad iPod)
+    GENDERS            = [MEN, WOMEN].freeze
+    ANDROID_OS         = 'Android'.freeze
+    APPLE_OS           = 'iOS'.freeze
+    OSES               = [ANDROID_OS, APPLE_OS].freeze
+    ANDROID_DEVICES    = %w(Android_Smartphone Android_Tablet).freeze
+    APPLE_DEVICES      = %w(iPhone iPad iPod).freeze
     DEVICES            = ANDROID_DEVICES + APPLE_DEVICES
-    INSTALLED          = 'installed'
-    NOT_INSTALLED      = 'not_installed'
-    APP_INSTALL_STATES = [INSTALLED, NOT_INSTALLED]
+    INSTALLED          = 'installed'.freeze
+    NOT_INSTALLED      = 'not_installed'.freeze
+    APP_INSTALL_STATES = [INSTALLED, NOT_INSTALLED].freeze
 
     attr_accessor :genders, :age_min, :age_max, :countries, :user_os, :user_device, :app_install_state
 
     def initialize
-      # self.genders           = [WOMEN] # If nil, defaults to all genders.
-      # self.age_min           = 18 # If nil, defaults to 18.
-      # self.age_max           = 65 # If nil, defaults to 65+.
-      self.countries         = ['US']
-      # self.user_os           = [ANDROID_OS]
-      # self.user_device       = ANDROID_DEVICES
+      # self.genders = [WOMEN] # If nil, defaults to all genders.
+      # self.age_min = 18 # If nil, defaults to 18.
+      # self.age_max = 65 # If nil, defaults to 65+.
+      self.countries = ['US']
+      # self.user_os = [ANDROID_OS]
+      # self.user_device = ANDROID_DEVICES
       # self.app_install_state = NOT_INSTALLED
     end
 
@@ -38,7 +37,7 @@ module FacebookAds
         provided, acceptable = provided_and_acceptable
 
         if provided.present? && (invalid = provided.detect { |value| !acceptable.include?(value) }).present?
-          raise Exception, "#{self.class.name}: #{bad} is an invalid #{key}"
+          raise Exception, "#{self.class.name}: #{invalid} is an invalid #{key}"
         end
       end
 
@@ -56,6 +55,5 @@ module FacebookAds
         app_install_state: app_install_state
       }.compact
     end
-
   end
 end

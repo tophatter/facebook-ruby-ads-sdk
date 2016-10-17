@@ -9,7 +9,6 @@ Dir[File.expand_path('../facebook_ads/*.rb', __FILE__)].each { |f| require f }
 
 # The primary namespace for this gem.
 module FacebookAds
-
   def self.logger=(logger)
     @logger = logger
   end
@@ -28,10 +27,7 @@ module FacebookAds
   end
 
   def self.base_uri
-    unless defined?(@base_uri)
-      @base_uri = 'https://graph.facebook.com/v2.6'
-    end
-
+    @base_uri = 'https://graph.facebook.com/v2.6' unless defined?(@base_uri)
     @base_uri
   end
 
@@ -50,5 +46,4 @@ module FacebookAds
   def self.business_id
     @business_id
   end
-
 end

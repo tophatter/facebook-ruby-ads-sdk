@@ -2,12 +2,10 @@ module FacebookAds
   # Ad ad creative has many ad images and belongs to an ad account.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-creative
   class AdCreative < Base
-
-    FIELDS               = %w(id name object_story_id object_story_spec object_type thumbnail_url run_status)
-    CALL_TO_ACTION_TYPES = %w(SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW) # %w(OPEN_LINK LIKE_PAGE SHOP_NOW PLAY_GAME INSTALL_APP USE_APP INSTALL_MOBILE_APP USE_MOBILE_APP BOOK_TRAVEL LISTEN_MUSIC WATCH_VIDEO LEARN_MORE SIGN_UP DOWNLOAD WATCH_MORE NO_BUTTON CALL_NOW BUY_NOW GET_OFFER GET_OFFER_VIEW GET_DIRECTIONS MESSAGE_PAGE SUBSCRIBE SELL_NOW DONATE_NOW GET_QUOTE CONTACT_US RECORD_NOW VOTE_NOW OPEN_MOVIES)
+    FIELDS               = %w(id name object_story_id object_story_spec object_type thumbnail_url run_status).freeze
+    CALL_TO_ACTION_TYPES = %w(SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW).freeze
 
     class << self
-
       def photo(name:, page_id:, instagram_actor_id: nil, message:, link:, link_title:, image_hash:, call_to_action_type:)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
@@ -26,6 +24,7 @@ module FacebookAds
             }
           }
         }
+
         {
           name: name,
           object_story_spec: object_story_spec.to_json
@@ -41,7 +40,7 @@ module FacebookAds
             'link' => link, # https://tophatter.com/, https://itunes.apple.com/app/id619460348, http://play.google.com/store/apps/details?id=com.tophatter
             'message' => message,
             'call_to_action' => { 'type' => call_to_action_type },
-            'child_attachments' => assets.collect { |asset|
+            'child_attachments' => assets.collect do |asset|
               {
                 'link' => link,
                 'image_hash' => asset[:hash],
@@ -49,18 +48,17 @@ module FacebookAds
                 # 'description' => asset[:title],
                 'call_to_action' => { 'type' => call_to_action_type } # Redundant?
               }
-            },
+            end,
             'multi_share_optimized' => multi_share_optimized,
             'multi_share_end_card' => multi_share_end_card
           }
         }
+
         {
           name: name,
           object_story_spec: object_story_spec.to_json
         }
       end
-
     end
-
   end
 end

@@ -3,11 +3,10 @@ module FacebookAds
   # An image will always produce the same hash.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-image
   class AdImage < Base
-
-    FIELDS = %w(id hash account_id name permalink_url original_width original_height)
+    FIELDS = %w(id hash account_id name permalink_url original_width original_height).freeze
 
     class << self
-      def find(id)
+      def find(_id)
         raise Exception, 'NOT IMPLEMENTED'
       end
     end
@@ -16,13 +15,12 @@ module FacebookAds
       self[:hash]
     end
 
-    def update(data)
+    def update(_data)
       raise Exception, 'NOT IMPLEMENTED'
     end
 
     def destroy
       super(path: "/act_#{account_id}/adimages", query: { hash: hash })
     end
-
   end
 end

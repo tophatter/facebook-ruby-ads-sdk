@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe FacebookAds::AdAccount do
-
   describe '.all' do
     it 'Lists all AdAccount instances' do
       accounts = FacebookAds::AdAccount.all
@@ -74,5 +73,4 @@ describe FacebookAds::AdAccount do
   def account_id
     '861827983860489'
   end
-
 end

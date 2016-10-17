@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe FacebookAds::Ad do
-
   describe '.find' do
     it 'Finds an Ad instance' do
       id = '6057810634370'
@@ -9,5 +8,4 @@ describe FacebookAds::Ad do
       expect(ad.id).to eql(id)
     end
   end
-
 end
