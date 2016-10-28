@@ -10,24 +10,24 @@ module FacebookAds
     # belongs_to ad_account
 
     def ad_account
-      @ad_set ||= FacebookAds::AdAccount.find(account_id)
+      @ad_account ||= AdAccount.find(account_id)
     end
 
     # belongs_to ad_campaign
 
     def ad_campaign
-      @campaign ||= FacebookAds::AdCampaign.find(campaign_id)
+      @campaign ||= AdCampaign.find(campaign_id)
     end
 
     # has_many ads
 
     def ads(effective_status: ['ACTIVE'], limit: 100)
-      FacebookAds::Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
+      Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
     end
 
     def create_ad(name:, creative_id:)
-      ad = FacebookAds::Ad.post("/act_#{account_id}/ads", query: { name: name, adset_id: id, creative: { creative_id: creative_id }.to_json }, objectify: true) # Returns a FacebookAds::Ad instance.
-      FacebookAds::Ad.find(ad.id)
+      ad = Ad.post("/act_#{account_id}/ads", query: { name: name, adset_id: id, creative: { creative_id: creative_id }.to_json }, objectify: true) # Returns an Ad instance.
+      Ad.find(ad.id)
     end
   end
 end

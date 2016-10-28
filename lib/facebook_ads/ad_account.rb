@@ -74,6 +74,12 @@ module FacebookAds
       Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
     end
 
+    # has_many ad_audiences
+
+    def ad_audiences
+      AdAudience.paginate("/#{id}/customaudiences")
+    end
+
     # has_many ad_insights
 
     def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
