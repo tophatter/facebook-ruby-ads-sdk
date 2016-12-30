@@ -9,5 +9,7 @@ end
 group :test do
   gem 'rake'
   gem 'minitest'
+  gem 'webmock'
+  gem 'vcr'
   gem 'coveralls', require: false
 end
