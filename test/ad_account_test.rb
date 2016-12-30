@@ -2,10 +2,8 @@ require 'test_helper'
 
 class AdAccountTest < Minitest::Test
   def setup
-    FacebookAds.access_token = File.read('test_access_token').squish
-    FacebookAds.business_id = File.read('test_business_id').squish
-    # FacebookAds.logger = Logger.new(STDOUT)
-    # FacebookAds.logger.level = Logger::Severity::DEBUG
+    FacebookAds.access_token = 'REDACTED'
+    FacebookAds.business_id = 'REDACTED'
   end
 
   def test_all
