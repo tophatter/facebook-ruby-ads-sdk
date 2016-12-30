@@ -5,4 +5,4 @@ branches:
   only:
     - master
 cache: bundler
-script: bundle exec rspec spec
+script: bundle exec rake test

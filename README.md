@@ -389,8 +389,27 @@ Fetch yesterday's insights for a campaign:
 account.ad_campaigns.last.ad_insights(range: Date.yesterday..Date.yesterday)
 ```
 
+___
+
+### [Product Catalogs](https://developers.facebook.com/docs/marketing-api/reference/product-catalog)
+
+List all product catalogs:
+```ruby
+FacebookAds::AdProductCatalog.all
+```
+
+Create a new product catalog:
+```ruby
+catalog = FacebookAds::AdProductCatalog.create(name: 'test')
+```
+
+Delete a product catalog:
+```ruby
+catalog.destroy
+```
+
 ## @TODO:
 
-* Unit tests (add rspec - need to build out the tests now).
+* Unit tests.
 * [Batch operations](https://developers.facebook.com/docs/marketing-api/batch-requests).
-* Upgrade to [2.7](https://developers.facebook.com/docs/marketing-api/versions).
+* Upgrade to [2.8](https://developers.facebook.com/docs/marketing-api/versions).

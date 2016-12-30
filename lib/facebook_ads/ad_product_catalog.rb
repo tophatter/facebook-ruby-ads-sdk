@@ -20,10 +20,23 @@ module FacebookAds
       AdProductFeed.paginate("/#{id}/product_feeds")
     end
 
-    def create_ad_product_feed(name:)
-      feed = AdProductCatalog.post("/#{id}/product_feeds", query: { name: name }, objectify: true)
+    # catalog.create_ad_product_feed(name: 'Test', schedule: { url: 'https://tophatter.com/admin/ad_automation/ad_product_feeds/1.csv', interval: 'HOURLY' })
+    def create_ad_product_feed(name:, schedule:)
+      feed = AdProductCatalog.post("/#{id}/product_feeds", query: { name: name, schedule: schedule }, objectify: true)
       AdProductFeed.find(feed.id)
     end
+
+    # has_many product_groups
+
+    # def ad_product_groups
+    #   AdProductGroup.paginate("/#{id}/product_groups")
+    # end
+
+    # has_many product_sets
+
+    # def ad_product_sets
+    #   AdProductSet.paginate("/#{id}/product_sets")
+    # end
 
     # has_many ad_products
 

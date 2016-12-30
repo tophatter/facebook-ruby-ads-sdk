@@ -31,7 +31,7 @@ module FacebookAds
         }
       end
 
-      # https://developers.facebook.com/docs/marketing-api/guides/carousel-ads/v2.6
+      # https://developers.facebook.com/docs/marketing-api/guides/videoads
       def carousel(name:, page_id:, instagram_actor_id: nil, link:, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860

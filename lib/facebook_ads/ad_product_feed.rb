@@ -1,18 +1,6 @@
 module FacebookAds
   # https://developers.facebook.com/docs/marketing-api/reference/product-feed
   class AdProductFeed < Base
-    FIELDS = %w(id name).freeze
-  end
-
-  # has_many ad_product_feed_uploads
-
-  def ad_product_feed_uploads
-    AdProductFeedUpload.paginate("/#{id}/uploads")
-  end
-
-  def create_ad_product_feed_upload(data)
-    query = data
-    upload = AdProductFeed.post("/#{id}/uploads", query: query, objectify: true)
-    AdProductFeedUpload.find(upload.id)
+    FIELDS = %w(id country created_time default_currency deletion_enabled delimiter encoding file_name latest_upload name product_count quoted_fields_mode schedule).freeze
   end
 end

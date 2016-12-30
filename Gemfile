@@ -7,8 +7,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec', '~> 3.4'
-  gem 'webmock', '~> 2.1'
-  gem 'sinatra', '~> 1.4'
+  gem 'rake'
+  gem 'minitest'
   gem 'coveralls', require: false
 end
