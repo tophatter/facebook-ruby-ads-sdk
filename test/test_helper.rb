@@ -57,7 +57,7 @@ class BaseTest < Minitest::Test
   def vcr
     calling_method = caller[0][/`.*'/][1..-2]
 
-    VCR.use_cassette("#{self.class.name}-#{calling_method}") do
+    VCR.use_cassette("#{self.class.name}-#{calling_method}", match_requests_on: [:host, :path]) do
       yield
     end
   end
