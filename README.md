@@ -410,6 +410,4 @@ catalog.destroy
 
 ## @TODO:
 
-* Unit tests.
 * [Batch operations](https://developers.facebook.com/docs/marketing-api/batch-requests).
-* Upgrade to [2.8](https://developers.facebook.com/docs/marketing-api/versions).
