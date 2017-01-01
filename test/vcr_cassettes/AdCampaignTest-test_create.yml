@@ -8,13 +8,11 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -23,7 +21,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"da52ae15718eda53d5647905e4a1136bbaaba578"'
+      - '"034cb181a38e528e325ae8388b98d9cdbfe576f2"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -35,7 +33,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - BhKlIsJLEsl
+      - Gs2V5SrhzbL
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -43,32 +41,33 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - QsOrmuhLf5SAtsIiiHa9MwumyHI5/TQUZim6nXtlAZ7O9DZkkSJvtPnVVg36qBqJ4y241UIcSn0NaHfC/eLQdQ==
+      - u0eQ4LWQ2aMeFKjuZAbX1BawQiCTo4hOfd7DnYR7BY6+kcHGNTrAS5JfDyerMSZhQYgGgW4qCgQTa3KzP20+1w==
       Date:
-      - Sun, 01 Jan 2017 01:55:06 GMT
+      - Sun, 01 Jan 2017 02:33:31 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '629'
+      - '632'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA4WUTWvbQBCG/0rQORIzszv7dQt1Cz7YoYlCIaUERVYcua1d
-        JJnUBP/3jkQOjT6iZQ9iZnb18O478xptsiaLwvfXqNxEIcry5gGJFJNnhUDK
-        GB1dSjg/HPfNQ1fzQb5usuZYRwEltC2iQCZB75xhq8FqieZVkTXF5qEpf0s6
-        IkATI8VAKUJg2TYGByBX5seqKvb5SarubhcS2GfdkcVLuX1uLpbL6Hz5P7T8
-        RwGTA0KybAbQ0/k+tNYJETjjgGWZCWiMEVJUHbSeg74pmqzaFk253/axnRI9
-        UaMVOS0MsSfzfWyjE2+JNCsLyk5QQ0y2k5oD+1gunJe6D6zIOq/YWKOV9kPg
-        yXwfGNEmnq0Fp9o1TgwuVpgiB9SB1BzxTfHlWPzSfWRkIqFBx8pbHiJP5gfI
-        GhPwXr05ehK5tYYNZIOeFfnm+Hh6zyudRcwgSjqtmfq40+mBkRUmDrUh3+5R
-        gbmzhEnBi7qhhf+YNi3qERMDo2giXkUnDWYHAk/nBwNDm8RrkJdot58QWMfk
-        WoEVBbBzyN+Kxz6uvLdSbI3xTs6qIe90QR9YMSZW7PO2xoB1p7FOxcHKBYVz
-        wJ+eq7K++Fw3VVHmz+/ZnREJrYwyZ0C7QfdNpwfTglwCbLyHbjSPe0OEBp+i
-        kQkX2M1xX+031UEw3gFLQznHdkA6Eh94wbFLEKRMozFjzQbSXTITuJ0PoLuJ
-        9vEcLq9vo/OPy+hPtm1dHF7byvpQ1e3nY/F0qNqq1W6l14slrnY//64Xd7RO
-        r06rNL9vL8qemqKSmvXu6mW1W8L1YnVap1tef71fSMH5fP4H9cNQO1MHAAA=
+        H4sIAAAAAAAAA4WUQWvbQBCF/0rQORIzs7O7s3sLdQs+2KGJQiGlBMVWHLut
+        XWSZ1AT/9450aiTLEjqImdHy8fbNe0+WRV0k8ft7sl4mMSkW9RMSGUvBGgQy
+        znFyreXF7rCtn9qZC/19XdSHfRJRS6syieQyImvZBEEWrS6qsqjL5VO9/q3t
+        hABdipQC5QjR6utTEAA9cnGoqnK7OOrUw/1EC9ui/WXytl691lfTaXK6/h8a
+        gxiwJEBI3roe9HC/C82cEXvLjkLzDkBjipCjaaF5DPqurItqVdbr7aqLLUb1
+        REavcnroYw/2u9iOsxAk6JVg8wxgQ0q+1dpGG1I9cVzrLrEhL8FY5x0bDn3i
+        wX6XGNFnQdiIs57BnycGSQ3maCNyJDNGfFd+OZS/uIuMlkhpUKwJ3vaRB/s9
+        ZMYMyYHjC4ZW5MYbPpKPPCry3eH5+JFXV0uXBlRJYbbUxR1u95xsMBNGA148
+        mLMC29YSLoeg6sYG/jJtXu7PuBgsBiNqVhTdMN8TeLjfSwx2WXBOnGGywQwI
+        zClJI7ChCH4M+Vv53MXV+zbGeueCCgOmzzs80AU2FjOvhgfgobTgVmPO1cFG
+        osEx4E+v1Xp/9XlfV+V68fqRXZxK6DXLxAFLb/uG2724IMlANL+lzebz3lCh
+        IeToNOKilTHum+2y2inGB2BdKBHre6Rn6j0viJUMjVW/azzwGUTQ7dJMsE0+
+        ALeJdjmI17f3yenHdfKnWDUuju/N5H5X7ZvP5/JlVzVTs82M55MpzjY//84n
+        DzTPb46zfPHYHFS81GWlM/PNzdtsM4Xbyew4z1d2/vVxogOn0+kf5bWo3lQH
+        AAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:06 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:31 GMT
 - request:
     method: post
     uri: https://graph.facebook.com/v2.8/act_1132789356764349/campaigns
@@ -77,17 +76,15 @@ http_interactions:
       string: name=Test&objective=MOBILE_APP_INSTALLS&status=ACTIVE&access_token=TEST_ACCESS_TOKEN&fields=id%2Caccount_id%2Cbuying_type%2Ccan_use_spend_cap%2Cconfigured_status%2Ccreated_time%2Ceffective_status%2Cname%2Cobjective%2Cstart_time%2Cstop_time%2Cupdated_time%2Cspend_cap
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
       Content-Length:
       - '421'
       Content-Type:
       - application/x-www-form-urlencoded
-      Host:
-      - graph.facebook.com
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
@@ -108,39 +105,37 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - HEI8IIDh4oN
+      - GgC3offIDtO
       X-Fb-Rev:
       - '2761076'
       Set-Cookie:
-      - sW=1483235706%3AAaBI1GSVx5qZD5DO; path=/; domain=.graph.facebook.com; secure
+      - sW=1483238011%3AAaBDz1J5OmVy6bRg; path=/; domain=.graph.facebook.com; secure
       X-Fb-Debug:
-      - W4jHt7L+fWcBSgWsOARW9EBg2wYb6y+e0g7W6lLxgLof4Ctc/bcKZJR8aOiOoPaF1IOcX1E0Ki493YRsfiibOA==
+      - GsKERJSKTf++St2fmqUqYLwFvtcSMPRnyzlWbBv+HQW7uNcEqrM6BloiVkHcoN17nPrXtSC6PES5XSbzgJOLZQ==
       Date:
-      - Sun, 01 Jan 2017 01:55:06 GMT
+      - Sun, 01 Jan 2017 02:33:31 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '26'
     body:
       encoding: UTF-8
-      string: '{"id":"23842539856340698"}'
+      string: '{"id":"23842539859960698"}'
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:06 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:31 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/23842539856340698?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v2.8/23842539859960698?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -149,7 +144,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"c549a17f963efc1497181c474cb66067b1e3fa4f"'
+      - '"fb509a2cae241f110fd828021c48387ae22148e0"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -161,7 +156,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - A7xE/UGiJSY
+      - CbAtgRf3ZEJ
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -169,9 +164,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - YWUm1DoUBfjvOaih5b/lkUjptQyd1bYi8oOCvNJVLZJ7OG1R59SPDgwUSj2e8ZJ+h29CUX9AyX2eBCkwjzp77w==
+      - 0J3G5erJjjReg+EgyTKDb2fUZah6IjDOR5wIouiPKxp9phVQPmf2XvlIpZfP1ZdsKwmePfbOs002YdweyH8e7g==
       Date:
-      - Sun, 01 Jan 2017 01:55:06 GMT
+      - Sun, 01 Jan 2017 02:33:31 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -179,29 +174,27 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA42OS2vDMBCE/4vONehhyZJvTsnB4Dwgbq9CkeWgQmRjSYVQ
-        +t+7TvGth8Jeduebmf1CfkA1okyWlDMluWAlFkqiF2SsnXJI+gkQwmglFeOi
-        EiUrFejX/PDhptNjdgA0b699ezrC3Zqgc3Q6zi4M2poZ1WnJDoQpjP6WFzfo
-        mEzKcbWB632/uhZnEijJ39c4iokoCC0Y6UlVc15jUWCJMZBuHJ1N/tP9kRLM
-        0927mGCbrh+/JJwOp13b7XVzPuv2eOmbrrsAAQlL2jqJEmrr5DVXMFtnnod/
-        fff9AyC1CyNQAQAA
+        H4sIAAAAAAAAA42OzWrDMBCE30XnGvRjKZJuTsnB4CaBuL0KRZaDCpWNJRVC
+        6bt3neJbD4W97M43M/uFwoA0okzWlDMluVICCyXRE7LOTSVm8wAIYXQnFeNi
+        J2pWK9Cv5R7izeT77AFoXp/79nSEu7PRlORNmn0cjLMz0nkpHoQpjuFWFj+Y
+        lG0uabWB6+2wuhZvMyg5fKxxFBNREVox0hOpGdOMVFhiDKQfR+9y+PR/pET7
+        cPc+Zdim6/svCaeX077tDqY5n017vPRN112AgIQlb51ECbV1cs0VzNZZ5uFf
+        333/AH7z4JNQAQAA
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:06 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:31 GMT
 - request:
     method: delete
-    uri: https://graph.facebook.com/v2.8/23842539856340698?access_token=TEST_ACCESS_TOKEN
+    uri: https://graph.facebook.com/v2.8/23842539859960698?access_token=TEST_ACCESS_TOKEN
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -222,15 +215,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - CKiC+1zpdJq
+      - HChG+oq9hDn
       X-Fb-Rev:
       - '2761076'
       Set-Cookie:
-      - sW=1483235707%3AAaCigX1gOHWGHZuW; path=/; domain=.graph.facebook.com; secure
+      - sW=1483238011%3AAaBDz1J5OmVy6bRg; path=/; domain=.graph.facebook.com; secure
       X-Fb-Debug:
-      - "+s3M8MS3XmElv8yKdkR0FtmT9wuZYEIrqi9CxEpDFpH7ShofKUiUUbEVx5cbn2dGMhjoA+M6bashfVS+wYZyeQ=="
+      - a09LtYaZ7ohov7tJTykOwMHv+3Nf5HOaN3le+QZDPIgWm1hkNmS1KvDTcpaWStfM727fv7x4mCGMFV1sWXHoPw==
       Date:
-      - Sun, 01 Jan 2017 01:55:08 GMT
+      - Sun, 01 Jan 2017 02:33:32 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -239,22 +232,20 @@ http_interactions:
       encoding: UTF-8
       string: '{"success":true}'
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:08 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:32 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/23842539856340698?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v2.8/23842539859960698?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -263,7 +254,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"a3cff062af2d69de81e3a44d4e3156e625416ea5"'
+      - '"21fca479371c4769b1aea86093452fe94811ec5d"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -275,7 +266,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - EaQqlib1bLT
+      - CDdH68QN7Ea
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -283,9 +274,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - k8wcfNq13e9o0y7pQYdCGBE1GWVXuRvaTlRiy+mD/m20cVnvczCS1k+aafBFhgilqa3dM5fF/1VrqDM5dJHwFw==
+      - 28g8ogrVCpujroQYmnbQqphZxgu4nJdlwDFMHhKQZmoiqhEiWMPN/RnhBaAU9Cpdxq88nnll09yDLusOgbVwVA==
       Date:
-      - Sun, 01 Jan 2017 01:55:08 GMT
+      - Sun, 01 Jan 2017 02:33:32 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -293,12 +284,12 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA42OzWrDMBCE30XnGiTLkiXf3MYHg/MDcc9CkeWgQmVjrwKh
-        9N27SfGth8Jeduebmf0iYSAVybkqcsG1EpIXVGpFXoh1bkoRzBNgjOel0lzI
-        Uha80Khf0j3Eq4H77BGo39/69njAu7PRpNWbdfZxMM7OpIIleRSmOIZrWvxg
-        VrCQVrTtmq7pm93DtngLKEH4fOTllMmM5RlnPSsrISoqM6ooRdKPo3cQbv6v
-        mGif9t6vgNt0+fhF8bQ/vrZdY+rTybSHc1933RkJjFhgK2Va6q1UVELjbKVp
-        Hv713vcPY/QWz1IBAAA=
+        H4sIAAAAAAAAA42OzWrDMBCE30XnGvRjKZJvbuODwU0CUc9CkeWgQmVjSYVQ
+        +u7dpPjWQ2Evu/PNzH6hMKIGUSZrypmSXCmBhZLoCVnn5hKzeQCEMLqTinGx
+        EzWrFeiXcgvxavJt8QC0by+6Px7g7mw0JXmTFh9H4+yCmrwWD8Icp3Atqx9N
+        yjaXBLZ9N3S6299tq7cZpBw+7nkUE1ERWjGiiWwYaxipsMQYSD9N3uXw6f+K
+        ifZh1z5l2ObL+y8Kp9fjcz90pj2dTH8463YYzkBAxJq3UqKE2kp5wxXMVlqW
+        8V/vff8AQZgEN1IBAAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:09 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:32 GMT
 recorded_with: VCR 3.0.3

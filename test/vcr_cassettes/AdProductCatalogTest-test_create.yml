@@ -5,20 +5,18 @@ http_interactions:
     uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs
     body:
       encoding: UTF-8
-      string: name=Foo+Bar&access_token=TEST_ACCESS_TOKEN&fields=id%2Cname%2Cvertical%2Cproduct_count%2Cfeed_count
+      string: name=Foo%20Bar&access_token=TEST_ACCESS_TOKEN&fields=id%2Cname%2Cvertical%2Cproduct_count%2Cfeed_count
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
       Content-Length:
-      - '255'
+      - '257'
       Content-Type:
       - application/x-www-form-urlencoded
-      Host:
-      - graph.facebook.com
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
@@ -37,37 +35,35 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - HwspR8Rzd4E
+      - DwKDrC1jPrM
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - Qp5JmWRtUNYgMao465pLx0kBVKun8XfAAGSzIj/yD8+vUlP8J3z1P3iBJ12Wx6Fy8avtvgnhkh6tgNrBV5DPWg==
+      - 3gvbCpvLrQ+TEr+mRGfN5U0B0gDgMY4MT+NgHGOMAKAh+Q8E9Vk50vcBsjOGU97UCm3Pug0OMc3279LedWYqgg==
       Date:
-      - Sun, 01 Jan 2017 01:55:11 GMT
+      - Sun, 01 Jan 2017 02:33:33 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '24'
     body:
       encoding: UTF-8
-      string: '{"id":"872206089583210"}'
+      string: '{"id":"170503373426164"}'
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:11 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:33 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/872206089583210?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    uri: https://graph.facebook.com/v2.8/170503373426164?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -76,7 +72,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"6b12382afdf59a27aff05c85b5928ddfdb655703"'
+      - '"82aa1b8e08c74e0b1a196f692648495bbf769761"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -88,37 +84,35 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - ED3uJ91pTK1
+      - BiXTKhZ20on
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - sffRWVW3BWjuJ7LCl+dRSiW8A92GaysQwcCcRk2PAYdRJLLBuG7A97OW65tVLFa6wPcxUQjGNH+CqpWSw7f6bg==
+      - HD5mJaaE1aump6kkPEiWsi9mUaeicnQEVxKMOIJUkKT5HM7B51M/8SVr1WxAIjgD79IllSC/iPpxSL6whC2ywA==
       Date:
-      - Sun, 01 Jan 2017 01:55:11 GMT
+      - Sun, 01 Jan 2017 02:33:33 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '96'
     body:
       encoding: UTF-8
-      string: '{"id":"872206089583210","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
+      string: '{"id":"170503373426164","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:11 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:33 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/872206089583210?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    uri: https://graph.facebook.com/v2.8/170503373426164?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -127,7 +121,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"6b12382afdf59a27aff05c85b5928ddfdb655703"'
+      - '"82aa1b8e08c74e0b1a196f692648495bbf769761"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -139,37 +133,35 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - DFgA5yuvti8
+      - CM9KCf1EzSG
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - HwFoHNpwT/m101wjQc2ORoIHkei26O0+yh1WKQyMnIUXjenJtUNFBYjz7QjUsAT766h7Nk6rNhTrDV4A4Ib1NQ==
+      - XXELCZN8fyEMaburaOO2Q7yNVLVklB6zyB0reIPjRDqVaFF18ToehByTFbOxwqltj3TRbA5wCWBtVeCaxROuwg==
       Date:
-      - Sun, 01 Jan 2017 01:55:11 GMT
+      - Sun, 01 Jan 2017 02:33:34 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '96'
     body:
       encoding: UTF-8
-      string: '{"id":"872206089583210","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
+      string: '{"id":"170503373426164","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:11 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:34 GMT
 - request:
     method: delete
-    uri: https://graph.facebook.com/v2.8/872206089583210?access_token=TEST_ACCESS_TOKEN
+    uri: https://graph.facebook.com/v2.8/170503373426164?access_token=TEST_ACCESS_TOKEN
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -188,13 +180,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - AbrmGf47vsL
+      - CG5cLmJxMvy
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - Nr6ftxI7Y4t7RJ/pycghm3XWH1nkT0KcFDV+jykfUFI5Cjn6krjGa2Q9fEa9BURZiKG3q24f3QInBN72U94fOg==
+      - 8kmeA1oA4BxPq1/CCOCFfpvU+7RrN22n5Rgex8/RdO5fRhGkod6NSfhCEAKjy7Nyk/tixnLUJIJi+AtOHQu1nA==
       Date:
-      - Sun, 01 Jan 2017 01:55:11 GMT
+      - Sun, 01 Jan 2017 02:33:34 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -203,7 +195,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"success":true}'
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:12 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:34 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
@@ -212,13 +204,11 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -239,7 +229,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - HxhvTQoMiin
+      - GdK+cnbk26h
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -247,9 +237,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - B2cp2exBG1GyPdhCUVsT3S2NpxYSt7Gd7DuJjeWE79kuLN8O5aI6lPsYV8U4ZYuqE25R8son9N1sEmaysWfMWQ==
+      - 4Wg7uXPOHMXJya6/WDHSD1SCkO6HoIlERtCLfjXW8fKZw7CWBL20201f5Q+1FvJ2ApHR/SLLyYIL7t0LBO553g==
       Date:
-      - Sun, 01 Jan 2017 01:55:12 GMT
+      - Sun, 01 Jan 2017 02:33:34 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -262,5 +252,5 @@ http_interactions:
         iRip2Bd7GzHc0EcXQIsKeiL7w3wtEzOMbgCdACPPnuc13qn3vL633UOej/hp
         l4Nsl0aclmZbfk0fiP/VOecvv4YTXL4AAAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:55:12 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:34 GMT
 recorded_with: VCR 3.0.3

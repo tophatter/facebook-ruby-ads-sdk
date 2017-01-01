@@ -8,13 +8,11 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -35,7 +33,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - DWQ4gAWC8aD
+      - DLCpw/CioIz
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -43,9 +41,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - q8dwNMXJEwHrlsYMNeuj/Vm2fuVytOH2YqoWvmtdjz34Bj75VteOyjF/FshRAVVcOsiYCa6ezMutUvPdV2VjqQ==
+      - bC/e/XS1/SBBd+i8nBYjuKq8fH5lDfU2AkEMOlYrh9KbX3vOzKnhbCFebbRREnTGuNKJ2dXra6c3vxtqgCJBOw==
       Date:
-      - Sun, 01 Jan 2017 01:54:45 GMT
+      - Sun, 01 Jan 2017 02:33:34 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -58,7 +56,7 @@ http_interactions:
         iRip2Bd7GzHc0EcXQIsKeiL7w3wtEzOMbgCdACPPnuc13qn3vL633UOej/hp
         l4Nsl0aclmZbfk0fiP/VOecvv4YTXL4AAAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:54:45 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:34 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url&limit=100
@@ -67,13 +65,11 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
+      - Ruby
   response:
     status:
       code: 200
@@ -94,7 +90,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - DJBxh9w6eCJ
+      - FEsxhkoKAm0
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -102,9 +98,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - alnemfK36xLAZuJJO258AAwALI/ANP+bwXr8Z5jt0dKSP9DPAtD/zSGYggMhZFsdlV6hBIFP9dXNSPlDPiAIWQ==
+      - kpTAOYHwfddkGrvWp32KTHz97vxETw4MUMtmG8xz9o99LegDnrNmHSOcy8UH2v7X9Tr5z/8OvzGENyBycfDttw==
       Date:
-      - Sun, 01 Jan 2017 01:54:45 GMT
+      - Sun, 01 Jan 2017 02:33:34 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -130,5 +126,5 @@ http_interactions:
         +UnUyykpMzGk2XM7Ry8WtIPafezuL7aqg47b0RndNvyyn6e/s4/D3xm/5r4D
         1LVX0g2VQ2CavWMDh6/2WA3x9riH/zv4L3bwaVFfa+Hj409lK5S5NQYAAA==
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:54:45 GMT
+  recorded_at: Sun, 01 Jan 2017 02:33:34 GMT
 recorded_with: VCR 3.0.3
