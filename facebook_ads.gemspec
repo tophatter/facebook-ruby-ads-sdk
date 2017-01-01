@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = "This gem allows to easily manage your Facebook ads via \
                    Facebook's Marketing API in ruby."
 
-  s.extra_rdoc_files = ['README.markdown']
+  s.extra_rdoc_files = ['README.md']
 
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map do |f|
