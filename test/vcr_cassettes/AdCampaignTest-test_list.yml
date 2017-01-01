@@ -23,7 +23,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"beffc9d8c1adc1637249cb857cab55aca22e97b1"'
+      - '"1d7a9dc9dcbd71bfedb6b44235df71dffb905a4f"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -35,7 +35,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - Ck/5M6KkgCf
+      - EtlAasRVcNd
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -43,32 +43,32 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - D6Lx4AExuC6UP4o1e2AT7UC0/qawSWvYj4XS7h0fSpfxI3RIofPVMuIsQwHCeQLu3mzm9XIOretdfLsmcZbpnQ==
+      - TF0iLqXD2ZDaGOSK3KsWgi0h79AkkWLVO4SWUTpoP5ah415V0oyFpEM4xQDNhMJNqMbmEQzDlrb/GwncDJIU4Q==
       Date:
-      - Sun, 01 Jan 2017 01:32:53 GMT
+      - Sun, 01 Jan 2017 01:37:11 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '628'
+      - '626'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA4WUQW/bMAyF/0rhc2yIpChRuhXLBuSQFGs9DOgwFG7ips62
-        ZLAddEGR/z46u6x23Ag+GHqU8OGJfK/JqmiLJH57TapVEpNi2T4AIjEGJjBI
-        ztlkotvL3X7bPpxq3tGbtmj3TRJBt9ZlEtFlIGTJ8yRZ1mXRlquHtvqlSoIG
-        XAqYGszBRNbPp0aM0duW+7out8uDVn25m+rGtjgdmb5U6+f2ajZLjpP/eSEI
-        GUYxCOjZDXjH9T6vtRkathQErMAYNKRgcqATtL0EfVu2Rb0u22q77mMLqZVg
-        wauT3gyxR/U+trNZYCfgAYOjEWqToj9ZzZFDqhdetroPTOglEDvvLNkwBB7V
-        +8AAPgsW9UlMQA7niY2kBDlwBBuRLhHflp/25U/bRwZGVBoQpuB5iDyqD5At
-        ZEYosFC3RpG71vARfbQXTb7dPx7e8upQIbNRJ8Vaxj7uuDxoZILMh6BQJCJn
-        DeZTS7jcBHU3dvDv0+Zlc6aJDUMg0V4F0df0A4PH9UFWWJcFtDqgweoaMdim
-        KJ3BhNH4S8hfy8c+rr43EXvnguhZGvKOF/SBidVjcj78i4tzwPbksc21g0ki
-        wSXgD8911Vx9bNq6rJbPb9nFqYVeo0ycsTKYvnF5kBYombHADs8GHHcmm5CD
-        03SLLJeYr7ereqcIb2B1mETYDyjP7A/6QFj5AlkNhvPZYHSyNA+4ywZjT2n2
-        fgZXN3fJ8fsk+V2suw6Or11ls6ub7vexfNrVXdV8M7eL6Qzmmx9/FtMvuMiv
-        D/N8ed9dVDy1Za01i831y3wzMzfT+WGRr3nx+X6qBcfj8S+euIZiSgcAAA==
+        H4sIAAAAAAAAA4WUT2vbQBDFv0rQ2RIzuzP77xbqFnywQxOVQkoJiqw4clu7
+        yDKpCf7unVUvjWRFQgezb7T8eH7zXpN10RZJ+Paa1OskJEXZPqBSmpVnjaC0
+        MZTM5LjcH3ftQzfzjn5oi/Z4SALK0aZKgjIZOkMyhvGZJWVTFW21fmjrXyIn
+        CtCkqFJQOUJgeW0KDkCuLI9NU+3Kk0x9uZvLwa7oPpm/1Jvn9mqxSM6z/6HR
+        Ow2sHChUls0AelzvQxNlChwp9vE1I9CYIuSoO2iagr6t2qLZVG292/SxnRY/
+        kdCKnRaG2KN6H9tQ5tk70IrA0pjXkCrbec2BfSo3TnvdJ9bKOq/ZWEOa/JB4
+        VO8TI9rMEytjFGh7GRhcqjFHDkhB6Sng2+rTsfpJfWJkpQQGHWtveUg8qg+I
+        CTNwxtO/ZxQ5RsMGZQNNenx7fDy95ZXNUswgRjoSd/q44/IgyBqzmHdn+RIp
+        d2kwOXhxNkTw90nz6nAhwMDotZOcopPlsgNzx/VBWZDJvLKWZE+ZR/YOKFUu
+        mqtVADuF/LV67OPKf601W2O8k2/1kHd8oA+sGTMriZHdj1VxCZg6jymX9GoX
+        NE4Bf3hu6sPVx0PbVHX5/JbdGbHQSo05A+QGizcuD5pCuQwkO+TMWCtzNBp8
+        jkbaLbCb4r7erZu9YLwBjtY4tgPSC+eDLDgWRm8IR6oBZLGkDjhWA1DXZe9X
+        cH1zl5y/z5LfxSaGOLzGycO+OcSfj9XTvolTy+2SVvMFLrc//qzmX9Qqvz4t
+        8/I+XlQ8tVUjM6vt9ctyu4Cb+fK0yje8+nw/l4Hz+fwXwPk/gE4HAAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:32:53 GMT
+  recorded_at: Sun, 01 Jan 2017 01:37:11 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/act_1115226431853975/campaigns?access_token=TEST_ACCESS_TOKEN&effective_status%5B%5D=ACTIVE&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap&limit=100
@@ -104,7 +104,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - C55Q+3W3uwt
+      - CsMxsQq2Jfr
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -112,9 +112,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - y1aUX88fmjpPW5mrIGfUBMe0Lxc06QT7ThaA8411LnmbHkiAlrZiGG9KEiFBVGTUN/bmFFdgi2tNT82gRogZPg==
+      - m69+ourf6cEHiSUHegYvNSHo5/Bjr99JPx/1QFGBJ+cFoMV41p+qIJrd33HqZm5DnYHBjozURtQfR9C0eYCO2A==
       Date:
-      - Sun, 01 Jan 2017 01:32:53 GMT
+      - Sun, 01 Jan 2017 01:37:11 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -133,5 +133,5 @@ http_interactions:
         9jjmrFhnpFinOK8aVlYpKY7Zj/VkvvPKvmPydY6LKof8+Macz+c/H+hUq3gE
         AAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:32:53 GMT
+  recorded_at: Sun, 01 Jan 2017 01:37:12 GMT
 recorded_with: VCR 3.0.3

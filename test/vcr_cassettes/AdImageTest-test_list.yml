@@ -23,7 +23,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"1923c05e2b4a8d5155c1455a5819a698d018c6e9"'
+      - '"52a6a30896c477b37870ec2bd6775864dbdff29d"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -35,7 +35,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - GKa//5QVNRY
+      - C8dWvMryMxq
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -43,33 +43,32 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - kKR2qG77yDbuRx1F7TXBpp7aEtZSyISVjGawB4YjOjWtnsvVsTaNIkrqB2InBtbKCE0MuaueOWf0XVZicnvrqA==
+      - "/odTY8NMYbtbOrOMV2nsL3LC9U8GID0+9+/9c4S+5qQim29UWOSrEXpAazP6xKR8gX9gZ9TpgL1w1kQ02LTOGw=="
       Date:
-      - Sun, 01 Jan 2017 01:33:01 GMT
+      - Sun, 01 Jan 2017 01:37:10 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '633'
+      - '630'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA4WUQW/bMAyF/0rhc2yQlChRuhXLBuSQFGtdDOgwFG7ipsm2
-        ZHAcdEGR/z7avax2nBg6GCItfH56fG/JoqiLJH5/S1aLJCbFvH5EIsMU2CCQ
-        cc4mI92eb/eb+rHtOVPf1UW93yURdWtZJpFchmLYAATiYEbJvCqLulw81qvf
-        Wk4I0KVIKVCOEFmXT0EA9Mj5vqrKzfygXfd3Y93YFO0n49fV8qW+mkyS4+h/
-        aAxigEmAkDy7HvRwvQttbUbAbMiC1zUAjSlCjqaFtpegb8u6qJZlvdosu9hi
-        VE+06FVOD33swXoX29kssAsQPDXPADak5FutOXJI9cTLWneJDXkJhp131tjQ
-        Jx6sd4kRfRYsGU9OGMNpYpDUYI4c0UYyl4hvyy/78pftIiMTKQ0Km+C5jzxY
-        7yFbzEAs8DlDK3LjDR/JR3tR5Nv90+Ejr44WMYMqKdYydXGHyz0nG8x8CBRM
-        ELRyipZbS7gcgqobG/jztHm5O+Fi0OszomZF0QnzPYGH673EsC4LZMXqX3qw
-        AwLblKQR2FAEfwn5W/nUxdX7Noa9c0H0W9PnHW7oAhtWjY0TcTyUFrbV2Obq
-        YCPR4CXgTy/Vanf1eVdX5Wr+8pFdnEroNcvEgZXe9A2Xe3FBkoFFx+9WPu0N
-        FRpCjk4jLrJc4r7eLKqtYnwA1oESYd8jPbHf84KwMmqU6FzqOoEIOl2aCdzk
-        A9g20c4H8ermLjn+GCV/imXj4vjWdO621a55fSqft1XTNV1P7Ww8wen659/Z
-        +J5m+fVhms8fmoOK57qstGe2vn6dridwM54eZvmSZ18fxtpwPB7/AQc2G0JU
-        BwAA
+        H4sIAAAAAAAAA4WUT2vbQBDFv0rQ2RIzszP77xbqFnywQxOFQkoJiq04dlu7
+        yDKpCf7uHenUSFZk9mD2jZYfb9++t2RV1EUSv78lm1USk2JZPyKREQpiEMhY
+        y8lEt5f7465+bGc+0A91UR8PSUTdWpdJJJuht4wExumaJMuqLOpy9Vhvfquc
+        EKBNkVKgHCGKLpeCB9Ajl8eqKnfLk07d3011Y1e0n0xfN+uX+mo2S86T/6Ex
+        eANCHgjJie1BD+tdaOaMwDOyEfRCA9CYIuRoWmgeg74t66Jal/Vmt+5ie6N+
+        IqNTOx30sQf1LrblLEhwAW3zG/IaUnKt1xIlpHriuNddYkPOByPWWTYc+sSD
+        epcY0WWBhYQtBWsuE4NPDeYoETmSGSO+Lb8cy1/cRUYhUhq9ThOc9JEH9R4y
+        YwbeBkN+ONCK3GTDRXKRR02+PT6d3vPq0yIRUCc9qz1d3GG5l2SDWRN4J4Ek
+        XDRY2kjYHIK6Gxv4j2nz8nAhxSAYjNewotcX5noGD+u9xmCbBXKadva6Bgzm
+        lHxjsKEIbgz5W/nUxdX7NkactUGvEUyfd3igC6wlkTlNjfWDbcGtx5xrgo2P
+        BseAP71Um8PV50NdlZvly3t2b9VCp13mLbDvvb5huVcX5DPQ/LTFDHw5G2o0
+        hBytVlwUP8Z9vVtVe8V4B6zWeC+uR3phv5cFL8oYLAPwxXoAfVxaCdLUA3Bb
+        aB/38ObmLjn/mCR/inUT4vjWTB721aH5+1Q+76tmar6d82I6w/n259/F9J4W
+        +fVpni8fmoOK57qsdGaxvX6db2dwM52fFvlaFl8fpjpwPp//AZYu9fpTBwAA
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:33:01 GMT
+  recorded_at: Sun, 01 Jan 2017 01:37:11 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/act_1132789356764349/adimages?access_token=TEST_ACCESS_TOKEN&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=037b8f4f2383f45f35b110cf72c46f0b&hashes%5B%5D=a9e27630331b8ca2ebac1bb8619c98eb
@@ -93,7 +92,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"344fc17ccb789520a6fa5368480c21bf4767e8ac"'
+      - '"4a30e758b4b0032531349a6554a499677b351326"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -105,7 +104,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - E3a+x9GHxqr
+      - G/zQ6X86L3F
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -113,30 +112,30 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - vuDgbLRdXVPskkpZ13w8Bm0Zsidaxz8GOhf//BXNPS8IVLJjbwPdduwzK3Gq26aWp2ZUiGzuCDv0r1FGu/zt/A==
+      - eE+4rwRDTt/SQpb7RLu0vWZQszDszbpu8VuKBAhscH/sxwO1CPMcDG/AYj29cDn3WQrkL8MQQVZ9oZNKSIE+xA==
       Date:
-      - Sun, 01 Jan 2017 01:33:01 GMT
+      - Sun, 01 Jan 2017 01:37:11 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '626'
+      - '623'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA62RXW+iQBiF/wvXtcIMnyabDRVFpQNitQjrZjJ8D/KhiKXS
-        +N8Xm73oxTZpk72bnPe8Z2bO88aEpCHM6NcbQ0NmxHAcBJKsQEGURB7yyogo
-        EZBEyELI+XJAQOSTgPN9WeSUQJEjn7ljUnJK+9UvOEkQVOeywf+8qp+XpIhu
-        SSEtSBJ5GgA6vM8OUdLPDlFdkJyWe3yu896UNs3hNNoNd8O2be9jEkR+Ve3v
-        g6rYDUl42g3fM3bDn+EP1TamyLKLabmsToNjLuz1WmIzW1VwlyoNqQfqYtmQ
-        CT9Y2Y6kmpz4sOwySc+m6lYzS+xPtUlpBBfeGmsn69F4Gtj+Ssdm6j9kMlo/
-        2/iYO9Y5ZA9uI+MZt6rPy3F5OHYAC3PeQPZxZtVrqMywSsPWq4FlLsd6sOh/
-        VdU0oSXJcUvDpm9RZNkPYhrRJG3e1evdZ4RYKPlyzMcAyjDmhRgKPsexQSyB
-        gBdj9gOhLzi/R8gl1nYz/T+EOk+WJ40NK3p8Sl/ETLIeS327AkbK4/1m8lCC
-        5pzX8yM1xlm7XeD5xniysWdjrXZYOou7VbMZcMLCnsvJawo6YewaPHDgBVCI
-        lhcWvD4sqDrYU32vJFlIHy9YORoCF2m2CvzZC5vk+yKdveDtJFhJfAg1Z6F9
-        i9DvvgLSywkzemOCc32q6tPt6EdxVd9aQ+tJh7KAt9aIM7MAmBpirfUhtZzN
-        xezcDmmoQ86cd8Hk4qnOInW7KXWzBKB1nlnrNHcTT/NujyJxE9WfJlYt6kJq
-        6S7rqdm8szSzMLXnAnXPtF9oXeBCVCDWLNz2b+L1ev0DeHWJPQoEAAA=
+        H4sIAAAAAAAAA62R22+iQBjF/xee28pNLiabDRVFaQdEQTusGzMMM1zkooBS
+        afzfF5t96MM2aZN9m5zvfGfynd8bE6IGMaNfb0wSMiOG4wReVlRhKMmSKIjq
+        CKmElyWBFQQuUDDiSYAwFwSKxKlYVUjA3DExquN+9QtOhHF5KprdP7/q5wXK
+        yS0pTHIUEV/neUN4SA8k6mcHUuUoS4r97lRlvSlumkM92g62g7ZtHyjCJCjL
+        /QMu8+0AhfV28J6xHfwMf2iO2bEYelPbo+O1Wdft5PVFhZ3UDcWzJS/UTJcz
+        G9ALh5WERHpxP+U1Ftbmah+bnHTcFynrc/M2cmzwHBTjZO7M6A4qx70vHeem
+        aMzNlj0Wm1wVnNnjBZpn7ZTafhkWR12uff8eJvfnqNUC5xidPZp75uJApCzt
+        ryqrJEoKlO3aJGz6FiWW/SDGJIni5l293n1GiBXkQKEi5QVFoOKQCsOA41hM
+        ZR6LEmU/EPqC83uEILJfvOl/IfSUUNswLuozB3PDcOSZFs3IzF3OLG+BNe6w
+        ghvlaTnJVz4GZRPxeGLyIXDZxCxfZqB2vfVYjxZ+5kDszsSWOhkKStJww8X6
+        VYaqbXQ2H6WPUr0U2p0paw1SAQHrU7WyhIbKh2VHATEDb/zowAvNLybv2uL3
+        CP3uK0C9HDGjNwafqrqs6tszILSsbq0Bd9KBFIu2CzgrxbylA9Z2D7G98S5W
+        Bzuggw5s5iLkJxdf25gx7KYJTCMeuFlqu3EGI1/39Rsm2pDq08SyBV2Y2AZk
+        fS2dd7Zu5Za+zkG3TvqFFvJQADlgrRy2fxOv1+sfiWPIvgoEAAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:33:01 GMT
+  recorded_at: Sun, 01 Jan 2017 01:37:11 GMT
 recorded_with: VCR 3.0.3
