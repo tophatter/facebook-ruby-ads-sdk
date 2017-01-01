@@ -28,7 +28,7 @@ module FacebookAds
 
     def validate!
       { gender: genders, countries: countries, user_os: user_os, user_device: user_device }.each_pair do |key, array|
-        if array.present? && !array.is_a?(Array)
+        if !array.nil? && !array.is_a?(Array)
           raise Exception, "#{self.class.name}: #{key} must be an array"
         end
       end
@@ -36,7 +36,7 @@ module FacebookAds
       { genders: [genders, GENDERS], user_os: [user_os, OSES], user_device: [user_device, DEVICES] }.each_pair do |key, provided_and_acceptable|
         provided, acceptable = provided_and_acceptable
 
-        if provided.present? && (invalid = provided.detect { |value| !acceptable.include?(value) }).present?
+        if !provided.nil? && !(invalid = provided.detect { |value| !acceptable.include?(value) }).nil?
           raise Exception, "#{self.class.name}: #{invalid} is an invalid #{key}"
         end
       end

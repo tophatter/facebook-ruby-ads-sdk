@@ -2,17 +2,23 @@
 http_interactions:
 - request:
     method: post
-    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs
+    uri: https://graph.facebook.com/v2.8/760977220612233/product_catalogs
     body:
       encoding: UTF-8
-      string: name=Foo%20Bar&access_token=TEST_ACCESS_TOKEN&fields=id%2Cname%2Cvertical%2Cproduct_count%2Cfeed_count
+      string: name=Foo+Bar&access_token=TEST_ACCESS_TOKEN&fields=id%2Cname%2Cvertical%2Cproduct_count%2Cfeed_count
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Content-Length:
+      - '255'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -31,35 +37,37 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - GTr59E+jI2v
+      - DewNf6ivpuK
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - ELpr3opibVP9YR5MIulpeJpxFVekb/eP/E3oK1ZYV/nf5QK1OOfg8WxSMKTa+qiSfOoVhzkz1ho9c491U2bPOQ==
+      - "/fDm4ERHYDr4GSgQGZnUMRXYunM73O+3sLj/djpHyoygoUSD02I+tOJRbze2WEH78zsmyPdXYCnVsXrjfrBqZw=="
       Date:
-      - Sat, 31 Dec 2016 23:50:24 GMT
+      - Sun, 01 Jan 2017 01:32:54 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '25'
     body:
       encoding: UTF-8
-      string: '{"id":"1364487270270097"}'
+      string: '{"id":"1051763514967928"}'
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 23:50:25 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:55 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/1364487270270097?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    uri: https://graph.facebook.com/v2.8/1051763514967928?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -68,7 +76,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"11709a060f8bcdea160160f9fcde3e7dc81c19bd"'
+      - '"b97474547642f48fb25467c2a4564699fbf012a3"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -80,20 +88,179 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - FFr1h7zgGZc
+      - GU2CQt7O3sb
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - d4Lyif/+Xvy68xky8DV2NqX+pcRjGgHH59rth9F5SBAsL7c44iZjvAESiXmrSdAU3WB94hIjsD1K7q29f3zQ8g==
+      - pFd8Ep7vi9CJYU0uYVWz4Q1wPhpmNogbZ3L7Aj/zJsMtHKoaiggoMMBWZI2HyeCnED0GxPadHEPhIXnuFOi8hw==
       Date:
-      - Sat, 31 Dec 2016 23:50:24 GMT
+      - Sun, 01 Jan 2017 01:32:55 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '97'
     body:
       encoding: UTF-8
-      string: '{"id":"1364487270270097","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
+      string: '{"id":"1051763514967928","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 23:50:25 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:55 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/1051763514967928?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"b97474547642f48fb25467c2a4564699fbf012a3"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - HhpSNmGzyW6
+      X-Fb-Rev:
+      - '2761076'
+      X-Fb-Debug:
+      - qPg/NurorwhEDhSKeLKJh/ES1jzIRLqyYJUvACxUuT3yXQA6nfmer5JAWmd29g1IQffBQtbahQ8F6bsjeEvMlw==
+      Date:
+      - Sun, 01 Jan 2017 01:32:55 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '97'
+    body:
+      encoding: UTF-8
+      string: '{"id":"1051763514967928","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
+    http_version: 
+  recorded_at: Sun, 01 Jan 2017 01:32:55 GMT
+- request:
+    method: delete
+    uri: https://graph.facebook.com/v2.8/1051763514967928?access_token=TEST_ACCESS_TOKEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - FgrupJnWmgG
+      X-Fb-Rev:
+      - '2761076'
+      X-Fb-Debug:
+      - OTcY+8rVz0d/okaExETS9Xd+tlb1CjitqtQdRLx9whivhl88Xv02droghqd/9N0/lsWeDxfJgO3H4le+DNEgXA==
+      Date:
+      - Sun, 01 Jan 2017 01:32:55 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '16'
+    body:
+      encoding: UTF-8
+      string: '{"success":true}'
+    http_version: 
+  recorded_at: Sun, 01 Jan 2017 01:32:55 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/760977220612233/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"4da6baa87a2d2d9485d71880069bf895add8e5de"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - EiF/o7fcOq1
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      X-Fb-Debug:
+      - jaMGA0/tbi0odJbvZ6rj17ttj1NV/ezJgqs3xG9K0vdbnUNFFjU9mMdKbSbTV41rLDnGW9uCuaPxXMw+0jFcTA==
+      Date:
+      - Sun, 01 Jan 2017 01:32:56 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '161'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3WMsQrCMBRF/+XNHQxRUrMJdqwu3UQkvryWok3kNRFpyL+b
+        Lm5u95x7uQmsCQb0JcFoQYPYq1oJuVFS7JSooQJnJipFR3Mo9CYOI5pnMein
+        iRip2Bd7GzHc0EcXQIsKeiL7w3wtEzOMbgCdACPPnuc13qn3vL633UOej/hp
+        l4Nsl0aclmZbfk0fiP/VOecvv4YTXL4AAAA=
+    http_version: 
+  recorded_at: Sun, 01 Jan 2017 01:32:56 GMT
 recorded_with: VCR 3.0.3

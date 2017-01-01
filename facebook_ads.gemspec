@@ -12,19 +12,13 @@ Gem::Specification.new do |s|
   s.summary     = 'Facebook Marketing API SDK for Ruby.'
   s.description = "This gem allows to easily manage your Facebook ads via \
                    Facebook's Marketing API in ruby."
-
   s.extra_rdoc_files = ['README.md']
-
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map do |f|
     File.basename(f)
   end
   s.require_paths = ['lib']
-
   s.required_ruby_version = '~> 2.0'
-
-  # Should probably drop this dependency.
-  s.add_dependency 'activesupport', '~> 4.2'
-  s.add_dependency 'httmultiparty', '~> 0.3'
+  s.add_dependency 'rest-client', '~> 2.0'
   s.add_dependency 'hashie', '~> 3.4'
 end

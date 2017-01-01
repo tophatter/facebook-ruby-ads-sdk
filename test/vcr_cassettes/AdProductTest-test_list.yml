@@ -2,17 +2,19 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    uri: https://graph.facebook.com/v2.8/760977220612233/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -33,24 +35,30 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - B3aFfUSuges
+      - AGDJjCa57tl
       X-Fb-Rev:
       - '2761076'
       Vary:
       - Accept-Encoding
+      Content-Encoding:
+      - gzip
       X-Fb-Debug:
-      - MdOYjrksDCXjh9vu/Vb5NvMSxR7so5IiiANniACjl4SQXyjGEuup0Ay5IZ356lwg12u7RiGexzQPFFY6JV5dxA==
+      - huSC4Ezs8HA9nBFhMmisLOAVc2S40CIny310MANwuQVoqn8pouYcsLJVwLk0IeU6fIzXWoHnk7/wRtqiKQI8DQ==
       Date:
-      - Sat, 31 Dec 2016 23:54:48 GMT
+      - Sun, 01 Jan 2017 01:32:53 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '161'
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"197871307315718","name":"Test","vertical":"commerce","product_count":1,"feed_count":1}],"paging":{"cursors":{"before":"MTk3ODcxMzA3MzE1NzE4","after":"MTk3ODcxMzA3MzE1NzE4"}}}'
+      string: !binary |-
+        H4sIAAAAAAAAA3WMsQrCMBRF/+XNHQxRUrMJdqwu3UQkvryWok3kNRFpyL+b
+        Lm5u95x7uQmsCQb0JcFoQYPYq1oJuVFS7JSooQJnJipFR3Mo9CYOI5pnMein
+        iRip2Bd7GzHc0EcXQIsKeiL7w3wtEzOMbgCdACPPnuc13qn3vL633UOej/hp
+        l4Nsl0aclmZbfk0fiP/VOecvv4YTXL4AAAA=
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 23:54:49 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:53 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url
@@ -58,12 +66,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -84,27 +94,43 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - CJExhugvnuJ
+      - CUcKPTTq6KL
       X-Fb-Rev:
       - '2761076'
       Vary:
       - Accept-Encoding
+      Content-Encoding:
+      - gzip
       X-Fb-Debug:
-      - "/ggaHL0oGHryH7551ssEKLa0/29K25wqVpbqwJN6FkvWzr0JyNHmOSl/feAiJ9u1izRNvjBRHv96IfODSYuBsA=="
+      - dToBykkI52tjhRaa5EopkFOEUjePYE0ViKhLFC1+gngD41pkccK17CuF9pot1u7C/UUsCY7jq+stFUMkK3Q7sw==
       Date:
-      - Sat, 31 Dec 2016 23:54:48 GMT
+      - Sun, 01 Jan 2017 01:32:53 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '763'
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"1489112071104048","retailer_id":"retro-ruby-earrings","name":"Precious
-        Retro .925 Sterling Silver Artificial Ruby Earrings","description":"$5 shipping
-        - at your doorstep within 25-27 business days.","brand":"Adoration-Precious","category":"Jewelry
-        | Earrings","currency":"USD","price":"$156.00","image_url":"https:\/\/external.xx.fbcdn.net\/safe_image.php?d=AQALnOfu1mhkpb4T&url=https\u00253A\u00252F\u00252Fd38eepresuu519.cloudfront.net\u00252F12c85243d743ac3cb21b71c34192b252\u00252Flarge.jpg&cfs=1&_nc_hash=AQBlxlDCq59tO6sE","url":"https:\/\/tophatter.com\/lots\/23275728"}],"paging":{"cursors":{"before":"MTQ4OTExMjA3MTEwNDA0OAZDZD","after":"MTQ4OTExMjA3MTEwNDA0OAZDZD"},"next":"https:\/\/graph.facebook.com\/v2.8\/197871307315718\/products?access_token=TEST_ACCESS_TOKEN&fields=id\u00252Cretailer_id\u00252Cname\u00252Cdescription\u00252Cbrand\u00252Ccategory\u00252Ccurrency\u00252Cprice\u00252Cimage_url\u00252Curl&limit=25&after=MTQ4OTExMjA3MTEwNDA0OAZDZD","previous":"https:\/\/graph.facebook.com\/v2.8\/197871307315718\/products?access_token=TEST_ACCESS_TOKEN&fields=id\u00252Cretailer_id\u00252Cname\u00252Cdescription\u00252Cbrand\u00252Ccategory\u00252Ccurrency\u00252Cprice\u00252Cimage_url\u00252Curl&limit=25&before=MTQ4OTExMjA3MTEwNDA0OAZDZD"}}'
+      string: !binary |-
+        H4sIAAAAAAAAA+1Ty3KbMBT9FYbpeFVjxCNAZjwdYew0bajrxPE01B2PEMIo
+        wYhIwo+m+fcKJ7RpF1l30ZV0zz06us8HPUMS6adfH3Sa6ac6cPwAAMv0ADAd
+        0/H1tzonEtGS8NWRoCzO+rxJD32COKfVWihOhTZEOT9zgilrhHbZsjQjsFzt
+        ShJeKpp2Rcst4RrkkuYUU1Rql0pFG/9WyYjAnNaSskqJvXE1UdC6bt/2NSS1
+        A2u4ljHGhSS1tqOyoJVmuX3L09JG0IoIoWXoIAwllXJUteHCjHHUCva72JQT
+        I0nWjB+U/wPZkZIftB8v48AN56TCrf/6KlJAzSlu83sD3BPDNBVCN2hNVg0v
+        FVpIWYvT5WA5IHuVbIVKY7838hRnlVERuRwIlJPV8YVRF/W7bAhn8KKa5g3Y
+        FHd16sx7Smh4lFk2pmm5Nnw6rUl3ZrZPSM2JaBoXBAYuWZPlnFXy+MMzCVjY
+        dy3HzjzHRtjGqQVSD2DbAYGVKkLHKxFXodzW6x7OxRD0VhVeFUgUKq6w3JfR
+        6N4N5PREjFWif6coWV0gqdI0MNssByWTYjmwbMtzPcvXH7+pYqG1qqN++tDW
+        UahutdeU5Iy3JYznM2c6H+/jW2jH8/HuUwTNKUyipK0zypXw66RHNWyqzH/E
+        tOaoLowcYZIydvcU2NYy/OUABJ7vAdv0bOB6QAE1Z1mDpXiHMFbzspLsjlTD
+        MYTjT2ESBufxNQxhzG/EzlwAv66nW5nAycHdkm0yQsloPCPsHCMYNROSwCS8
+        nichjyZxMnJy4n+nZzj4+P7kIgnp5ZfKaWaz6GaMzhLo07ObDU3gfXByd34l
+        7s9McxEC4i52SRhGt2U2n8APPlxUeczjilnbC1b69xcJvLT46IsT3ySj0WKR
+        +UnUyykpMzGk2XM7Ry8WtIPafezuL7aqg47b0RndNvyyn6e/s4/D3xm/5r4D
+        1LVX0g2VQ8vtHfs3fLXFaoa3xzX838B/sIFPa/paBx8ffwKnNnGIMwYAAA==
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 23:54:49 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:54 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&after=MTQ4OTExMjA3MTEwNDA0OAZDZD&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url&limit=25
@@ -112,12 +138,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -138,13 +166,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - DM51b6rb7so
+      - AFvvrlP1kbS
       X-Fb-Rev:
       - '2761076'
       X-Fb-Debug:
-      - COjQsXWr+Ui1WGjL1++K9QpEaNGAebvWjK5etGa4Xs3CADEcClgnZA/ygVPoAPyeCuMGUoC4MduQXdtjsDHkeA==
+      - ZlxbGezmIcbww91oSYXDMrcCUq1eHDThQuiktIBFP/VtOISmtsYEjtZ8mBNeOC54G0+uztgAuVFE48SkBhAvVA==
       Date:
-      - Sat, 31 Dec 2016 23:54:48 GMT
+      - Sun, 01 Jan 2017 01:32:54 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -153,5 +181,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":[]}'
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 23:54:49 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:54 GMT
 recorded_with: VCR 3.0.3

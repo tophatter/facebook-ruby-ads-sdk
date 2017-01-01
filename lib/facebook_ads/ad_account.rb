@@ -34,7 +34,7 @@ module FacebookAds
     # has_many ad_images
 
     def ad_images(hashes: nil, limit: 100)
-      if hashes.present?
+      if !hashes.nil?
         AdImage.get("/#{id}/adimages", query: { hashes: hashes }, objectify: true)
       else
         AdImage.paginate("/#{id}/adimages", query: { limit: limit })
@@ -49,7 +49,7 @@ module FacebookAds
 
       response = AdImage.post("/#{id}/adimages", query: files, objectify: false)
       files.values.each { |file| File.delete(file.path) }
-      response['images'].present? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
+      !response['images'].nil? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
     end
 
     # has_many ad_creatives
@@ -99,7 +99,7 @@ module FacebookAds
     def create_carousel_ad_creative(creative)
       required = %i(name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card)
 
-      if (keys = required - creative.keys).present?
+      unless (keys = required - creative.keys).length.zero?
         raise Exception, "Creative is missing the following: #{keys.to_sentence}"
       end
 
@@ -112,7 +112,7 @@ module FacebookAds
     def create_image_ad_creative(creative)
       required = %i(name page_id message link link_title image_hash call_to_action_type)
 
-      if (keys = required - creative.keys).present?
+      unless (keys = required - creative.keys).length.zero?
         raise Exception, "Creative is missing the following: #{keys.to_sentence}"
       end
 
@@ -125,7 +125,7 @@ module FacebookAds
     def download(url)
       pathname = Pathname.new(url)
       name = "#{pathname.dirname.basename}.jpg"
-      data = HTTParty.get(url).body
+      data = RestClient.get(url).body
       file = File.open("/tmp/#{name}", 'w') # Assume *nix-based system.
       file.binmode
       file.write(data)

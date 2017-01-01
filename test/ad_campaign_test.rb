@@ -24,15 +24,8 @@ class AdCampaignTest < BaseTest
       ad_campaign = account.create_ad_campaign(name: 'Test', objective: 'MOBILE_APP_INSTALLS')
       assert_equal 'Test', ad_campaign.name
       assert_equal 'MOBILE_APP_INSTALLS', ad_campaign.objective
-    end
-  end
-
-  def test_destroy
-    vcr do
-      ad_campaign = FacebookAds::AdCampaign.find('23842539828830698')
-      result = ad_campaign.destroy
-      assert_equal true, result
-      ad_campaign = FacebookAds::AdCampaign.find('23842539828830698')
+      assert_equal true, ad_campaign.destroy
+      ad_campaign = FacebookAds::AdCampaign.find(ad_campaign.id)
       assert_equal 'DELETED', ad_campaign.effective_status
     end
   end

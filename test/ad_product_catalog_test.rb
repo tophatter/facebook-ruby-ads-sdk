@@ -4,8 +4,7 @@ require 'test_helper'
 class AdProductCatalogTest < BaseTest
   def test_all
     vcr do
-      catalogs = FacebookAds::AdProductCatalog.all
-      catalog = catalogs.first
+      catalog = FacebookAds::AdProductCatalog.all.first
       assert_equal '197871307315718', catalog.id
       assert_equal 'Test', catalog.name
       assert_equal 'commerce', catalog.vertical
@@ -21,13 +20,8 @@ class AdProductCatalogTest < BaseTest
       assert_equal 'commerce', catalog.vertical
       assert_equal 0, catalog.product_count
       assert_equal 0, catalog.feed_count
-    end
-  end
-
-  def test_destroy
-    vcr do
-      catalog = FacebookAds::AdProductCatalog.find_by(name: 'Foo Bar')
-      catalog.destroy
+      catalog = FacebookAds::AdProductCatalog.find(catalog.id)
+      assert_equal true, catalog.destroy
       assert_nil FacebookAds::AdProductCatalog.find_by(name: 'Foo Bar')
     end
   end

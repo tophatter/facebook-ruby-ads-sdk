@@ -20,8 +20,8 @@ class AdAccountTest < BaseTest
     vcr do
       account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
       apps = account.applications
-      assert apps['data'].find { |app| app['name'] == 'Tophatter' }.present?
-      assert apps['data'].find { |app| app['name'] == 'Ruby - Jewelry Shopping Deals' }.present?
+      assert !apps['data'].find { |app| app['name'] == 'Tophatter' }.nil?
+      assert !apps['data'].find { |app| app['name'] == 'Ruby - Jewelry Shopping Deals' }.nil?
     end
   end
 end

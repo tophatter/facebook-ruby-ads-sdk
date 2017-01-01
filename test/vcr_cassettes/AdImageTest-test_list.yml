@@ -7,12 +7,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -21,7 +23,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"56eada8ab8e84297e5dc3c5ca25cb7d20079a8ac"'
+      - '"1923c05e2b4a8d5155c1455a5819a698d018c6e9"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -33,26 +35,41 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - Az3utNsU2h7
+      - GKa//5QVNRY
       X-Fb-Rev:
       - '2761076'
       Vary:
       - Accept-Encoding
+      Content-Encoding:
+      - gzip
       X-Fb-Debug:
-      - vMG+15KDvZcqKyx6SOw7fDvy4jb63I2uUJDfCXDgOt8z0TDvk8zh9wyw7hkm4M+VYz7e6xxmwhh7Rhp/ldO35w==
+      - kKR2qG77yDbuRx1F7TXBpp7aEtZSyISVjGawB4YjOjWtnsvVsTaNIkrqB2InBtbKCE0MuaueOWf0XVZicnvrqA==
       Date:
-      - Sat, 31 Dec 2016 22:56:55 GMT
+      - Sun, 01 Jan 2017 01:33:01 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '631'
+      - '633'
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"act_1223529531023664","account_id":"1223529531023664","account_status":1,"age":26.075127314815,"created_time":"2016-12-02T10:50:57-0800","currency":"USD","name":"Dwight
-        II"},{"id":"act_1198305280212756","account_id":"1198305280212756","account_status":1,"age":44.09712962963,"created_time":"2016-11-10T13:50:54-0800","currency":"USD","name":"Retargeting"},{"id":"act_1183122141731070","account_id":"1183122141731070","account_status":1,"age":64.848506944444,"created_time":"2016-10-27T10:55:59-0700","currency":"USD","name":"Dwight"},{"id":"act_1132789356764349","account_id":"1132789356764349","account_status":1,"age":117.83396990741,"created_time":"2016-08-31T15:14:23-0700","currency":"USD","name":"ReFuel4"},{"id":"act_1115226431853975","account_id":"1115226431853975","account_status":1,"age":140.97564814815,"created_time":"2016-08-10T17:27:49-0700","currency":"USD","name":"Ruby"},{"id":"act_953255011384452","account_id":"953255011384452","account_status":1,"age":431.6908912037,"created_time":"2015-10-26T09:23:16-0700","currency":"USD","name":"Testing"},{"id":"act_1051938118182807","account_id":"1051938118182807","account_status":1,"age":246.81644675926,"created_time":"2016-04-28T17:32:07-0700","currency":"USD","name":"Web"},{"id":"act_10152335766987003","account_id":"10152335766987003","account_status":1,"age":351.6284837963,"created_time":"2014-10-24T14:38:31-0700","currency":"USD","name":"Chris
-        Estreich"},{"id":"act_861827983860489","account_id":"861827983860489","account_status":1,"age":627.93325231481,"created_time":"2015-04-09T16:54:58-0700","currency":"USD","name":"Android"},{"id":"act_39788579","account_id":"39788579","account_status":1,"age":2857.9851157407,"created_time":"2009-03-05T15:04:59-0800","currency":"USD","name":"iOS"}],"paging":{"cursors":{"before":"MjM4NDI1MjkxNDU2NTAyMTcZD","after":"NjAwMjI0ODMyNTg5NQZDZD"}}}'
+      string: !binary |-
+        H4sIAAAAAAAAA4WUQW/bMAyF/0rhc2yQlChRuhXLBuSQFGtdDOgwFG7ipsm2
+        ZHAcdEGR/z7avax2nBg6GCItfH56fG/JoqiLJH5/S1aLJCbFvH5EIsMU2CCQ
+        cc4mI92eb/eb+rHtOVPf1UW93yURdWtZJpFchmLYAATiYEbJvCqLulw81qvf
+        Wk4I0KVIKVCOEFmXT0EA9Mj5vqrKzfygXfd3Y93YFO0n49fV8qW+mkyS4+h/
+        aAxigEmAkDy7HvRwvQttbUbAbMiC1zUAjSlCjqaFtpegb8u6qJZlvdosu9hi
+        VE+06FVOD33swXoX29kssAsQPDXPADak5FutOXJI9cTLWneJDXkJhp131tjQ
+        Jx6sd4kRfRYsGU9OGMNpYpDUYI4c0UYyl4hvyy/78pftIiMTKQ0Km+C5jzxY
+        7yFbzEAs8DlDK3LjDR/JR3tR5Nv90+Ejr44WMYMqKdYydXGHyz0nG8x8CBRM
+        ELRyipZbS7gcgqobG/jztHm5O+Fi0OszomZF0QnzPYGH673EsC4LZMXqX3qw
+        AwLblKQR2FAEfwn5W/nUxdX7Noa9c0H0W9PnHW7oAhtWjY0TcTyUFrbV2Obq
+        YCPR4CXgTy/Vanf1eVdX5Wr+8pFdnEroNcvEgZXe9A2Xe3FBkoFFx+9WPu0N
+        FRpCjk4jLrJc4r7eLKqtYnwA1oESYd8jPbHf84KwMmqU6FzqOoEIOl2aCdzk
+        A9g20c4H8ermLjn+GCV/imXj4vjWdO621a55fSqft1XTNV1P7Ww8wen659/Z
+        +J5m+fVhms8fmoOK57qstGe2vn6dridwM54eZvmSZ18fxtpwPB7/AQc2G0JU
+        BwAA
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 22:56:57 GMT
+  recorded_at: Sun, 01 Jan 2017 01:33:01 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/act_1132789356764349/adimages?access_token=TEST_ACCESS_TOKEN&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=037b8f4f2383f45f35b110cf72c46f0b&hashes%5B%5D=a9e27630331b8ca2ebac1bb8619c98eb
@@ -60,12 +77,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -74,7 +93,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"78f7e7bc3ba919cebed62a1245ce89a62b0c2326"'
+      - '"344fc17ccb789520a6fa5368480c21bf4767e8ac"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -86,22 +105,38 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - D5aFC5iNMfh
+      - E3a+x9GHxqr
       X-Fb-Rev:
       - '2761076'
       Vary:
       - Accept-Encoding
+      Content-Encoding:
+      - gzip
       X-Fb-Debug:
-      - 7nnakXrG10/3Tb/vTpkraVCspy6+x63Ys5ltRUwQQ2WggU2x0rMiWlOscJ5tyoOPT508pTdQWV11LJofZ6S6iQ==
+      - vuDgbLRdXVPskkpZ13w8Bm0Zsidaxz8GOhf//BXNPS8IVLJjbwPdduwzK3Gq26aWp2ZUiGzuCDv0r1FGu/zt/A==
       Date:
-      - Sat, 31 Dec 2016 22:56:56 GMT
+      - Sun, 01 Jan 2017 01:33:01 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '624'
+      - '626'
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"1132789356764349:a9e27630331b8ca2ebac1bb8619c98eb","hash":"a9e27630331b8ca2ebac1bb8619c98eb","account_id":"1132789356764349","name":"adimageZD22G3.jpeg","permalink_url":"https:\/\/www.facebook.com\/ads\/image\/?d=AQJ1RnUN0VQl_2jSTOa7zzEP1UkXEEUDW1OSUiSLS92qLFwitQcK3UIk6DX3Ic2xmK-_q6dyvNSADFaILOH3-JylnfBfqb0b5D5zlcLpPED_fXJ86cJyiT7Dsdq2Kh-V2wGbVEjzqLtYbkGcqIkOG-eF","original_width":600,"original_height":600},{"id":"1132789356764349:037b8f4f2383f45f35b110cf72c46f0b","hash":"037b8f4f2383f45f35b110cf72c46f0b","account_id":"1132789356764349","name":"adimageYaOXUF.jpeg","permalink_url":"https:\/\/www.facebook.com\/ads\/image\/?d=AQKSz82oM-7H_SkaQgBF91fUYsONfyh8wasRMYlMMV8F6LlgdhUlFAb0p6Fg80dpLfgI6qzPbQfxCCsyr3OQ2uSHSDl2ZKtVVi9NK4jOmDbsMyBq_lTp_3qUUyr5wBErkt74YdH0Slalup-tjMuOkGfn","original_width":600,"original_height":600}],"paging":{"cursors":{"before":"MTEzMjc4OTM1Njc2NDM0OTphOWUyNzYzMDMzMWI4Y2EyZAWJhYzFiYjg2MTljOThlYgZDZD","after":"MTEzMjc4OTM1Njc2NDM0OTowMzdiOGY0ZAjIzODNmNDVmMzViMTEwY2Y3MmM0NmYwYgZDZD"}}}'
+      string: !binary |-
+        H4sIAAAAAAAAA62RXW+iQBiF/wvXtcIMnyabDRVFpQNitQjrZjJ8D/KhiKXS
+        +N8Xm73oxTZpk72bnPe8Z2bO88aEpCHM6NcbQ0NmxHAcBJKsQEGURB7yyogo
+        EZBEyELI+XJAQOSTgPN9WeSUQJEjn7ljUnJK+9UvOEkQVOeywf+8qp+XpIhu
+        SSEtSBJ5GgA6vM8OUdLPDlFdkJyWe3yu896UNs3hNNoNd8O2be9jEkR+Ve3v
+        g6rYDUl42g3fM3bDn+EP1TamyLKLabmsToNjLuz1WmIzW1VwlyoNqQfqYtmQ
+        CT9Y2Y6kmpz4sOwySc+m6lYzS+xPtUlpBBfeGmsn69F4Gtj+Ssdm6j9kMlo/
+        2/iYO9Y5ZA9uI+MZt6rPy3F5OHYAC3PeQPZxZtVrqMywSsPWq4FlLsd6sOh/
+        VdU0oSXJcUvDpm9RZNkPYhrRJG3e1evdZ4RYKPlyzMcAyjDmhRgKPsexQSyB
+        gBdj9gOhLzi/R8gl1nYz/T+EOk+WJ40NK3p8Sl/ETLIeS327AkbK4/1m8lCC
+        5pzX8yM1xlm7XeD5xniysWdjrXZYOou7VbMZcMLCnsvJawo6YewaPHDgBVCI
+        lhcWvD4sqDrYU32vJFlIHy9YORoCF2m2CvzZC5vk+yKdveDtJFhJfAg1Z6F9
+        i9DvvgLSywkzemOCc32q6tPt6EdxVd9aQ+tJh7KAt9aIM7MAmBpirfUhtZzN
+        xezcDmmoQ86cd8Hk4qnOInW7KXWzBKB1nlnrNHcTT/NujyJxE9WfJlYt6kJq
+        6S7rqdm8szSzMLXnAnXPtF9oXeBCVCDWLNz2b+L1ev0DeHWJPQoEAAA=
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 22:56:57 GMT
+  recorded_at: Sun, 01 Jan 2017 01:33:01 GMT
 recorded_with: VCR 3.0.3

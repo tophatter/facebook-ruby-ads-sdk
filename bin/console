@@ -6,7 +6,7 @@ require 'awesome_print'
 require 'pry'
 
 begin
-  FacebookAds.access_token = File.read('test_access_token').squish
+  FacebookAds.access_token = File.read('test_access_token').chop
   puts "access_token: #{FacebookAds.access_token}"
 rescue Errno::ENOENT
   puts 'Create a test_access_token file and add your Access Token to it.'
@@ -14,7 +14,7 @@ rescue Errno::ENOENT
 end
 
 begin
-  FacebookAds.business_id = File.read('test_business_id').squish
+  FacebookAds.business_id = File.read('test_business_id').chop
   puts "business_id: #{FacebookAds.business_id}"
 rescue Errno::ENOENT
   puts 'Create a test_business_id file and add your Business ID to it.'

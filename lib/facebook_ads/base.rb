@@ -8,40 +8,40 @@ module FacebookAds
 
       def get(path, query: {}, objectify:)
         query = pack(query, objectify) # Adds access token, fields, etc.
-        FacebookAds.logger.debug "GET #{FacebookAds.base_uri}#{path}?#{query.to_query}"
-        response = HTTParty.get("#{FacebookAds.base_uri}#{path}", query: query, timeout: 30).parsed_response
+        FacebookAds.logger.debug "GET #{FacebookAds.base_uri}#{path}?#{query}"
+        response = RestClient::Request.execute(method: :get, url: "#{FacebookAds.base_uri}#{path}", headers: { params: query })
         unpack(response, objectify: objectify)
       end
 
       def post(path, query: {}, objectify:)
         query = pack(query, objectify)
-        FacebookAds.logger.debug "POST #{FacebookAds.base_uri}#{path}?#{query.to_query}"
-        response = HTTMultiParty.post("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
+        FacebookAds.logger.debug "POST #{FacebookAds.base_uri}#{path}?#{query}"
+        response = RestClient.post("#{FacebookAds.base_uri}#{path}", query)
         unpack(response, objectify: objectify)
       end
 
       def delete(path, query: {})
         query = pack(query, false)
-        FacebookAds.logger.debug "DELETE #{FacebookAds.base_uri}#{path}?#{query.to_query}"
-        response = HTTParty.delete("#{FacebookAds.base_uri}#{path}", query: query).parsed_response
+        FacebookAds.logger.debug "DELETE #{FacebookAds.base_uri}#{path}?#{query}"
+        response = RestClient::Request.execute(method: :delete, url: "#{FacebookAds.base_uri}#{path}", headers: { params: query })
         unpack(response, objectify: false)
       end
 
       def paginate(path, query: {})
         response = get(path, query: query.merge(fields: self::FIELDS.join(',')), objectify: false)
-        data = response['data'].present? ? response['data'] : []
+        data = response['data'].nil? ? [] : response['data']
 
-        while (paging = response['paging']).present? && (url = paging['next']).present?
+        while !(paging = response['paging']).nil? && !(url = paging['next']).nil?
           FacebookAds.logger.debug "GET #{url}"
-          response = HTTParty.get(url).parsed_response # This should be raw since the URL has the host already.
+          response = RestClient.get(url) # This should be raw since the URL has the host already.
           response = unpack(response, objectify: false)
-          data += response['data'] if response['data'].present?
+          data += response['data'] unless response['data'].nil?
         end
 
-        if data.present?
-          data.map { |hash| instantiate(hash) }
-        else
+        if data.nil?
           []
+        else
+          data.map { |hash| instantiate(hash) }
         end
       end
 
@@ -61,13 +61,14 @@ module FacebookAds
       def pack(hash, objectify)
         hash = hash.merge(access_token: FacebookAds.access_token)
         hash = hash.merge(fields: self::FIELDS.join(',')) if objectify
-        hash.compact
+        hash.delete_if { |_k, v| v.nil? }
       end
 
       def unpack(response, objectify:)
         raise Exception, 'Invalid nil response' if response.nil?
 
-        # Certain errors won't get parsed by HTTParty#parsed_response.
+        response = response.body if response.is_a?(RestClient::Response)
+
         if response.is_a?(String)
           response = begin
             JSON.parse(response)
@@ -77,7 +78,7 @@ module FacebookAds
         end
 
         raise Exception, "Invalid response: #{response.inspect}" unless response.is_a?(Hash)
-        raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}" if response['error'].present?
+        raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}" unless response['error'].nil?
         return response unless objectify
 
         if response.key?('data') && (data = response['data']).is_a?(Array)
@@ -89,14 +90,14 @@ module FacebookAds
     end
 
     def update(data)
-      return false unless data.present?
+      return false if data.nil?
       response = self.class.post("/#{id}", query: data, objectify: false)
       raise Exception, "Invalid response from update: #{response.inspect}" unless @response.is_a?(Hash) && response.key?('success')
       response['success']
     end
 
     def save
-      return nil unless changes.present?
+      return nil if changes.nil? || changes.length.zero?
       data = {}
       changes.keys.each { |key| data[key] = self[key] }
       return nil unless update(data)
@@ -114,7 +115,7 @@ module FacebookAds
     attr_accessor :changes
 
     def persisted?
-      id.present?
+      !id.nil?
     end
 
     private

@@ -18,14 +18,25 @@ require 'awesome_print'
 VCR.configure do |config|
   config.cassette_library_dir = 'test/vcr_cassettes'
   config.hook_into :webmock
+  config.filter_sensitive_data('TEST_ACCESS_TOKEN') { File.read('test_access_token').chop }
 end
 
 class BaseTest < Minitest::Test
   protected
 
   def setup
-    FacebookAds.access_token = 'TEST_ACCESS_TOKEN' # File.read('test_access_token').squish
-    FacebookAds.business_id = 'TEST_BUSINESS_ID' # File.read('test_business_id').squish
+    FacebookAds.access_token = begin
+      File.read('test_access_token').chop
+    rescue Errno::ENOENT
+      'TEST_ACCESS_TOKEN'
+    end
+
+    FacebookAds.business_id = begin
+      File.read('test_business_id').chop
+    rescue Errno::ENOENT
+      'TEST_BUSINESS_ID'
+    end
+
     # FacebookAds.logger = Logger.new(STDOUT)
     # FacebookAds.logger.level = Logger::Severity::DEBUG
   end
@@ -33,7 +44,7 @@ class BaseTest < Minitest::Test
   def vcr
     calling_method = caller[0][/`.*'/][1..-2]
 
-    VCR.use_cassette "#{self.class.name}-#{calling_method}" do
+    VCR.use_cassette("#{self.class.name}-#{calling_method}") do
       yield
     end
   end

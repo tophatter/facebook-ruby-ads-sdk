@@ -1,6 +1,6 @@
 # External requires.
-require 'active_support/all'
-require 'httmultiparty'
+require 'json'
+require 'rest-client'
 require 'hashie'
 
 # Internal requires.

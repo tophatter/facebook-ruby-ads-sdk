@@ -7,12 +7,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -21,7 +23,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"bbd3964da1d3b448d900824d9f2dd4bd05fdcad4"'
+      - '"beffc9d8c1adc1637249cb857cab55aca22e97b1"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -33,26 +35,40 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - DPTQZcrQpoE
+      - Ck/5M6KkgCf
       X-Fb-Rev:
       - '2761076'
       Vary:
       - Accept-Encoding
+      Content-Encoding:
+      - gzip
       X-Fb-Debug:
-      - 54WfWv33YPD1GtdiZg4IUfaQMBjfRUP0zH/tzdBjnqDwVsnnc4Nq6VFRrg689mCCubofaulBVlPsu0V3iaJKgQ==
+      - D6Lx4AExuC6UP4o1e2AT7UC0/qawSWvYj4XS7h0fSpfxI3RIofPVMuIsQwHCeQLu3mzm9XIOretdfLsmcZbpnQ==
       Date:
-      - Sat, 31 Dec 2016 22:04:31 GMT
+      - Sun, 01 Jan 2017 01:32:53 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '634'
+      - '628'
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"act_1223529531023664","account_id":"1223529531023664","account_status":1,"age":26.038738425926,"created_time":"2016-12-02T10:50:57-0800","currency":"USD","name":"Dwight
-        II"},{"id":"act_1198305280212756","account_id":"1198305280212756","account_status":1,"age":44.060740740741,"created_time":"2016-11-10T13:50:54-0800","currency":"USD","name":"Retargeting"},{"id":"act_1183122141731070","account_id":"1183122141731070","account_status":1,"age":64.812118055556,"created_time":"2016-10-27T10:55:59-0700","currency":"USD","name":"Dwight"},{"id":"act_1132789356764349","account_id":"1132789356764349","account_status":1,"age":117.79758101852,"created_time":"2016-08-31T15:14:23-0700","currency":"USD","name":"ReFuel4"},{"id":"act_1115226431853975","account_id":"1115226431853975","account_status":1,"age":140.93925925926,"created_time":"2016-08-10T17:27:49-0700","currency":"USD","name":"Ruby"},{"id":"act_953255011384452","account_id":"953255011384452","account_status":1,"age":431.65450231481,"created_time":"2015-10-26T09:23:16-0700","currency":"USD","name":"Testing"},{"id":"act_1051938118182807","account_id":"1051938118182807","account_status":1,"age":246.78005787037,"created_time":"2016-04-28T17:32:07-0700","currency":"USD","name":"Web"},{"id":"act_10152335766987003","account_id":"10152335766987003","account_status":1,"age":351.59209490741,"created_time":"2014-10-24T14:38:31-0700","currency":"USD","name":"Chris
-        Estreich"},{"id":"act_861827983860489","account_id":"861827983860489","account_status":1,"age":627.89686342593,"created_time":"2015-04-09T16:54:58-0700","currency":"USD","name":"Android"},{"id":"act_39788579","account_id":"39788579","account_status":1,"age":2857.9487268519,"created_time":"2009-03-05T15:04:59-0800","currency":"USD","name":"iOS"}],"paging":{"cursors":{"before":"MjM4NDI1MjkxNDU2NTAyMTcZD","after":"NjAwMjI0ODMyNTg5NQZDZD"}}}'
+      string: !binary |-
+        H4sIAAAAAAAAA4WUQW/bMAyF/0rhc2yIpChRuhXLBuSQFGs9DOgwFG7ips62
+        ZLAddEGR/z46u6x23Ag+GHqU8OGJfK/JqmiLJH57TapVEpNi2T4AIjEGJjBI
+        ztlkotvL3X7bPpxq3tGbtmj3TRJBt9ZlEtFlIGTJ8yRZ1mXRlquHtvqlSoIG
+        XAqYGszBRNbPp0aM0duW+7out8uDVn25m+rGtjgdmb5U6+f2ajZLjpP/eSEI
+        GUYxCOjZDXjH9T6vtRkathQErMAYNKRgcqATtL0EfVu2Rb0u22q77mMLqZVg
+        wauT3gyxR/U+trNZYCfgAYOjEWqToj9ZzZFDqhdetroPTOglEDvvLNkwBB7V
+        +8AAPgsW9UlMQA7niY2kBDlwBBuRLhHflp/25U/bRwZGVBoQpuB5iDyqD5At
+        ZEYosFC3RpG71vARfbQXTb7dPx7e8upQIbNRJ8Vaxj7uuDxoZILMh6BQJCJn
+        DeZTS7jcBHU3dvDv0+Zlc6aJDUMg0V4F0df0A4PH9UFWWJcFtDqgweoaMdim
+        KJ3BhNH4S8hfy8c+rr43EXvnguhZGvKOF/SBidVjcj78i4tzwPbksc21g0ki
+        wSXgD8911Vx9bNq6rJbPb9nFqYVeo0ycsTKYvnF5kBYombHADs8GHHcmm5CD
+        03SLLJeYr7ereqcIb2B1mETYDyjP7A/6QFj5AlkNhvPZYHSyNA+4ywZjT2n2
+        fgZXN3fJ8fsk+V2suw6Or11ls6ub7vexfNrVXdV8M7eL6Qzmmx9/FtMvuMiv
+        D/N8ed9dVDy1Za01i831y3wzMzfT+WGRr3nx+X6qBcfj8S+euIZiSgcAAA==
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 22:04:32 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:53 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v2.8/act_1115226431853975/campaigns?access_token=TEST_ACCESS_TOKEN&effective_status%5B%5D=ACTIVE&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap&limit=100
@@ -60,12 +76,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
       User-Agent:
-      - Ruby
+      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
+      Host:
+      - graph.facebook.com
   response:
     status:
       code: 200
@@ -86,25 +104,34 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - H3kqyMl0GAK
+      - C55Q+3W3uwt
       X-Fb-Rev:
       - '2761076'
       Vary:
       - Accept-Encoding
+      Content-Encoding:
+      - gzip
       X-Fb-Debug:
-      - xpmQUhW7/eVrek+hPCpyMZudxeevrbKixBlWzI0DkDk5Z8Jw4uyJVSXIkiOgHuqaWlrtJCjbjeciftX8D8J/kA==
+      - y1aUX88fmjpPW5mrIGfUBMe0Lxc06QT7ThaA8411LnmbHkiAlrZiGG9KEiFBVGTUN/bmFFdgi2tNT82gRogZPg==
       Date:
-      - Sat, 31 Dec 2016 22:04:31 GMT
+      - Sun, 01 Jan 2017 01:32:53 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '407'
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"23842540417890562","account_id":"1115226431853975","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-10-29T13:45:46-0700","effective_status":"ACTIVE","name":"iOS
-        App installs","objective":"MOBILE_APP_INSTALLS","start_time":"2016-10-29T13:45:46-0700","updated_time":"2016-11-22T23:59:42-0800"},{"id":"23842512568220562","account_id":"1115226431853975","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-08-26T16:24:44-0700","effective_status":"ACTIVE","name":"Website
-        Conversions","objective":"CONVERSIONS","start_time":"2016-08-26T16:24:45-0700","updated_time":"2016-11-22T23:59:43-0800"},{"id":"23842503453620562","account_id":"1115226431853975","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-08-12T16:31:59-0700","effective_status":"ACTIVE","name":"App
-        Installs","objective":"MOBILE_APP_INSTALLS","start_time":"2016-08-12T16:31:59-0700","updated_time":"2016-11-22T23:59:43-0800"}],"paging":{"cursors":{"before":"MjM4NDI1NDA0MTc4OTA1NjIZD","after":"MjM4NDI1MDM0NTM2MjA1NjIZD"}}}'
+      string: !binary |-
+        H4sIAAAAAAAAA82SQWvbMBiG/0rQOQbpk+Q4unlJDobYLovbwsYwii0HhU42
+        klwoIf99ckqh3XJI2aU34/d59X160Am10kskfp6QbpFAQBMGnGFGFskS8xjQ
+        HMmm6Ufj6wtACOEAMaMk4XS54CHfjy/aHGr/MqgApPerKiuL8L+Rph6dqt2g
+        TFs3ckDC21GFoDedPoxWtbXz0o9uqoXWw2ZqWSV9SLz+PR0HmMQRwREsK0IF
+        44LFEV5gHEjVdarx+lldOcXIS1uXu1k6DDNtAvL05ELS74+vrRDn5bdsu6nT
+        u7s6K3ZVut3uAhFQ62+YPw7tv5uSCKACKvhSMIhwEsjz/INcAjxOAL6MXJxE
+        EFckFsAEY5+Q+6j2Tns1W/XmWVmne/O331VZPGy+78LG171+GM1v9kqvesWU
+        cRp/Ka8EpstRErb+hNfpwWb/92Cvz75Z7K85GuQh+EHihJrRut666XOvut5e
+        9jjmrFhnpFinOK8aVlYpKY7Zj/VkvvPKvmPydY6LKof8+Macz+c/H+hUq3gE
+        AAA=
     http_version: 
-  recorded_at: Sat, 31 Dec 2016 22:04:32 GMT
+  recorded_at: Sun, 01 Jan 2017 01:32:53 GMT
 recorded_with: VCR 3.0.3
