@@ -1,0 +1,157 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"4da6baa87a2d2d9485d71880069bf895add8e5de"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - B3aFfUSuges
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - MdOYjrksDCXjh9vu/Vb5NvMSxR7so5IiiANniACjl4SQXyjGEuup0Ay5IZ356lwg12u7RiGexzQPFFY6JV5dxA==
+      Date:
+      - Sat, 31 Dec 2016 23:54:48 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '161'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"197871307315718","name":"Test","vertical":"commerce","product_count":1,"feed_count":1}],"paging":{"cursors":{"before":"MTk3ODcxMzA3MzE1NzE4","after":"MTk3ODcxMzA3MzE1NzE4"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:54:49 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"0adfdc1aae339f3208d7f582692f6260d8128285"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - CJExhugvnuJ
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - "/ggaHL0oGHryH7551ssEKLa0/29K25wqVpbqwJN6FkvWzr0JyNHmOSl/feAiJ9u1izRNvjBRHv96IfODSYuBsA=="
+      Date:
+      - Sat, 31 Dec 2016 23:54:48 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '763'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"1489112071104048","retailer_id":"retro-ruby-earrings","name":"Precious
+        Retro .925 Sterling Silver Artificial Ruby Earrings","description":"$5 shipping
+        - at your doorstep within 25-27 business days.","brand":"Adoration-Precious","category":"Jewelry
+        | Earrings","currency":"USD","price":"$156.00","image_url":"https:\/\/external.xx.fbcdn.net\/safe_image.php?d=AQALnOfu1mhkpb4T&url=https\u00253A\u00252F\u00252Fd38eepresuu519.cloudfront.net\u00252F12c85243d743ac3cb21b71c34192b252\u00252Flarge.jpg&cfs=1&_nc_hash=AQBlxlDCq59tO6sE","url":"https:\/\/tophatter.com\/lots\/23275728"}],"paging":{"cursors":{"before":"MTQ4OTExMjA3MTEwNDA0OAZDZD","after":"MTQ4OTExMjA3MTEwNDA0OAZDZD"},"next":"https:\/\/graph.facebook.com\/v2.8\/197871307315718\/products?access_token=TEST_ACCESS_TOKEN&fields=id\u00252Cretailer_id\u00252Cname\u00252Cdescription\u00252Cbrand\u00252Ccategory\u00252Ccurrency\u00252Cprice\u00252Cimage_url\u00252Curl&limit=25&after=MTQ4OTExMjA3MTEwNDA0OAZDZD","previous":"https:\/\/graph.facebook.com\/v2.8\/197871307315718\/products?access_token=TEST_ACCESS_TOKEN&fields=id\u00252Cretailer_id\u00252Cname\u00252Cdescription\u00252Cbrand\u00252Ccategory\u00252Ccurrency\u00252Cprice\u00252Cimage_url\u00252Curl&limit=25&before=MTQ4OTExMjA3MTEwNDA0OAZDZD"}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:54:49 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&after=MTQ4OTExMjA3MTEwNDA0OAZDZD&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url&limit=25
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"1050253aec7b29caff644806927dabfa81406eee"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - DM51b6rb7so
+      X-Fb-Rev:
+      - '2761076'
+      X-Fb-Debug:
+      - COjQsXWr+Ui1WGjL1++K9QpEaNGAebvWjK5etGa4Xs3CADEcClgnZA/ygVPoAPyeCuMGUoC4MduQXdtjsDHkeA==
+      Date:
+      - Sat, 31 Dec 2016 23:54:48 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '11'
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:54:49 GMT
+recorded_with: VCR 3.0.3

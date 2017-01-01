@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"4da6baa87a2d2d9485d71880069bf895add8e5de"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - FTrUyMTfstU
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - PmtImRYQxhCfjRMe0BdsUnVz9FjrwKRmnGEz0ge7cX7+nY70YZSMlk4ElqcnYVt///xMnymtWBSNu2lJOFy2jw==
+      Date:
+      - Sat, 31 Dec 2016 23:48:39 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '161'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"197871307315718","name":"Test","vertical":"commerce","product_count":1,"feed_count":1}],"paging":{"cursors":{"before":"MTk3ODcxMzA3MzE1NzE4","after":"MTk3ODcxMzA3MzE1NzE4"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:48:40 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs
+    body:
+      encoding: UTF-8
+      string: name=Foo%20Bar&access_token=TEST_ACCESS_TOKEN&fields=id%2Cname%2Cvertical%2Cproduct_count%2Cfeed_count
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - GTr59E+jI2v
+      X-Fb-Rev:
+      - '2761076'
+      X-Fb-Debug:
+      - ELpr3opibVP9YR5MIulpeJpxFVekb/eP/E3oK1ZYV/nf5QK1OOfg8WxSMKTa+qiSfOoVhzkz1ho9c491U2bPOQ==
+      Date:
+      - Sat, 31 Dec 2016 23:50:24 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '25'
+    body:
+      encoding: UTF-8
+      string: '{"id":"1364487270270097"}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:50:25 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/1364487270270097?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"11709a060f8bcdea160160f9fcde3e7dc81c19bd"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - FFr1h7zgGZc
+      X-Fb-Rev:
+      - '2761076'
+      X-Fb-Debug:
+      - d4Lyif/+Xvy68xky8DV2NqX+pcRjGgHH59rth9F5SBAsL7c44iZjvAESiXmrSdAU3WB94hIjsD1K7q29f3zQ8g==
+      Date:
+      - Sat, 31 Dec 2016 23:50:24 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '97'
+    body:
+      encoding: UTF-8
+      string: '{"id":"1364487270270097","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:50:25 GMT
+recorded_with: VCR 3.0.3

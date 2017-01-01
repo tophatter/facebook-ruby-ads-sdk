@@ -10,9 +10,9 @@ module FacebookAds
       end
 
       def find_by(conditions)
-        all.detect do |ad_account|
+        all.detect do |object|
           conditions.all? do |key, value|
-            ad_account.send(key) == value
+            object.send(key) == value
           end
         end
       end

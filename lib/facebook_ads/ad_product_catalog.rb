@@ -8,6 +8,14 @@ module FacebookAds
         get("/#{FacebookAds.business_id}/product_catalogs", objectify: true)
       end
 
+      def find_by(conditions)
+        all.detect do |object|
+          conditions.all? do |key, value|
+            object.send(key) == value
+          end
+        end
+      end
+
       def create(name:)
         catalog = post("/#{FacebookAds.business_id}/product_catalogs", query: { name: name }, objectify: true)
         find(catalog.id)

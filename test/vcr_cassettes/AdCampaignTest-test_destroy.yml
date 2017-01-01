@@ -1,0 +1,156 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/23842539828830698?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"b25779bfa4ff8b25916ea5be3452b02cd4f9e0b8"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - E4TSi15OcCN
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - 0AvngJWF7qj9YiQxoCVqPKEbanGNHhK+bqmTd0J/tedf1/qHIk4r5Jk1FwXHfLA0YWJpYVjMOOKbGGtYRHvh5Q==
+      Date:
+      - Sat, 31 Dec 2016 22:09:53 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '236'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"23842539828830698","account_id":"1132789356764349","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-12-31T14:08:49-0800","effective_status":"ACTIVE","name":"Test","objective":"MOBILE_APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2016-12-31T14:08:49-0800"}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 22:09:54 GMT
+- request:
+    method: delete
+    uri: https://graph.facebook.com/v2.8/23842539828830698?access_token=TEST_ACCESS_TOKEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      P3p:
+      - 'CP="Facebook does not have a P3P policy. Learn why here: http://fb.me/p3p"'
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - C0vJCKrH2sX
+      X-Fb-Rev:
+      - '2761076'
+      Set-Cookie:
+      - sW=1483222193%3AAaAITXmmfFlOMkOt; path=/; domain=.graph.facebook.com; secure
+      X-Fb-Debug:
+      - qIsED2xVP2K36Pk4kdgpGwJqFvVgel910K3ImdmWlYc/peBd6drJgH+HWWZ5U2CnQXmylVkVwFSgnsAuVFLeuw==
+      Date:
+      - Sat, 31 Dec 2016 22:09:54 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '16'
+    body:
+      encoding: UTF-8
+      string: '{"success":true}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 22:09:56 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/23842539828830698?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"559e3253401809e7269e627e799adde67e56f521"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - Blgob7eA8ac
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - KkONObcK29XGf4gB/rpRnQF7Ha8SQ70kduE6rYnSJ+aGRJzgT2Km3LY0WcdLbyu3Sr3vRH/JLBRU3ANOMG1tdA==
+      Date:
+      - Sat, 31 Dec 2016 22:09:55 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '241'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"23842539828830698","account_id":"1132789356764349","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"DELETED","created_time":"2016-12-31T14:08:49-0800","effective_status":"DELETED","name":"Test","objective":"MOBILE_APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2016-12-31T14:09:53-0800"}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 22:09:56 GMT
+recorded_with: VCR 3.0.3

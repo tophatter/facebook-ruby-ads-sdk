@@ -1,6 +1,3 @@
-# 6068994792257
-#
-# FacebookAds::AdAudience.find('6068994792257').ad_account.name
 module FacebookAds
   # https://developers.facebook.com/docs/marketing-api/reference/custom-audience
   class AdAudience < Base
@@ -21,6 +18,5 @@ module FacebookAds
       }
       AdAccount.post("/#{id}/share_with_objects", query: query, objectify: false)
     end
-
   end
 end

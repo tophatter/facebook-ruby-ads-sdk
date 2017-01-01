@@ -1,15 +1,27 @@
 require 'test_helper'
 
-class AdAccountTest < Minitest::Test
-  def setup
-    FacebookAds.access_token = 'REDACTED'
-    FacebookAds.business_id = 'REDACTED'
-  end
-
+# rake test TEST=test/ad_account_test.rb
+class AdAccountTest < BaseTest
   def test_all
-    VCR.use_cassette 'ad_account_test_all' do
+    vcr do
       accounts = FacebookAds::AdAccount.all
       assert_equal 10, accounts.length
+    end
+  end
+
+  def test_find_by
+    vcr do
+      account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
+      assert_equal 'ReFuel4', account.name
+    end
+  end
+
+  def test_applications
+    vcr do
+      account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
+      apps = account.applications
+      assert apps['data'].find { |app| app['name'] == 'Tophatter' }.present?
+      assert apps['data'].find { |app| app['name'] == 'Ruby - Jewelry Shopping Deals' }.present?
     end
   end
 end

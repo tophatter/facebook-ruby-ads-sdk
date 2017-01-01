@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/me/adaccounts?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,account_status,age,created_time,currency,name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"98b7d63e75198a20db88be3a08d8343df8a5c119"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - GscgB0GERui
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - OJoUEd/mv1ZKXh9JzQUZ8tWEfeSALrgonwK9penujtGTzB+oFLYMNQEdYZZAEbgsImH8G/ofdL9u1eJdfHTCrQ==
+      Date:
+      - Sat, 31 Dec 2016 21:58:33 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '632'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"act_1223529531023664","account_id":"1223529531023664","account_status":1,"age":26.034594907407,"created_time":"2016-12-02T10:50:57-0800","currency":"USD","name":"Dwight
+        II"},{"id":"act_1198305280212756","account_id":"1198305280212756","account_status":1,"age":44.056597222222,"created_time":"2016-11-10T13:50:54-0800","currency":"USD","name":"Retargeting"},{"id":"act_1183122141731070","account_id":"1183122141731070","account_status":1,"age":64.807974537037,"created_time":"2016-10-27T10:55:59-0700","currency":"USD","name":"Dwight"},{"id":"act_1132789356764349","account_id":"1132789356764349","account_status":1,"age":117.7934375,"created_time":"2016-08-31T15:14:23-0700","currency":"USD","name":"ReFuel4"},{"id":"act_1115226431853975","account_id":"1115226431853975","account_status":1,"age":140.93511574074,"created_time":"2016-08-10T17:27:49-0700","currency":"USD","name":"Ruby"},{"id":"act_953255011384452","account_id":"953255011384452","account_status":1,"age":431.6503587963,"created_time":"2015-10-26T09:23:16-0700","currency":"USD","name":"Testing"},{"id":"act_1051938118182807","account_id":"1051938118182807","account_status":1,"age":246.77591435185,"created_time":"2016-04-28T17:32:07-0700","currency":"USD","name":"Web"},{"id":"act_10152335766987003","account_id":"10152335766987003","account_status":1,"age":351.58795138889,"created_time":"2014-10-24T14:38:31-0700","currency":"USD","name":"Chris
+        Estreich"},{"id":"act_861827983860489","account_id":"861827983860489","account_status":1,"age":627.89271990741,"created_time":"2015-04-09T16:54:58-0700","currency":"USD","name":"Android"},{"id":"act_39788579","account_id":"39788579","account_status":1,"age":2857.9445833333,"created_time":"2009-03-05T15:04:59-0800","currency":"USD","name":"iOS"}],"paging":{"cursors":{"before":"MjM4NDI1MjkxNDU2NTAyMTcZD","after":"NjAwMjI0ODMyNTg5NQZDZD"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 21:58:34 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/act_1132789356764349/advertisable_applications?access_token=TEST_ACCESS_TOKEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"ed5a3a3762d401f540d4f52b8a1a581c369b29c4"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - G7+iCk3Uvad
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - iOWMCwx7ZmYjR9MRWCPJS2O+fc6ns2i8knujeR/O6r3Ol7yS3ikEk3nMwSOHQK14FeXsBLeUrBXDVROdLmAQbw==
+      Date:
+      - Sat, 31 Dec 2016 21:58:33 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '303'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"category":"Lifestyle","link":"https:\/\/ruby.tophatter.com\/","name":"Ruby
+        - Jewelry Shopping Deals","namespace":"tophatter-ruby","id":"1598170107162663"},{"category":"Business","link":"https:\/\/www.facebook.com\/games\/?app_id=1686693551591839","name":"Sell
+        on Tophatter","id":"1686693551591839"},{"category":"Lifestyle","link":"https:\/\/tophatter.com\/sign_up","name":"Tophatter","namespace":"tophatter","id":"295802707128640"},{"category":"Lifestyle","link":"http:\/\/ruby.tophatter.dev\/","name":"Ruby
+        - Dev","id":"1637802779866062"},{"category":"Lifestyle","link":"http:\/\/tophatter.dev\/","name":"Tophatter
+        - Dev","id":"787180207990885"}]}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 21:58:34 GMT
+recorded_with: VCR 3.0.3

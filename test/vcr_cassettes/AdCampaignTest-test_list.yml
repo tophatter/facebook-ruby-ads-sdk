@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/me/adaccounts?access_token=TEST_ACCESS_TOKEN&fields=id,account_id,account_status,age,created_time,currency,name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"bbd3964da1d3b448d900824d9f2dd4bd05fdcad4"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - DPTQZcrQpoE
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - 54WfWv33YPD1GtdiZg4IUfaQMBjfRUP0zH/tzdBjnqDwVsnnc4Nq6VFRrg689mCCubofaulBVlPsu0V3iaJKgQ==
+      Date:
+      - Sat, 31 Dec 2016 22:04:31 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '634'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"act_1223529531023664","account_id":"1223529531023664","account_status":1,"age":26.038738425926,"created_time":"2016-12-02T10:50:57-0800","currency":"USD","name":"Dwight
+        II"},{"id":"act_1198305280212756","account_id":"1198305280212756","account_status":1,"age":44.060740740741,"created_time":"2016-11-10T13:50:54-0800","currency":"USD","name":"Retargeting"},{"id":"act_1183122141731070","account_id":"1183122141731070","account_status":1,"age":64.812118055556,"created_time":"2016-10-27T10:55:59-0700","currency":"USD","name":"Dwight"},{"id":"act_1132789356764349","account_id":"1132789356764349","account_status":1,"age":117.79758101852,"created_time":"2016-08-31T15:14:23-0700","currency":"USD","name":"ReFuel4"},{"id":"act_1115226431853975","account_id":"1115226431853975","account_status":1,"age":140.93925925926,"created_time":"2016-08-10T17:27:49-0700","currency":"USD","name":"Ruby"},{"id":"act_953255011384452","account_id":"953255011384452","account_status":1,"age":431.65450231481,"created_time":"2015-10-26T09:23:16-0700","currency":"USD","name":"Testing"},{"id":"act_1051938118182807","account_id":"1051938118182807","account_status":1,"age":246.78005787037,"created_time":"2016-04-28T17:32:07-0700","currency":"USD","name":"Web"},{"id":"act_10152335766987003","account_id":"10152335766987003","account_status":1,"age":351.59209490741,"created_time":"2014-10-24T14:38:31-0700","currency":"USD","name":"Chris
+        Estreich"},{"id":"act_861827983860489","account_id":"861827983860489","account_status":1,"age":627.89686342593,"created_time":"2015-04-09T16:54:58-0700","currency":"USD","name":"Android"},{"id":"act_39788579","account_id":"39788579","account_status":1,"age":2857.9487268519,"created_time":"2009-03-05T15:04:59-0800","currency":"USD","name":"iOS"}],"paging":{"cursors":{"before":"MjM4NDI1MjkxNDU2NTAyMTcZD","after":"NjAwMjI0ODMyNTg5NQZDZD"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 22:04:32 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/act_1115226431853975/campaigns?access_token=TEST_ACCESS_TOKEN&effective_status%5B%5D=ACTIVE&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap&limit=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"5f6f836ea1008105a6ec05674c398474d450d45f"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - H3kqyMl0GAK
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - xpmQUhW7/eVrek+hPCpyMZudxeevrbKixBlWzI0DkDk5Z8Jw4uyJVSXIkiOgHuqaWlrtJCjbjeciftX8D8J/kA==
+      Date:
+      - Sat, 31 Dec 2016 22:04:31 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '407'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"23842540417890562","account_id":"1115226431853975","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-10-29T13:45:46-0700","effective_status":"ACTIVE","name":"iOS
+        App installs","objective":"MOBILE_APP_INSTALLS","start_time":"2016-10-29T13:45:46-0700","updated_time":"2016-11-22T23:59:42-0800"},{"id":"23842512568220562","account_id":"1115226431853975","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-08-26T16:24:44-0700","effective_status":"ACTIVE","name":"Website
+        Conversions","objective":"CONVERSIONS","start_time":"2016-08-26T16:24:45-0700","updated_time":"2016-11-22T23:59:43-0800"},{"id":"23842503453620562","account_id":"1115226431853975","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2016-08-12T16:31:59-0700","effective_status":"ACTIVE","name":"App
+        Installs","objective":"MOBILE_APP_INSTALLS","start_time":"2016-08-12T16:31:59-0700","updated_time":"2016-11-22T23:59:43-0800"}],"paging":{"cursors":{"before":"MjM4NDI1NDA0MTc4OTA1NjIZD","after":"MjM4NDI1MDM0NTM2MjA1NjIZD"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 22:04:32 GMT
+recorded_with: VCR 3.0.3

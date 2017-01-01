@@ -1,0 +1,152 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"2e36e7b243380280d8b9906d419f5649690ec247"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - GO25M9WTzJJ
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - XXdzlfHgpGYh3Q8/BJ7z/LAGtATsNJUPbbiCY29bew4n6IEdLZRydHjZ0EmZHEtLCLSCT0y5/2keI+zpWLccEw==
+      Date:
+      - Sat, 31 Dec 2016 23:52:43 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '212'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"1364487270270097","name":"Foo Bar","vertical":"commerce","product_count":0,"feed_count":0},{"id":"197871307315718","name":"Test","vertical":"commerce","product_count":1,"feed_count":1}],"paging":{"cursors":{"before":"MTM2NDQ4NzI3MDI3MDA5NwZDZD","after":"MTk3ODcxMzA3MzE1NzE4"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:52:44 GMT
+- request:
+    method: delete
+    uri: https://graph.facebook.com/v2.8/1364487270270097?access_token=TEST_ACCESS_TOKEN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - GcShUSzB6QF
+      X-Fb-Rev:
+      - '2761076'
+      X-Fb-Debug:
+      - 8JjvS4II3HihXf0BTU/EHVsew9jrct4SXq++M94H4b57mQTp5q94QOGzMe0/mPeoYKRFIx2NPDfNLwjWIgiOwQ==
+      Date:
+      - Sat, 31 Dec 2016 23:52:43 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '16'
+    body:
+      encoding: UTF-8
+      string: '{"success":true}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:52:44 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/TEST_BUSINESS_ID/product_catalogs?access_token=TEST_ACCESS_TOKEN&fields=id,name,vertical,product_count,feed_count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"4da6baa87a2d2d9485d71880069bf895add8e5de"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - B1C7aR9wgrP
+      X-Fb-Rev:
+      - '2761076'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - uO1ZHLOKlJMLzLD1x5SbjCVXojqPfCVoLuPqzBix6M5/9jJW90XPkA5R7ShEwcGNeYlY2p4pyggyWCtrF24q2g==
+      Date:
+      - Sat, 31 Dec 2016 23:52:44 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '161'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"197871307315718","name":"Test","vertical":"commerce","product_count":1,"feed_count":1}],"paging":{"cursors":{"before":"MTk3ODcxMzA3MzE1NzE4","after":"MTk3ODcxMzA3MzE1NzE4"}}}'
+    http_version: 
+  recorded_at: Sat, 31 Dec 2016 23:52:45 GMT
+recorded_with: VCR 3.0.3
