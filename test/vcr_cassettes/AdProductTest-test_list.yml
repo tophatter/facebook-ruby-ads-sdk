@@ -35,7 +35,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - Bca7ySibdZE
+      - DWQ4gAWC8aD
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - kVF9F0JATCWk4bi1GWnh49AbkvUWEaVjSpgUWSX7+ARvf8Ax8j4Q9b9gJL2TTn93NZUMKrNwQ8Ya5YP0Yb4BSg==
+      - q8dwNMXJEwHrlsYMNeuj/Vm2fuVytOH2YqoWvmtdjz34Bj75VteOyjF/FshRAVVcOsiYCa6ezMutUvPdV2VjqQ==
       Date:
-      - Sun, 01 Jan 2017 01:37:08 GMT
+      - Sun, 01 Jan 2017 01:54:45 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -58,10 +58,10 @@ http_interactions:
         iRip2Bd7GzHc0EcXQIsKeiL7w3wtEzOMbgCdACPPnuc13qn3vL633UOej/hp
         l4Nsl0aclmZbfk0fiP/VOecvv4YTXL4AAAA=
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:37:08 GMT
+  recorded_at: Sun, 01 Jan 2017 01:54:45 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url
+    uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url&limit=100
     body:
       encoding: US-ASCII
       string: ''
@@ -82,7 +82,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - '"0adfdc1aae339f3208d7f582692f6260d8128285"'
+      - '"bb480c7a1e23fbaadac31061c1b5f7ee3f4562e8"'
       Pragma:
       - no-cache
       Cache-Control:
@@ -94,7 +94,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       X-Fb-Trace-Id:
-      - E863h7hjfm2
+      - DJBxh9w6eCJ
       X-Fb-Rev:
       - '2761076'
       Vary:
@@ -102,9 +102,9 @@ http_interactions:
       Content-Encoding:
       - gzip
       X-Fb-Debug:
-      - nOmKWPHA9RNXDTpjl/0CCRXlM4hM5MZle12cpkVC4GnymnmMjOK1wacUraJOIEnWZUFhEVl60kscpkRE58L40Q==
+      - alnemfK36xLAZuJJO258AAwALI/ANP+bwXr8Z5jt0dKSP9DPAtD/zSGYggMhZFsdlV6hBIFP9dXNSPlDPiAIWQ==
       Date:
-      - Sun, 01 Jan 2017 01:37:08 GMT
+      - Sun, 01 Jan 2017 01:54:45 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -128,58 +128,7 @@ http_interactions:
         nichjyZxMnJy4n+nZzj4+P7kIgnp5ZfKaWaz6GaMzhLo07ObDU3gfXByd34l
         7s9McxEC4i52SRhGt2U2n8APPlxUeczjilnbC1b69xcJvLT46IsT3ySj0WKR
         +UnUyykpMzGk2XM7Ry8WtIPafezuL7aqg47b0RndNvyyn6e/s4/D3xm/5r4D
-        1LVX0g2VQ8vtHfs3fLXFaoa3xzX838B/sIFPa/paBx8ffwKnNnGIMwYAAA==
+        1LVX0g2VQ2CavWMDh6/2WA3x9riH/zv4L3bwaVFfa+Hj409lK5S5NQYAAA==
     http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:37:08 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/v2.8/197871307315718/products?access_token=TEST_ACCESS_TOKEN&after=MTQ4OTExMjA3MTEwNDA0OAZDZD&fields=id,retailer_id,name,description,brand,category,currency,price,image_url,url&limit=25
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.0 (darwin15.3.0 x86_64) ruby/2.2.4p230
-      Host:
-      - graph.facebook.com
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Access-Control-Allow-Origin:
-      - "*"
-      Etag:
-      - '"1050253aec7b29caff644806927dabfa81406eee"'
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      Facebook-Api-Version:
-      - v2.8
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      X-Fb-Trace-Id:
-      - BCYwD/cCCEB
-      X-Fb-Rev:
-      - '2761076'
-      X-Fb-Debug:
-      - YQ7PwFp1yl9KiOEd9Nz4kLZ7dbeWaeh3Xf39TI/P9qo6W+9zVvV0Sw99Fm3CuYVThPFW4O/R+Q0tOhUPOkgqKA==
-      Date:
-      - Sun, 01 Jan 2017 01:37:08 GMT
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '11'
-    body:
-      encoding: UTF-8
-      string: '{"data":[]}'
-    http_version: 
-  recorded_at: Sun, 01 Jan 2017 01:37:08 GMT
+  recorded_at: Sun, 01 Jan 2017 01:54:45 GMT
 recorded_with: VCR 3.0.3

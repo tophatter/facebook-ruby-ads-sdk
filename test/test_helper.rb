@@ -18,8 +18,20 @@ require 'awesome_print'
 VCR.configure do |config|
   config.cassette_library_dir = 'test/vcr_cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('TEST_ACCESS_TOKEN') { File.read('test_access_token').chop }
-  config.filter_sensitive_data('TEST_BUSINESS_ID') { File.read('test_business_id').chop }
+  config.filter_sensitive_data('TEST_ACCESS_TOKEN') do
+    begin
+      File.read('test_access_token').chop
+    rescue Errno::ENOENT
+      'TEST_ACCESS_TOKEN'
+    end
+  end
+  config.filter_sensitive_data('TEST_BUSINESS_ID') do
+    begin
+      File.read('test_business_id').chop
+    rescue Errno::ENOENT
+      'TEST_BUSINESS_ID'
+    end
+  end
 end
 
 class BaseTest < Minitest::Test

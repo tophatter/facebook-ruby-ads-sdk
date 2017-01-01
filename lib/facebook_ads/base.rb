@@ -28,14 +28,18 @@ module FacebookAds
       end
 
       def paginate(path, query: {})
+        query[:limit] ||= 100
+        limit = query[:limit]
         response = get(path, query: query.merge(fields: self::FIELDS.join(',')), objectify: false)
         data = response['data'].nil? ? [] : response['data']
 
-        while !(paging = response['paging']).nil? && !(url = paging['next']).nil?
-          FacebookAds.logger.debug "GET #{url}"
-          response = RestClient.get(url) # This should be raw since the URL has the host already.
-          response = unpack(response, objectify: false)
-          data += response['data'] unless response['data'].nil?
+        if data.length == limit
+          while !(paging = response['paging']).nil? && !(url = paging['next']).nil?
+            FacebookAds.logger.debug "GET #{url}"
+            response = RestClient.get(url) # This should be raw since the URL has the host already.
+            response = unpack(response, objectify: false)
+            data += response['data'] unless response['data'].nil?
+          end
         end
 
         if data.nil?
