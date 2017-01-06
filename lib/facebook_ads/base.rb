@@ -8,22 +8,37 @@ module FacebookAds
 
       def get(path, query: {}, objectify:)
         query = pack(query, objectify) # Adds access token, fields, etc.
-        FacebookAds.logger.debug "GET #{FacebookAds.base_uri}#{path}?#{query}"
-        response = RestClient::Request.execute(method: :get, url: "#{FacebookAds.base_uri}#{path}", headers: { params: query })
+        uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
+        FacebookAds.logger.debug "GET #{uri}"
+        response = begin
+          RestClient.get(uri)
+        rescue RestClient::Exception => e
+          exception(:get, path, e)
+        end
         unpack(response, objectify: objectify)
       end
 
       def post(path, query: {}, objectify:)
         query = pack(query, objectify)
-        FacebookAds.logger.debug "POST #{FacebookAds.base_uri}#{path}?#{query}"
-        response = RestClient.post("#{FacebookAds.base_uri}#{path}", query)
+        uri = "#{FacebookAds.base_uri}#{path}"
+        FacebookAds.logger.debug "POST #{uri} #{query}"
+        response = begin
+          RestClient.post(uri, query)
+        rescue RestClient::Exception => e
+          exception(:post, path, e)
+        end
         unpack(response, objectify: objectify)
       end
 
       def delete(path, query: {})
         query = pack(query, false)
-        FacebookAds.logger.debug "DELETE #{FacebookAds.base_uri}#{path}?#{query}"
-        response = RestClient::Request.execute(method: :delete, url: "#{FacebookAds.base_uri}#{path}", headers: { params: query })
+        uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
+        FacebookAds.logger.debug "DELETE #{uri}"
+        response = begin
+          RestClient.delete(uri)
+        rescue RestClient::Exception => e
+          exception(:delete, path, e)
+        end
         unpack(response, objectify: false)
       end
 
@@ -36,7 +51,11 @@ module FacebookAds
         if data.length == limit
           while !(paging = response['paging']).nil? && !(url = paging['next']).nil?
             FacebookAds.logger.debug "GET #{url}"
-            response = RestClient.get(url) # This should be raw since the URL has the host already.
+            response = begin
+              RestClient.get(url)
+            rescue RestClient::Exception => e
+              exception(:get, url, e)
+            end
             response = unpack(response, objectify: false)
             data += response['data'] unless response['data'].nil?
           end
@@ -70,7 +89,6 @@ module FacebookAds
 
       def unpack(response, objectify:)
         raise Exception, 'Invalid nil response' if response.nil?
-
         response = response.body if response.is_a?(RestClient::Response)
 
         if response.is_a?(String)
@@ -90,6 +108,42 @@ module FacebookAds
         else
           instantiate(response)
         end
+      end
+
+      def escape(s)
+        URI.encode_www_form_component(s)
+      end
+
+      # https://github.com/rack/rack/blob/master/lib/rack/utils.rb
+      def build_nested_query(value, prefix = nil)
+        case value
+        when Array
+          value.map { |v| build_nested_query(v, "#{prefix}[]") }.join('&')
+        when Hash
+          value.map { |k, v| build_nested_query(v, prefix ? "#{prefix}[#{escape(k)}]" : escape(k)) }.reject(&:empty?).join('&')
+        when nil
+          prefix
+        else
+          raise ArgumentError, 'value must be a Hash' if prefix.nil?
+          "#{prefix}=#{escape(value)}"
+        end
+      end
+
+      def exception(verb, path, e)
+        if e.response.is_a?(String)
+          begin
+            hash    = JSON.parse(e.response)
+            error   = hash['error']
+            message = error.nil? ? hash.inspect : "#{error['type']} code=#{error['code']} message=#{error['message']}"
+          rescue JSON::ParserError
+            message = e.response.first(100)
+          end
+        else
+          message = e.response.inspect
+        end
+
+        FacebookAds.logger.error "#{verb.upcase} #{path} [#{e.message}] #{message}"
+        raise e
       end
     end
 
