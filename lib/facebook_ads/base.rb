@@ -99,7 +99,7 @@ module FacebookAds
           end
         end
 
-        raise Exception, "Invalid response: #{response.inspect}" unless response.is_a?(Hash)
+        raise Exception, "Invalid response: #{response.class.name} #{response.inspect}" unless response.is_a?(Hash)
         raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}" unless response['error'].nil?
         return response unless objectify
 
@@ -147,13 +147,6 @@ module FacebookAds
       end
     end
 
-    def update(data)
-      return false if data.nil?
-      response = self.class.post("/#{id}", query: data, objectify: false)
-      raise Exception, "Invalid response from update: #{response.inspect}" unless @response.is_a?(Hash) && response.key?('success')
-      response['success']
-    end
-
     def save
       return nil if changes.nil? || changes.length.zero?
       data = {}
@@ -162,9 +155,14 @@ module FacebookAds
       self.class.find(id)
     end
 
+    def update(data)
+      return false if data.nil?
+      response = self.class.post("/#{id}", query: data, objectify: false)
+      response['success']
+    end
+
     def destroy(path: nil, query: {})
       response = self.class.delete(path || "/#{id}", query: query)
-      raise Exception, "Invalid response from destroy: #{response.inspect}" unless response.key?('success')
       response['success']
     end
 
