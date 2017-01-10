@@ -7,7 +7,7 @@ module FacebookAds
       end
 
       def get(path, query: {}, objectify:)
-        query = pack(query, objectify) # Adds access token, fields, etc.
+        query = pack(query, objectify: objectify) # Adds access token, fields, etc.
         uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
         FacebookAds.logger.debug "GET #{uri}"
         response = begin
@@ -18,8 +18,8 @@ module FacebookAds
         unpack(response, objectify: objectify)
       end
 
-      def post(path, query: {}, objectify:)
-        query = pack(query, objectify)
+      def post(path, query: {})
+        query = pack(query, objectify: false)
         uri = "#{FacebookAds.base_uri}#{path}"
         FacebookAds.logger.debug "POST #{uri} #{query}"
         response = begin
@@ -27,11 +27,11 @@ module FacebookAds
         rescue RestClient::Exception => e
           exception(:post, path, e)
         end
-        unpack(response, objectify: objectify)
+        unpack(response, objectify: false)
       end
 
       def delete(path, query: {})
-        query = pack(query, false)
+        query = pack(query, objectify: false)
         uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
         FacebookAds.logger.debug "DELETE #{uri}"
         response = begin
@@ -81,7 +81,7 @@ module FacebookAds
         object
       end
 
-      def pack(hash, objectify)
+      def pack(hash, objectify:)
         hash = hash.merge(access_token: FacebookAds.access_token)
         hash = hash.merge(fields: self::FIELDS.join(',')) if objectify
         hash.delete_if { |_k, v| v.nil? }
@@ -129,21 +129,33 @@ module FacebookAds
         end
       end
 
-      def exception(verb, path, e)
-        if e.response.is_a?(String)
+      def exception(verb, path, exception)
+        FacebookAds.logger.error exception.response
+        response = exception.response
+
+        message = if response.is_a?(String)
           begin
-            hash    = JSON.parse(e.response)
-            error   = hash['error']
-            message = error.nil? ? hash.inspect : "#{error['type']} code=#{error['code']} message=#{error['message']}"
+            if (error = JSON.parse(response)['error']).nil?
+              response
+            else
+              if error['error_subcode'].nil? ||
+                 error['error_user_title'].nil? ||
+                 error['error_user_msg'].nil?
+                "#{error['type']} / #{error['code']}: #{error['message']}"
+              else
+                exception = AdException.new(code: error['error_subcode'], title: error['error_user_title'], message: error['error_user_msg'])
+                "#{error['error_subcode']} / #{error['error_user_title']}: #{error['error_user_msg']}"
+              end
+            end
           rescue JSON::ParserError
-            message = e.response.first(100)
+            response
           end
         else
-          message = e.response.inspect
+          response.inspect
         end
 
-        FacebookAds.logger.error "#{verb.upcase} #{path} [#{e.message}] #{message}"
-        raise e
+        FacebookAds.logger.error "#{verb.upcase} #{path} #{message}"
+        raise exception
       end
     end
 
@@ -157,7 +169,7 @@ module FacebookAds
 
     def update(data)
       return false if data.nil?
-      response = self.class.post("/#{id}", query: data, objectify: false)
+      response = self.class.post("/#{id}", query: data)
       response['success']
     end
 

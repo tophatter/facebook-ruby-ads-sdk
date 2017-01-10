@@ -27,8 +27,9 @@ module FacebookAds
     def create_ad_campaign(name:, objective:, status: 'ACTIVE')
       raise Exception, "Objective must be one of: #{AdCampaign::OBJECTIVES.to_sentence}" unless AdCampaign::OBJECTIVES.include?(objective)
       raise Exception, "Status must be one of: #{AdCampaign::STATUSES.to_sentence}" unless AdCampaign::STATUSES.include?(status)
-      campaign = AdCampaign.post("/#{id}/campaigns", query: { name: name, objective: objective, status: status }, objectify: true)
-      AdCampaign.find(campaign.id)
+      query = { name: name, objective: objective, status: status }
+      result = AdCampaign.post("/#{id}/campaigns", query: query)
+      AdCampaign.find(result['id'])
     end
 
     # has_many ad_images
@@ -47,7 +48,7 @@ module FacebookAds
         [name, File.open(path)]
       end.to_h
 
-      response = AdImage.post("/#{id}/adimages", query: files, objectify: false)
+      response = AdImage.post("/#{id}/adimages", query: files)
       files.values.each { |file| File.delete(file.path) }
       !response['images'].nil? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
     end
@@ -105,8 +106,8 @@ module FacebookAds
 
       raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
       query = AdCreative.carousel(creative)
-      creative = AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns an AdCreative instance.
-      AdCreative.find(creative.id)
+      result = AdCreative.post("/#{id}/adcreatives", query: query)
+      AdCreative.find(result['id'])
     end
 
     def create_image_ad_creative(creative)
@@ -118,8 +119,8 @@ module FacebookAds
 
       raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
       query = AdCreative.photo(creative)
-      creative = AdCreative.post("/#{id}/adcreatives", query: query, objectify: true) # Returns an AdCreative instance.
-      AdCreative.find(creative.id)
+      result = AdCreative.post("/#{id}/adcreatives", query: query)
+      AdCreative.find(result['id'])
     end
 
     def download(url)

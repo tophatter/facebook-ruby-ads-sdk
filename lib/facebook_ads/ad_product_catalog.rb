@@ -17,8 +17,9 @@ module FacebookAds
       end
 
       def create(name:)
-        catalog = post("/#{FacebookAds.business_id}/product_catalogs", query: { name: name }, objectify: true)
-        find(catalog.id)
+        query = { name: name }
+        result = post("/#{FacebookAds.business_id}/product_catalogs", query: query)
+        find(result['id'])
       end
     end
 
@@ -30,8 +31,9 @@ module FacebookAds
 
     # catalog.create_ad_product_feed(name: 'Test', schedule: { url: 'https://tophatter.com/admin/ad_automation/ad_product_feeds/1.csv', interval: 'HOURLY' })
     def create_ad_product_feed(name:, schedule:)
-      feed = AdProductCatalog.post("/#{id}/product_feeds", query: { name: name, schedule: schedule }, objectify: true)
-      AdProductFeed.find(feed.id)
+      query = { name: name, schedule: schedule }
+      result = AdProductCatalog.post("/#{id}/product_feeds", query: query)
+      AdProductFeed.find(result['id'])
     end
 
     # has_many product_groups
@@ -53,8 +55,8 @@ module FacebookAds
     end
 
     def create_ad_product(data)
-      product = AdProductCatalog.post("/#{id}/products", query: data, objectify: true)
-      AdProduct.find(product.id)
+      result = AdProductCatalog.post("/#{id}/products", query: data)
+      AdProduct.find(result['id'])
     end
   end
 end

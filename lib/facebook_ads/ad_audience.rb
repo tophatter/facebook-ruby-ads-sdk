@@ -16,7 +16,9 @@ module FacebookAds
         share_with_object_id: account_id,
         share_with_object_type: 'Account'
       }
-      AdAccount.post("/#{id}/share_with_objects", query: query, objectify: false)
+      result = AdAccount.post("/#{id}/share_with_objects", query: query)
+      # result['success']
+      result # No idea what this response looks like.
     end
   end
 end

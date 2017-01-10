@@ -40,8 +40,8 @@ module FacebookAds
         status: status,
         is_autobid: is_autobid
       }
-      ad_set = AdSet.post("/act_#{account_id}/adsets", query: query, objectify: true) # Returns an AdSet instance.
-      AdSet.find(ad_set.id)
+      result = AdSet.post("/act_#{account_id}/adsets", query: query)
+      AdSet.find(result['id'])
     end
 
     # has_many ad_insights
