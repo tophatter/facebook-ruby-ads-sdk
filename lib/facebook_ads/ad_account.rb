@@ -32,6 +32,13 @@ module FacebookAds
       AdCampaign.find(result['id'])
     end
 
+    def create_dynamic_ad_campaign(name:, product_catalog_id:, status: 'ACTIVE')
+      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.to_sentence}" unless AdCampaign::STATUSES.include?(status)
+      query = { name: name, objective: 'PRODUCT_CATALOG_SALES', status: status, promoted_object: { product_catalog_id: product_catalog_id } }
+      result = AdCampaign.post("/#{id}/campaigns", query: query)
+      AdCampaign.find(result['id'])
+    end
+
     # has_many ad_images
 
     def ad_images(hashes: nil, limit: 100)

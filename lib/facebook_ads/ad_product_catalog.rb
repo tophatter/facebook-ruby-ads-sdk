@@ -38,15 +38,15 @@ module FacebookAds
 
     # has_many product_groups
 
-    # def ad_product_groups
-    #   AdProductGroup.paginate("/#{id}/product_groups")
-    # end
+    def ad_product_groups
+      AdProductGroup.paginate("/#{id}/product_groups")
+    end
 
     # has_many product_sets
 
-    # def ad_product_sets
-    #   AdProductSet.paginate("/#{id}/product_sets")
-    # end
+    def ad_product_sets
+      AdProductSet.paginate("/#{id}/product_sets")
+    end
 
     # has_many ad_products
 

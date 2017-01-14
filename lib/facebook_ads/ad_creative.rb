@@ -32,7 +32,7 @@ module FacebookAds
       end
 
       # https://developers.facebook.com/docs/marketing-api/guides/videoads
-      def carousel(name:, page_id:, instagram_actor_id: nil, link:, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:)
+      def carousel(name:, page_id:, instagram_actor_id: nil, link:, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:, template_data: nil)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
           'instagram_actor_id' => instagram_actor_id, # 503391023081924
@@ -53,6 +53,8 @@ module FacebookAds
             'multi_share_end_card' => multi_share_end_card
           }
         }
+
+        object_story_spec['template_data'] = template_data if template_data.present?
 
         {
           name: name,
