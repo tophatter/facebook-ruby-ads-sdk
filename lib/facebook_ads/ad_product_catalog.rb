@@ -36,6 +36,13 @@ module FacebookAds
       AdProductFeed.find(result['id'])
     end
 
+    # catalog.create_ad_product_set(name: 'Ring Set', filter: {"category":{"i_contains":"Apparel & Accessories > Jewelry > Earrings"}})
+    def create_ad_product_set(name:, filter:)
+      query = { name: name, filter: filter.to_json }
+      result = AdProductSet.post("/#{id}/product_sets", query: query)
+      AdProductSet.find(result['id'])
+    end
+
     # has_many product_groups
 
     def ad_product_groups
