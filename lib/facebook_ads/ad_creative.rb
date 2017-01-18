@@ -54,9 +54,26 @@ module FacebookAds
           }
         }
 
+
         {
           name: name,
           object_story_spec: object_story_spec.to_json
+        }
+      end
+
+      def product_set(name:, page_id:, link:, message:, headline:, description:, product_set_id:)
+        { name: name,
+          object_story_spec: {
+            page_id: page_id,
+            template_data: {
+              description: description,
+              link: link,
+              message: message,
+              name: headline
+            }
+          },
+          template_url: link,
+          product_set_id: product_set_id
         }
       end
     end
