@@ -106,13 +106,16 @@ module FacebookAds
 
     def create_carousel_ad_creative(creative)
       required = %i(name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card)
-
       unless (keys = required - creative.keys).length.zero?
         raise Exception, "Creative is missing the following: #{keys.to_sentence}"
       end
 
       raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
-      query = AdCreative.carousel(creative)
+      query = if creative[:product_set_id].present?
+        AdCreative.product_set(name: creative[:name], page_id: creative[:page_id], link: creative[:link], message: creative[:message], headline: creative[:headline], description: creative[:description], product_set_id: creative[:product_set_id])
+      else
+        AdCreative.carousel(creative)
+      end
       result = AdCreative.post("/#{id}/adcreatives", query: query)
       AdCreative.find(result['id'])
     end
