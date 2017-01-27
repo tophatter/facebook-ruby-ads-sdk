@@ -6,7 +6,7 @@ module FacebookAds
 
     class << self
       def all
-        get('/me/adaccounts', objectify: true)
+        paginate('/me/adaccounts')
       end
 
       def find_by(conditions)
