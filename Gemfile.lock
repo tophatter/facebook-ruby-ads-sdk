@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    facebook_ads (0.1.10)
+    facebook_ads (0.1.11)
       hashie (~> 3.4)
       rest-client (>= 1.6)
 
@@ -78,4 +78,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.7
+   1.14.3
