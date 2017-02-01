@@ -4,8 +4,8 @@ module FacebookAds
     FIELDS = %w(id name vertical product_count feed_count).freeze
 
     class << self
-      def all
-        get("/#{FacebookAds.business_id}/product_catalogs", objectify: true)
+      def all(query = {})
+        get("/#{FacebookAds.business_id}/product_catalogs", query: query, objectify: true)
       end
 
       def find_by(conditions)

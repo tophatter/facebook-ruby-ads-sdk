@@ -5,8 +5,8 @@ module FacebookAds
     FIELDS = %w(id account_id account_status age created_time currency name).freeze
 
     class << self
-      def all
-        get('/me/adaccounts', objectify: true)
+      def all(query = {})
+        get('/me/adaccounts', query: query, objectify: true)
       end
 
       def find_by(conditions)
