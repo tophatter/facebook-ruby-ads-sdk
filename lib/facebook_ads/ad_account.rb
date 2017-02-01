@@ -102,6 +102,19 @@ module FacebookAds
       self.class.get("/#{id}/advertisable_applications", objectify: false)
     end
 
+    def create_ad_audience_with_pixel(name:, pixel_id:, event_name:)
+      query = {
+          name: name,
+          pixel_id: pixel_id,
+          subtype: 'WEBSITE',
+          retention_days: 15,
+          rule: { event: { i_contains: event_name } }.to_json,
+          prefill: 1
+        }
+      result = AdAudience.post("/#{id}/customaudiences", query: query)
+      AdAudience.find(result['id'])
+    end
+
     private
 
     def create_carousel_ad_creative(creative)
