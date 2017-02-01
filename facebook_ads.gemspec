@@ -1,9 +1,9 @@
 # To release a new version:
 # gem build facebook_ads.gemspec
-# gem push facebook_ads-0.1.9.gem
+# gem push facebook_ads-0.1.11.gem
 Gem::Specification.new do |s|
   s.name        = 'facebook_ads'
-  s.version     = '0.1.10'
+  s.version     = '0.1.11'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
