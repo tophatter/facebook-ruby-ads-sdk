@@ -143,8 +143,12 @@ module FacebookAds
                  error['error_user_msg'].nil?
                 "#{error['type']} / #{error['code']}: #{error['message']}"
               else
-                exception = AdException.new(code: error['error_subcode'], title: error['error_user_title'], message: error['error_user_msg'])
-                "#{error['error_subcode']} / #{error['error_user_title']}: #{error['error_user_msg']}"
+                exception = AdException.new(
+                  code: error['error_subcode'],
+                  title: error['error_user_title'],
+                  message: error['error_user_msg']
+                )
+                "#{exception.code} / #{exception.title}: #{exception.message}"
               end
             end
           rescue JSON::ParserError
