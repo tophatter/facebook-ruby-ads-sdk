@@ -115,6 +115,22 @@ module FacebookAds
       AdAudience.find(result['id'])
     end
 
+    def reach_estimate(targeting:, optimization_goal:, currency: 'USD')
+      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.to_sentence}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+
+      if !targeting.is_a?(Hash) && targeting.validate!
+        targeting = targeting.to_hash
+      end
+
+      query = {
+        targeting_spec: targeting.to_json,
+        optimize_for: optimization_goal,
+        current: currency
+      }
+
+      self.class.get("/#{id}/reachestimate", query: query, objectify: false)
+    end
+
     private
 
     def create_carousel_ad_creative(creative)

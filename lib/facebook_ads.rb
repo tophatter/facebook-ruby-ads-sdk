@@ -3,6 +3,7 @@ require 'json'
 require 'rest-client'
 require 'hashie'
 require 'logger'
+require 'active_support/all'
 
 # Internal requires.
 require 'facebook_ads/base'
