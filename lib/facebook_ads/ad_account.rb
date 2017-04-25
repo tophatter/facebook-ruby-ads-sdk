@@ -25,15 +25,15 @@ module FacebookAds
     end
 
     def create_ad_campaign(name:, objective:, status: 'ACTIVE')
-      raise Exception, "Objective must be one of: #{AdCampaign::OBJECTIVES.to_sentence}" unless AdCampaign::OBJECTIVES.include?(objective)
-      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.to_sentence}" unless AdCampaign::STATUSES.include?(status)
+      raise Exception, "Objective must be one of: #{AdCampaign::OBJECTIVES.join(', ')}" unless AdCampaign::OBJECTIVES.include?(objective)
+      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.join(', ')}" unless AdCampaign::STATUSES.include?(status)
       query = { name: name, objective: objective, status: status }
       result = AdCampaign.post("/#{id}/campaigns", query: query)
       AdCampaign.find(result['id'])
     end
 
     def create_dynamic_ad_campaign(name:, product_catalog_id:, status: 'ACTIVE')
-      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.to_sentence}" unless AdCampaign::STATUSES.include?(status)
+      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.join(', ')}" unless AdCampaign::STATUSES.include?(status)
       query = { name: name, objective: 'PRODUCT_CATALOG_SALES', status: status, promoted_object: { product_catalog_id: product_catalog_id } }
       result = AdCampaign.post("/#{id}/campaigns", query: query)
       AdCampaign.find(result['id'])
@@ -120,10 +120,10 @@ module FacebookAds
     def create_carousel_ad_creative(creative)
       required = %i(name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card)
       unless (keys = required - creative.keys).length.zero?
-        raise Exception, "Creative is missing the following: #{keys.to_sentence}"
+        raise Exception, "Creative is missing the following: #{keys.join(', ')}"
       end
 
-      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
       query = if creative[:product_set_id].present?
         AdCreative.product_set(name: creative[:name], page_id: creative[:page_id], link: creative[:link], message: creative[:message], headline: creative[:headline], description: creative[:description], product_set_id: creative[:product_set_id])
       else
@@ -137,10 +137,10 @@ module FacebookAds
       required = %i(name page_id message link link_title image_hash call_to_action_type)
 
       unless (keys = required - creative.keys).length.zero?
-        raise Exception, "Creative is missing the following: #{keys.to_sentence}"
+        raise Exception, "Creative is missing the following: #{keys.join(', ')}"
       end
 
-      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.to_sentence}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
       query = AdCreative.photo(creative)
       result = AdCreative.post("/#{id}/adcreatives", query: query)
       AdCreative.find(result['id'])
