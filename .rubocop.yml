@@ -21,3 +21,9 @@ Metrics/ParameterLists:
 
 Style/Documentation:
   Enabled: false
+Style/IndentationWidth:
+  Enabled: false
+Style/ElseAlignment:
+  Enabled: false
+Style/EndAlignment:
+  Enabled: false

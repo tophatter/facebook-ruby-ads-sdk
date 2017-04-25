@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FacebookAds::AdCreativeTest do
+describe FacebookAds::AdCreative do
   # def test_foo
   # end
 end

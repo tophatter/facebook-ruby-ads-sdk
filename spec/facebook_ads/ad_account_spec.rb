@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FacebookAds::AdAccountTest do
+describe FacebookAds::AdAccount do
   # def test_all
   #   vcr do
   #     accounts = FacebookAds::AdAccount.all

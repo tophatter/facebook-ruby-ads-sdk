@@ -54,7 +54,6 @@ module FacebookAds
           }
         }
 
-
         {
           name: name,
           object_story_spec: object_story_spec.to_json
@@ -62,7 +61,8 @@ module FacebookAds
       end
 
       def product_set(name:, page_id:, link:, message:, headline:, description:, product_set_id:)
-        { name: name,
+        {
+          name: name,
           object_story_spec: {
             page_id: page_id,
             template_data: {
