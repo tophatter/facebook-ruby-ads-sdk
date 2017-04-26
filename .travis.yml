@@ -4,7 +4,7 @@ rvm:
 branches:
   only:
     - master
-cache: bundler
 script:
-  - bundle exec rubocop -c .rubocop.yml
+  # - bundle exec rubocop
   - bundle exec rspec
+cache: bundler
