@@ -1,0 +1,5 @@
+## 0.1.12 (2017-05-25)
+ - Added complete set of ad campaign objectives. (#9, @cte)
+ - Switched to rspec from minitest. (#8, @cte)
+ - Formatting tweaks in exception error messages (#7, @dekaikiwi)
+ - Added a reach_estimate method for ad accounts (ae35878, @cte)
