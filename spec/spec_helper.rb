@@ -3,10 +3,5 @@ Coveralls.wear!
 
 require 'awesome_print'
 require 'facebook_ads'
-require 'vcr'
 
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/cassettes'
-  c.hook_into :webmock
-  c.configure_rspec_metadata!
-end
+Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each { |f| require f }

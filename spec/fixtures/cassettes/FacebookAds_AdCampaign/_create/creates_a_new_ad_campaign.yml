@@ -1,0 +1,170 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/me/adaccounts?access_token=<access_token>&fields=id,account_id,account_status,age,created_time,currency,name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.3.0 x86_64) ruby/2.2.6p396
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"0794dfeb67986cbc59e2ca4924f60b6257d02cec"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Rev:
+      - '2980367'
+      Content-Type:
+      - application/json
+      X-Fb-Trace-Id:
+      - GKHUeNN2BSe
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - 8nELwFLNROMPmfEFPqBS2yD849ZvjDtefFmAAEqFmBvf1NJeMovvEE0SYlXLtpQd0wwjhin6eJ6I2f6bkJHlnQ==
+      Date:
+      - Tue, 25 Apr 2017 23:54:27 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1890'
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"act_1223529531023664","account_id":"1223529531023664","account_status":1,"age":141.11508101852,"created_time":"2016-12-02T10:50:57-0800","currency":"USD","name":"International
+        II"},{"id":"act_1198305280212756","account_id":"1198305280212756","account_status":1,"age":159.13708333333,"created_time":"2016-11-10T13:50:54-0800","currency":"USD","name":"Retargeting"},{"id":"act_1183122141731070","account_id":"1183122141731070","account_status":1,"age":179.88846064815,"created_time":"2016-10-27T10:55:59-0700","currency":"USD","name":"DollarStart"},{"id":"act_1132789356764349","account_id":"1132789356764349","account_status":1,"age":232.87392361111,"created_time":"2016-08-31T15:14:23-0700","currency":"USD","name":"LuxeJoy"},{"id":"act_1115226431853975","account_id":"1115226431853975","account_status":1,"age":256.01560185185,"created_time":"2016-08-10T17:27:49-0700","currency":"USD","name":"Ruby"},{"id":"act_953255011384452","account_id":"953255011384452","account_status":1,"age":546.73084490741,"created_time":"2015-10-26T09:23:16-0700","currency":"USD","name":"International"},{"id":"act_1051938118182807","account_id":"1051938118182807","account_status":1,"age":361.85640046296,"created_time":"2016-04-28T17:32:07-0700","currency":"USD","name":"Web"},{"id":"act_861827983860489","account_id":"861827983860489","account_status":1,"age":742.97320601852,"created_time":"2015-04-09T16:54:58-0700","currency":"USD","name":"Android"},{"id":"act_39788579","account_id":"39788579","account_status":1,"age":2973.0250694444,"created_time":"2009-03-05T15:04:59-0800","currency":"USD","name":"iOS"},{"id":"act_10152335766987003","account_id":"10152335766987003","account_status":1,"age":466.6684375,"created_time":"2014-10-24T14:38:31-0700","currency":"USD","name":"Chris
+        Estreich"}],"paging":{"cursors":{"before":"MjM4NDI1MjkxNDU2NTAyMTcZD","after":"NjAxODA5MTU2MDA0MgZDZD"}}}'
+    http_version: 
+  recorded_at: Tue, 25 Apr 2017 23:54:27 GMT
+- request:
+    method: post
+    uri: https://graph.facebook.com/v2.8/act_10152335766987003/campaigns
+    body:
+      encoding: UTF-8
+      string: name=Test&objective=MOBILE_APP_INSTALLS&status=ACTIVE&access_token=<access_token>
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.3.0 x86_64) ruby/2.2.6p396
+      Content-Length:
+      - '239'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      P3p:
+      - CP="Facebook has no P3P policy fb.me/p3p"
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Rev:
+      - '2980367'
+      Content-Type:
+      - application/json
+      X-Fb-Trace-Id:
+      - Ggl80M0TZ3b
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Set-Cookie:
+      - sW=1493164467%3AAaDSD63iMWHf-Bim; path=/; domain=.graph.facebook.com; secure
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - lt3EZr8ylntEra4SmAsWLc2Id4k70sOPWwa1WoQ77hpXhyHTlD3YCPZ0XU8f4Wdk8VTufaMoDpWvsFTZYi4DTw==
+      Date:
+      - Tue, 25 Apr 2017 23:54:27 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+    body:
+      encoding: UTF-8
+      string: '{"id":"6076261167842"}'
+    http_version: 
+  recorded_at: Tue, 25 Apr 2017 23:54:27 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/6076261167842?access_token=<access_token>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.3.0 x86_64) ruby/2.2.6p396
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"a632836fce3a0820a1a20bfa4a81ecd3627f0062"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Rev:
+      - '2980367'
+      Content-Type:
+      - application/json
+      X-Fb-Trace-Id:
+      - Dl1M7J8hyk7
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - 0+VuRQdnNw5vbsOnIeYcfgPJmnqctFdaZUieZryjZxSiJWmYUGQKdLwOaOSrCVQ/4bRtlJibTJmF1+Gjm8TBow==
+      Date:
+      - Tue, 25 Apr 2017 23:54:28 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '333'
+    body:
+      encoding: UTF-8
+      string: '{"id":"6076261167842","account_id":"10152335766987003","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2017-04-25T16:54:27-0700","effective_status":"ACTIVE","name":"Test","objective":"MOBILE_APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2017-04-25T16:54:27-0700"}'
+    http_version: 
+  recorded_at: Tue, 25 Apr 2017 23:54:28 GMT
+recorded_with: VCR 3.0.3

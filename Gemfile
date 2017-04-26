@@ -9,7 +9,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'approvals'
   gem 'coveralls', require: false
+  gem 'multi_json'
   gem 'rspec'
   gem 'vcr'
   gem 'webmock'

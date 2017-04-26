@@ -1,26 +1,18 @@
 require 'spec_helper'
 
+# FACEBOOK_ACCESS_TOKEN=... rspec spec/facebook_ads/ad_account_spec.rb
 describe FacebookAds::AdAccount do
-  # def test_all
-  #   vcr do
-  #     accounts = FacebookAds::AdAccount.all
-  #     assert_equal 10, accounts.length
-  #   end
-  # end
-  #
-  # def test_find_by
-  #   vcr do
-  #     account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
-  #     assert_equal 'ReFuel4', account.name
-  #   end
-  # end
-  #
-  # def test_applications
-  #   vcr do
-  #     account = FacebookAds::AdAccount.find_by(name: 'ReFuel4')
-  #     apps = account.applications
-  #     assert !apps['data'].find { |app| app['name'] == 'Tophatter' }.nil?
-  #     assert !apps['data'].find { |app| app['name'] == 'Ruby - Jewelry Shopping Deals' }.nil?
-  #   end
-  # end
+  describe '#all' do
+    it 'lists all accounts', :vcr do
+      accounts = FacebookAds::AdAccount.all
+      verify(format: :json) { JSON.dump(accounts) }
+    end
+  end
+
+  describe '#find_by' do
+    it 'finds a specific account', :vcr do
+      account = FacebookAds::AdAccount.find_by(name: 'iOS')
+      verify(format: :json) { JSON.dump(account) }
+    end
+  end
 end

@@ -11,7 +11,7 @@ module FacebookAds
         uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
         FacebookAds.logger.debug "GET #{uri}"
         response = begin
-          RestClient.get(uri)
+          RestClient.get(uri, accept: :json, accept_encoding: :identity)
         rescue RestClient::Exception => e
           exception(:get, path, e)
         end
