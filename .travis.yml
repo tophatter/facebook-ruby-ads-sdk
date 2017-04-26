@@ -5,7 +5,5 @@ branches:
   only:
     - master
 script:
-  # - bundle exec rubocop
-  - bundle exec rspec
-  - bundle exec coveralls push
+  - bundle exec rake
 cache: bundler
