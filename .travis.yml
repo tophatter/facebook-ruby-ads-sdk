@@ -7,6 +7,5 @@ branches:
 script:
   # - bundle exec rubocop
   - bundle exec rspec
-  - bundle exec coveralls report
   - bundle exec coveralls push
 cache: bundler
