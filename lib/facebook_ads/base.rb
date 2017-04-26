@@ -75,6 +75,7 @@ module FacebookAds
 
         hash.each_pair do |key, value|
           # https://github.com/intridea/hashie/blob/master/lib/hashie/mash.rb#L111
+          # key = '_hash' if key == 'hash'
           object.custom_writer(key, value, false)
         end
 

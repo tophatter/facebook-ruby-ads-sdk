@@ -1,0 +1,15 @@
+[
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "buying_type": "AUCTION",
+    "can_use_spend_cap": true,
+    "configured_status": "ACTIVE",
+    "created_time": "<time>",
+    "effective_status": "ACTIVE",
+    "name": "Test",
+    "objective": "MOBILE_APP_INSTALLS",
+    "start_time": "<time>",
+    "updated_time": "<time>"
+  }
+]

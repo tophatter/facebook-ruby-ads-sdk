@@ -7,8 +7,8 @@ module FacebookAds
     ANDROID_OS         = 'Android'.freeze
     APPLE_OS           = 'iOS'.freeze
     OSES               = [ANDROID_OS, APPLE_OS].freeze
-    ANDROID_DEVICES    = %w(Android_Smartphone Android_Tablet).freeze
-    APPLE_DEVICES      = %w(iPhone iPad iPod).freeze
+    ANDROID_DEVICES    = %w[Android_Smartphone Android_Tablet].freeze
+    APPLE_DEVICES      = %w[iPhone iPad iPod].freeze
     DEVICES            = ANDROID_DEVICES + APPLE_DEVICES
     INSTALLED          = 'installed'.freeze
     NOT_INSTALLED      = 'not_installed'.freeze

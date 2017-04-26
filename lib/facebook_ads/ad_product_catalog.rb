@@ -1,7 +1,7 @@
 module FacebookAds
   # https://developers.facebook.com/docs/marketing-api/reference/product-catalog
   class AdProductCatalog < Base
-    FIELDS = %w(id name vertical product_count feed_count).freeze
+    FIELDS = %w[id name vertical product_count feed_count].freeze
 
     class << self
       def all(query = {})

@@ -2,7 +2,7 @@ module FacebookAds
   # An ad account has many ad campaigns, ad images, and ad creatives.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-account
   class AdAccount < Base
-    FIELDS = %w(id account_id account_status age created_time currency name).freeze
+    FIELDS = %w[id account_id account_status age created_time currency name].freeze
 
     class << self
       def all(query = {})
@@ -119,7 +119,7 @@ module FacebookAds
     private
 
     def create_carousel_ad_creative(creative)
-      required = %i(name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card)
+      required = %i[name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card]
 
       unless (keys = required - creative.keys).length.zero?
         raise Exception, "Creative is missing the following: #{keys.join(', ')}"
@@ -128,7 +128,15 @@ module FacebookAds
       raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
 
       query = if creative[:product_set_id].present?
-        AdCreative.product_set(name: creative[:name], page_id: creative[:page_id], link: creative[:link], message: creative[:message], headline: creative[:headline], description: creative[:description], product_set_id: creative[:product_set_id])
+        AdCreative.product_set(
+          name: creative[:name],
+          page_id: creative[:page_id],
+          link: creative[:link],
+          message: creative[:message],
+          headline: creative[:headline],
+          description: creative[:description],
+          product_set_id: creative[:product_set_id]
+        )
       else
         AdCreative.carousel(creative)
       end
@@ -138,7 +146,7 @@ module FacebookAds
     end
 
     def create_image_ad_creative(creative)
-      required = %i(name page_id message link link_title image_hash call_to_action_type)
+      required = %i[name page_id message link link_title image_hash call_to_action_type]
 
       unless (keys = required - creative.keys).length.zero?
         raise Exception, "Creative is missing the following: #{keys.join(', ')}"
