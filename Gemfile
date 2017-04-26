@@ -1,15 +1,18 @@
 source 'https://rubygems.org'
 gemspec
 
-group :development do
-  gem 'pry', '~> 0.10'
-  gem 'awesome_print', '~> 1.7'
+group :development, :test do
+  gem 'awesome_print'
+  gem 'pry'
+  gem 'rake'
+  gem 'rubocop'
 end
 
 group :test do
-  gem 'rake'
-  gem 'minitest'
-  gem 'webmock'
-  gem 'vcr'
+  gem 'approvals'
   gem 'coveralls', require: false
+  gem 'multi_json'
+  gem 'rspec'
+  gem 'vcr'
+  gem 'webmock'
 end

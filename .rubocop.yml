@@ -16,8 +16,16 @@ Metrics/ClassLength:
   Enabled: false
 Metrics/MethodLength:
   Enabled: false
+Metrics/BlockLength:
+  Enabled: false
 Metrics/ParameterLists:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+Style/IndentationWidth:
+  Enabled: false
+Style/ElseAlignment:
+  Enabled: false
+Style/EndAlignment:
   Enabled: false

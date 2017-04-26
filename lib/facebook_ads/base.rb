@@ -11,7 +11,7 @@ module FacebookAds
         uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
         FacebookAds.logger.debug "GET #{uri}"
         response = begin
-          RestClient.get(uri)
+          RestClient.get(uri, accept: :json, accept_encoding: :identity)
         rescue RestClient::Exception => e
           exception(:get, path, e)
         end
@@ -75,6 +75,7 @@ module FacebookAds
 
         hash.each_pair do |key, value|
           # https://github.com/intridea/hashie/blob/master/lib/hashie/mash.rb#L111
+          # key = '_hash' if key == 'hash'
           object.custom_writer(key, value, false)
         end
 
@@ -137,19 +138,15 @@ module FacebookAds
           begin
             if (error = JSON.parse(response)['error']).nil?
               response
+            elsif error['error_subcode'].nil? || error['error_user_title'].nil? || error['error_user_msg'].nil?
+              "#{error['type']} / #{error['code']}: #{error['message']}"
             else
-              if error['error_subcode'].nil? ||
-                 error['error_user_title'].nil? ||
-                 error['error_user_msg'].nil?
-                "#{error['type']} / #{error['code']}: #{error['message']}"
-              else
-                exception = AdException.new(
-                  code: error['error_subcode'],
-                  title: error['error_user_title'],
-                  message: error['error_user_msg']
-                )
-                "#{exception.code} / #{exception.title}: #{exception.message}"
-              end
+              exception = AdException.new(
+                code: error['error_subcode'],
+                title: error['error_user_title'],
+                message: error['error_user_msg']
+              )
+              "#{exception.code} / #{exception.title}: #{exception.message}"
             end
           rescue JSON::ParserError
             response

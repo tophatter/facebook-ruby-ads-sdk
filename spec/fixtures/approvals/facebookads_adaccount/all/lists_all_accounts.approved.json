@@ -1,0 +1,92 @@
+[
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "International II"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "Retargeting"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "DollarStart"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "LuxeJoy"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "Ruby"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "International"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "Web"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "Android"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "iOS"
+  },
+  {
+    "id": "<object_id>",
+    "account_id": "<object_id>",
+    "account_status": 1,
+    "age": "<duration>",
+    "created_time": "<time>",
+    "currency": "USD",
+    "name": "Chris Estreich"
+  }
+]

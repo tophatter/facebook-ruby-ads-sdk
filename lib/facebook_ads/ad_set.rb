@@ -20,7 +20,7 @@ module FacebookAds
     # ).freeze
 
     # Fields we might actually care about:
-    FIELDS = %w(
+    FIELDS = %w[
       id account_id campaign_id
       name
       status configured_status effective_status
@@ -29,11 +29,11 @@ module FacebookAds
       promoted_object
       targeting
       created_time updated_time
-    ).freeze
+    ].freeze
 
-    STATUSES           = %w(ACTIVE PAUSED DELETED PENDING_REVIEW DISAPPROVED PREAPPROVED PENDING_BILLING_INFO CAMPAIGN_PAUSED ARCHIVED ADSET_PAUSED).freeze
-    BILLING_EVENTS     = %w(APP_INSTALLS IMPRESSIONS).freeze
-    OPTIMIZATION_GOALS = %w(APP_INSTALLS OFFSITE_CONVERSIONS).freeze
+    STATUSES           = %w[ACTIVE PAUSED DELETED PENDING_REVIEW DISAPPROVED PREAPPROVED PENDING_BILLING_INFO CAMPAIGN_PAUSED ARCHIVED ADSET_PAUSED].freeze
+    BILLING_EVENTS     = %w[APP_INSTALLS IMPRESSIONS].freeze
+    OPTIMIZATION_GOALS = %w[APP_INSTALLS OFFSITE_CONVERSIONS].freeze
 
     # belongs_to ad_account
 

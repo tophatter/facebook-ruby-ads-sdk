@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/v2.8/act_10152335766987003/adimages?access_token=<access_token>&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=d8fc613662fb5ef6cf5fb9d1fe779315
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.3.0 x86_64) ruby/2.2.6p396
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"57cb9f58f449656a6e77b0b528d1a1183ba8c232"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Rev:
+      - '2980367'
+      Content-Type:
+      - application/json
+      X-Fb-Trace-Id:
+      - HQ808aSx6mj
+      Facebook-Api-Version:
+      - v2.8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - "+YXJvwsXIleO651tllG7IBM6OK+NikbdDlA5kjEf2orN7srgfIvzYQB4/u1bptOVq1/eJ3OYsboHFY3Fmk/YLg=="
+      Date:
+      - Wed, 26 Apr 2017 00:48:42 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '616'
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"10152335766987003:d8fc613662fb5ef6cf5fb9d1fe779315","hash":"d8fc613662fb5ef6cf5fb9d1fe779315","account_id":"10152335766987003","name":"13006112.jpg","permalink_url":"https:\/\/www.facebook.com\/ads\/image\/?d=AQLSiUGsZ84fclezlh6EppSetpCqajyC5977Xg-Ez51AOlAJw17zgcoauXutWgj8v4Ggg9BHXtKSQs351gRUmSfOxfGutEPX2c9fASaamvnfsK-3DENLiahsMn7Ck4sdzL5ah92Rsx25nZJO81Vp9SEy","original_width":570,"original_height":707}],"paging":{"cursors":{"before":"MTAxNTIzMzU3NjY5ODcwMDM6ZADhmYzYxMzY2MmZAiNWVmNmNmNWZAiOWQxZAmU3NzkzMTUZD","after":"MTAxNTIzMzU3NjY5ODcwMDM6ZADhmYzYxMzY2MmZAiNWVmNmNmNWZAiOWQxZAmU3NzkzMTUZD"}}}'
+    http_version: 
+  recorded_at: Wed, 26 Apr 2017 00:48:42 GMT
+recorded_with: VCR 3.0.3
