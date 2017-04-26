@@ -53,7 +53,7 @@ module FacebookAds
         user_os: user_os,
         user_device: user_device,
         app_install_state: app_install_state
-      }.compact
+      }.reject { |_k, v| v.nil? }
     end
   end
 end

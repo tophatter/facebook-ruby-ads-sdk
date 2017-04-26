@@ -96,18 +96,39 @@ module FacebookAds
       end.flatten
     end
 
+    def reach_estimate(targeting:, optimization_goal:, currency: 'USD')
+      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+
+      if targeting.is_a?(AdTargeting)
+        if targeting.validate!
+          targeting = targeting.to_hash
+        else
+          raise Exception, 'The provided targeting spec is not valid.'
+        end
+      end
+
+      query = {
+        targeting_spec: targeting.to_json,
+        optimize_for: optimization_goal,
+        currency: currency
+      }
+      self.class.get("/#{id}/reachestimate", query: query, objectify: false)
+    end
+
     # has_many applications
 
     def applications
       self.class.get("/#{id}/advertisable_applications", objectify: false)
     end
 
-    def create_ad_audience_with_pixel(name:, pixel_id:, event_name:)
+    # hash_many ad_audiences
+
+    def create_ad_audience_with_pixel(name:, pixel_id:, event_name:, subtype: 'WEBSITE', retention_days: 15)
       query = {
         name: name,
         pixel_id: pixel_id,
-        subtype: 'WEBSITE',
-        retention_days: 15,
+        subtype: subtype,
+        retention_days: retention_days,
         rule: { event: { i_contains: event_name } }.to_json,
         prefill: 1
       }

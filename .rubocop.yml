@@ -26,6 +26,8 @@ Style/IndentationWidth:
   Enabled: false
 Style/ElseAlignment:
   Enabled: false
+Style/GuardClause:
+  Enabled: false
 
 Lint/EndAlignment:
   Enabled: false

@@ -78,4 +78,16 @@ describe FacebookAds::AdAccount do
       verify(format: :json) { JSON.dump(ads) }
     end
   end
+
+  describe '.reach_estimate' do
+    it 'estimates the reach of a targeting spec', :vcr do
+      targeting = FacebookAds::AdTargeting.new
+      targeting.genders = [FacebookAds::AdTargeting::WOMEN]
+      targeting.age_min = 18
+      targeting.age_max = 20
+      targeting.countries = ['US']
+      reach = account.reach_estimate(targeting: targeting, optimization_goal: 'OFFSITE_CONVERSIONS')
+      verify(format: :json) { JSON.dump(reach) }
+    end
+  end
 end
