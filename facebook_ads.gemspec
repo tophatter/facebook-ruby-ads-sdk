@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
   s.email       = 'cestreich@gmail.com'
-  s.homepage    = 'https://github.com/cte/facebook-ruby-ads-sdk'
+  s.homepage    = 'https://github.com/tophatter/facebook-ruby-ads-sdk'
   s.summary     = 'Facebook Marketing API SDK for Ruby.'
   s.description = "This gem allows to easily manage your Facebook ads via \
                    Facebook's Marketing API in ruby."

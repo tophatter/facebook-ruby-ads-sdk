@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    facebook_ads (0.1.11)
+    facebook_ads (0.1.12)
       hashie (~> 3.4)
       rest-client (>= 1.6)
 
