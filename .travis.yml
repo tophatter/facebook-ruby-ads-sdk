@@ -6,5 +6,5 @@ branches:
     - master
 cache: bundler
 script:
-  - bundle exec rubocop
+  - bundle exec rubocop -c .rubocop.yml
   - bundle exec rspec
