@@ -1,8 +1,4 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
-  Exclude:
-    - bin/console
   TargetRubyVersion: 2.2
 
 Metrics/AbcSize:
@@ -11,6 +7,7 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/PerceivedComplexity:
   Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 Metrics/ClassLength:
@@ -22,6 +19,9 @@ Metrics/BlockLength:
 Metrics/ParameterLists:
   Enabled: false
 
+Lint/EndAlignment:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 Style/IndentationWidth:
@@ -30,6 +30,9 @@ Style/ElseAlignment:
   Enabled: false
 Style/GuardClause:
   Enabled: false
+Style/NumericLiterals:
+  Enabled: false
 
-# Lint/EndAlignment:
-#   Enabled: false
+# This is temporary - it can be remove after updating rubocop to the latest.
+Style/PercentLiteralDelimiters:
+  Enabled: false

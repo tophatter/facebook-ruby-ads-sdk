@@ -2,8 +2,6 @@
 
 require 'bundler/setup'
 require 'facebook_ads'
-require 'awesome_print'
-require 'pry'
 
 begin
   FacebookAds.access_token = File.read('test_access_token').chop
@@ -23,5 +21,8 @@ end
 FacebookAds.logger = Logger.new(STDOUT)
 FacebookAds.logger.level = Logger::Severity::DEBUG
 
+require 'awesome_print'
+require 'pry'
+
 AwesomePrint.pry!
-binding.pry
+Pry.start
