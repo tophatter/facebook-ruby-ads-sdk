@@ -5,6 +5,6 @@ rvm:
 #   only:
 #     - master
 script:
-  - bundle exec rake rubocop
+  - bundle exec rubocop
   - bundle exec rake
 cache: bundler
