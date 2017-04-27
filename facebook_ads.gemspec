@@ -1,4 +1,6 @@
-# To release a new version:
+# -*- encoding: utf-8 -*-
+
+# To publish the next version:
 # gem build facebook_ads.gemspec
 # gem push facebook_ads-0.1.12.gem
 Gem::Specification.new do |s|
@@ -7,18 +9,20 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
-  s.email       = 'cestreich@gmail.com'
+  s.email       = 'chris@tophatter.com'
   s.homepage    = 'https://github.com/tophatter/facebook-ruby-ads-sdk'
   s.summary     = 'Facebook Marketing API SDK for Ruby.'
-  s.description = "This gem allows to easily manage your Facebook ads via \
-                   Facebook's Marketing API in ruby."
+  s.description = "This gem allows to easily manage your Facebook ads via Facebook's Marketing API in ruby."
+
   s.extra_rdoc_files = ['README.md']
-  s.files         = `git ls-files`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map do |f|
-    File.basename(f)
-  end
-  s.require_paths = ['lib']
+
   s.required_ruby_version = '~> 2.0'
+
   s.add_dependency 'rest-client', '>= 1.6'
   s.add_dependency 'hashie', '~> 3.4'
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
+  s.require_paths = ['lib']
 end
