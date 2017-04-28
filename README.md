@@ -151,7 +151,7 @@ ___
 Notes:
 * Images cannot be updated.
 * You can upload the same image multiple times and Facebook will de-duplicate them server side.
-* An image will always generate the same hash on Facebook's end - event across ad accounts.
+* An image will always generate the same hash on Facebook's end - even across ad accounts.
 * Image uploading via a URL currently assumes a \*nix system (Mac OS, linux). It likely will fail on Windows. A cross-platform tempfile-based solution is in the works.
 * You can't destroy an image if its being used by a creative. You have to destroy the creative first.
 
