@@ -89,6 +89,17 @@ module FacebookAds
           product_set_id: product_set_id
         }
       end
+
+      def link(name:, title:, body:, object_url:, link_url:, image_hash:)
+        {
+         name: name,
+         title: title,
+         body: body,
+         object_url: object_url,
+         link_url: link_url,
+         image_hash: image_hash
+        }
+      end
     end
   end
 end
