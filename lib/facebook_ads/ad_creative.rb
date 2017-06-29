@@ -42,7 +42,7 @@ module FacebookAds
             'call_to_action' => { 'type' => call_to_action_type },
             'child_attachments' => assets.collect do |asset|
               {
-                'link' => link,
+                'link' => asset[:link] || link,
                 'image_hash' => asset[:hash],
                 'name' => asset[:title],
                 # 'description' => asset[:title],
