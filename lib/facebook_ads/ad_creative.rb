@@ -2,7 +2,7 @@ module FacebookAds
   # Ad ad creative has many ad images and belongs to an ad account.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-creative
   class AdCreative < Base
-    FIELDS               = %w[id name object_story_id object_story_spec object_type thumbnail_url run_status].freeze
+    FIELDS               = %w[id name object_story_id object_story_spec object_type thumbnail_url].freeze
     CALL_TO_ACTION_TYPES = %w[SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW].freeze
 
     class << self
