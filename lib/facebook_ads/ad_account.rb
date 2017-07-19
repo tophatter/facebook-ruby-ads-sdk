@@ -115,6 +115,25 @@ module FacebookAds
       self.class.get("/#{id}/reachestimate", query: query, objectify: false)
     end
 
+    def delivery_estimate(targeting:, optimization_goal:, currency: 'USD')
+      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+
+      if targeting.is_a?(AdTargeting)
+        if targeting.validate!
+          targeting = targeting.to_hash
+        else
+          raise Exception, 'The provided targeting spec is not valid.'
+        end
+      end
+
+      query = {
+        targeting_spec: targeting.to_json,
+        optimization_goal: optimization_goal,
+        currency: currency
+              }
+      self.class.get("/#{id}/delivery_estimate", query: query, objectify: false)
+    end
+
     # has_many applications
 
     def applications
