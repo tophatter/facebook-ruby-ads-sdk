@@ -7,9 +7,9 @@ describe FacebookAds do
       expect(FacebookAds.base_uri.include?('2.9')).to be_truthy
     end
 
-    it 'can be set to v2.8' do
-      FacebookAds.base_uri = 'https://graph.facebook.com/v2.8'
-      expect(FacebookAds.base_uri.include?('2.8')).to be_truthy
+    it 'can be set to v2.10' do
+      FacebookAds.base_uri = 'https://graph.facebook.com/v2.10'
+      expect(FacebookAds.base_uri.include?('2.10')).to be_truthy
     end
   end
 end
