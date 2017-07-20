@@ -3,6 +3,7 @@ require 'json'
 require 'rest-client'
 require 'hashie'
 require 'logger'
+require 'openssl'
 
 # Internal requires.
 require 'facebook_ads/base'
@@ -38,6 +39,22 @@ module FacebookAds
 
   def self.access_token
     @access_token
+  end
+
+  def self.app_secret=(app_secret)
+    @app_secret = app_secret
+  end
+
+  def self.app_secret
+    @app_secret
+  end
+
+  def self.appsecret_proof
+    OpenSSL::HMAC.hexdigest(
+      OpenSSL::Digest.new('sha256'),
+      @app_secret,
+      @access_token
+    )
   end
 
   def self.business_id=(business_id)

@@ -2811,7 +2811,7 @@ http_interactions:
   recorded_at: Wed, 26 Apr 2017 00:48:43 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/act_10152335766987003/adimages?access_token=<access_token>&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=d8fc613662fb5ef6cf5fb9d1fe779315
+    uri: https://graph.facebook.com/v2.8/act_10152335766987003/adimages?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=d8fc613662fb5ef6cf5fb9d1fe779315
     body:
       encoding: US-ASCII
       string: ''

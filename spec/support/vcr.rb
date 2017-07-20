@@ -7,10 +7,13 @@ VCR.configure do |c|
   c.default_cassette_options = {
     match_requests_on: [
       :method,
-      VCR.request_matchers.uri_without_param(:access_token)
+      VCR.request_matchers.uri_without_param(:access_token, :app_secret)
     ]
   }
   c.filter_sensitive_data('<access_token>') do
-    ENV['FACEBOOK_ACCESS_TOKEN']
+    FacebookAds.access_token
+  end
+  c.filter_sensitive_data('<appsecret_proof>') do
+    FacebookAds.appsecret_proof
   end
 end

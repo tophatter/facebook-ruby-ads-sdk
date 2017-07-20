@@ -1,3 +1,6 @@
+## 0.2 (2017-07-20)
+ - Added ability to configure App Secret to be included with API requests
+
 ## 0.1.12 (2017-05-25)
  - Added complete set of ad campaign objectives. (#9, @cte)
  - Switched to rspec from minitest. (#8, @cte)

@@ -28,6 +28,12 @@ You'll need an [Access Token](https://developers.facebook.com/docs/marketing-api
 FacebookAds.access_token = '[YOUR_ACCESS_TOKEN]'
 ```
 
+You can also optionally include an [App Secret](https://developers.facebook.com/docs/accountkit/graphapi#app-tokens) if you need one for your application.
+
+```ruby
+FacebookAds.app_secret = '[YOUR_APP_SECRET]'
+```
+
 ## API Version
 
 This gem currently uses v2.8 of the Marketing API (soon to be updated to 2.9). You can change the version as desired with the following:
