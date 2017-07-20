@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/6076262142242?access_token=<access_token>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v2.8/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''
@@ -55,7 +55,7 @@ http_interactions:
   recorded_at: Wed, 26 Apr 2017 00:52:19 GMT
 - request:
     method: delete
-    uri: https://graph.facebook.com/v2.8/6076262142242?access_token=<access_token>
+    uri: https://graph.facebook.com/v2.8/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>
     body:
       encoding: US-ASCII
       string: ''
@@ -110,7 +110,7 @@ http_interactions:
   recorded_at: Wed, 26 Apr 2017 00:52:20 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/6076262142242?access_token=<access_token>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v2.8/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''

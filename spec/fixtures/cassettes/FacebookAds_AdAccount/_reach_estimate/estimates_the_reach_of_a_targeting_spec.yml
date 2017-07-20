@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/act_10152335766987003/reachestimate?access_token=<access_token>&currency=USD&optimize_for=OFFSITE_CONVERSIONS&targeting_spec=%7B%22genders%22:%5B2%5D,%22age_min%22:18,%22age_max%22:20,%22geo_locations%22:%7B%22countries%22:%5B%22US%22%5D%7D%7D
+    uri: https://graph.facebook.com/v2.8/act_10152335766987003/reachestimate?access_token=<access_token>&appsecret_proof=<appsecret_proof>&currency=USD&optimize_for=OFFSITE_CONVERSIONS&targeting_spec=%7B%22genders%22:%5B2%5D,%22age_min%22:18,%22age_max%22:20,%22geo_locations%22:%7B%22countries%22:%5B%22US%22%5D%7D%7D
     body:
       encoding: US-ASCII
       string: ''
