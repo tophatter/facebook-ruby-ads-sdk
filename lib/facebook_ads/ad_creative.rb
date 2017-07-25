@@ -6,7 +6,7 @@ module FacebookAds
     CALL_TO_ACTION_TYPES = %w[SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW].freeze
 
     class << self
-      def photo(name:, page_id:, instagram_actor_id: nil, message:, link:, link_title:, image_hash:, call_to_action_type:)
+      def photo(name:, page_id:, instagram_actor_id: nil, message:, link:, app_link:, link_title:, image_hash:, call_to_action_type:)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
           'instagram_actor_id' => instagram_actor_id, # 503391023081924
@@ -19,6 +19,7 @@ module FacebookAds
               'value' => {
                 # 'application' =>,
                 'link' => link,
+                'app_link' => app_link,
                 'link_title' => link_title
               }
             }
@@ -32,21 +33,33 @@ module FacebookAds
       end
 
       # https://developers.facebook.com/docs/marketing-api/guides/videoads
-      def carousel(name:, page_id:, instagram_actor_id: nil, link:, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:)
+      def carousel(name:, page_id:, instagram_actor_id: nil, link:, app_link:, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
           'instagram_actor_id' => instagram_actor_id, # 503391023081924
           'link_data' => {
             'link' => link, # https://tophatter.com/, https://itunes.apple.com/app/id619460348, http://play.google.com/store/apps/details?id=com.tophatter
             'message' => message,
-            'call_to_action' => { 'type' => call_to_action_type },
+            'call_to_action' => {
+              'type' => call_to_action_type,
+              'value' => {
+                'link' => link,
+                'app_link' => app_link
+              }
+            },
             'child_attachments' => assets.collect do |asset|
               {
                 'link' => asset[:link] || link,
                 'image_hash' => asset[:hash],
                 'name' => asset[:title],
                 # 'description' => asset[:title],
-                'call_to_action' => { 'type' => call_to_action_type } # Redundant?
+                'call_to_action' => { # Redundant?
+                  'type' => call_to_action_type,
+                  'value' => {
+                    'link' => link,
+                    'app_link' => app_link
+                  }
+                }
               }
             end,
             'multi_share_optimized' => multi_share_optimized,
