@@ -1,3 +1,6 @@
+## 0.3 (2017-07-20)
+ - Added ability to pass `app_link` parameter with ad creatives
+
 ## 0.2 (2017-07-20)
  - Added ability to configure App Secret to be included with API requests
 
