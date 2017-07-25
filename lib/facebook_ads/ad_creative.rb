@@ -56,8 +56,8 @@ module FacebookAds
                 'call_to_action' => { # Redundant?
                   'type' => call_to_action_type,
                   'value' => {
-                    'link' => link,
-                    'app_link' => app_link
+                    'link' => asset[:link] || link,
+                    'app_link' => asset[:app_link] || app_link
                   }
                 }
               }
