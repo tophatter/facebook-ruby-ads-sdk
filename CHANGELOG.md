@@ -1,4 +1,8 @@
-## 0.3 (2017-07-20)
+## 0.4 (2017-07-25)
+ - Added ability to pass `bid_amount` parameter when creating ad sets
+ - Ad Set `is_autobid` parameter now defaults to `nil` rather than `true`
+
+## 0.3 (2017-07-24)
  - Added ability to pass `app_link` parameter with ad creatives
 
 ## 0.2 (2017-07-20)
