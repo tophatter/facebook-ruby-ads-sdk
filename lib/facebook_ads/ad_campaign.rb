@@ -60,7 +60,7 @@ module FacebookAds
       AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
     end
 
-    def create_ad_set(name:, promoted_object:, targeting:, daily_budget:, optimization_goal:, billing_event: 'IMPRESSIONS', status: 'ACTIVE', is_autobid: nil)
+    def create_ad_set(name:, promoted_object:, targeting:, daily_budget:, optimization_goal:, billing_event: 'IMPRESSIONS', status: 'ACTIVE', is_autobid: nil, bid_amount: nil)
       raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
       raise Exception, "Billing event must be one of: #{AdSet::BILLING_EVENTS.join(', ')}" unless AdSet::BILLING_EVENTS.include?(billing_event)
 
@@ -80,7 +80,8 @@ module FacebookAds
         daily_budget: daily_budget,
         billing_event: billing_event,
         status: status,
-        is_autobid: is_autobid
+        is_autobid: is_autobid,
+        bid_amount: bid_amount
       }
       result = AdSet.post("/act_#{account_id}/adsets", query: query)
       AdSet.find(result['id'])
