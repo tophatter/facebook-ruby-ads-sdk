@@ -24,7 +24,7 @@ module FacebookAds
       id account_id campaign_id
       name
       status configured_status effective_status
-      bid_amount billing_event optimization_goal pacing_type
+      is_autobid bid_amount billing_event optimization_goal pacing_type
       daily_budget budget_remaining lifetime_budget
       promoted_object
       targeting
