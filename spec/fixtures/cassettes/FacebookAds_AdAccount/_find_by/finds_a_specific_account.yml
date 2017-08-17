@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.9/me/adaccounts?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,account_status,age,created_time,currency,name
+    uri: https://graph.facebook.com/v<api_version>/me/adaccounts?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,account_status,age,created_time,currency,name
     body:
       encoding: US-ASCII
       string: ''
@@ -35,7 +35,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - CuRn+gsmX/Q
       Facebook-Api-Version:
-      - v2.9
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:

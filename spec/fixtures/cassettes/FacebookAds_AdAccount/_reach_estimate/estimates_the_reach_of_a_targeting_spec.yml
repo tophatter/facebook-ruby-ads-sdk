@@ -35,7 +35,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - CkopL2tG9bb
       Facebook-Api-Version:
-      - v2.9
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:

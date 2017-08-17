@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.9/act_10152335766987003/adcreatives?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url&limit=100
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/adcreatives?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url&limit=100
     body:
       encoding: US-ASCII
       string: ''
@@ -35,7 +35,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - GLzFzakfMe1
       Facebook-Api-Version:
-      - v2.9
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:

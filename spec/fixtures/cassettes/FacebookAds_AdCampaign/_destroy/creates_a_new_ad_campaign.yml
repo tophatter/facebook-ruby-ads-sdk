@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.9/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v<api_version>/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''
@@ -35,7 +35,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - AhBg3GXvanL
       Facebook-Api-Version:
-      - v2.9
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
@@ -55,7 +55,7 @@ http_interactions:
   recorded_at: Wed, 26 Apr 2017 00:52:19 GMT
 - request:
     method: delete
-    uri: https://graph.facebook.com/v2.9/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>
+    uri: https://graph.facebook.com/v<api_version>/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>
     body:
       encoding: US-ASCII
       string: ''
@@ -88,7 +88,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - EC9oCOuSKpv
       Facebook-Api-Version:
-      - v2.9
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Set-Cookie:
@@ -110,7 +110,7 @@ http_interactions:
   recorded_at: Wed, 26 Apr 2017 00:52:20 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.9/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v<api_version>/6076262142242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''
@@ -143,7 +143,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - GFItSlAIeCr
       Facebook-Api-Version:
-      - v2.9
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
