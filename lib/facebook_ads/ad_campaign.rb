@@ -84,7 +84,7 @@ module FacebookAds
       }
 
       if daily_budget && lifetime_budget
-        raise Exception "Only one budget may be set between daily_budget and life_budget"
+        raise Exception 'Only one budget may be set between daily_budget and life_budget'
       elsif daily_budget
         query[:daily_budget] = daily_budget
       elsif lifetime_budget

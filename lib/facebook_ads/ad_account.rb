@@ -67,9 +67,9 @@ module FacebookAds
     end
 
     def create_ad_creative(creative, creative_type: nil)
-      if creative_type == "carousel"
+      if creative_type == 'carousel'
         create_carousel_ad_creative(creative)
-      elsif creative_type == "link"
+      elsif creative_type == 'link'
         create_link_ad_creative(creative)
       else
         create_image_ad_creative(creative)
@@ -136,7 +136,7 @@ module FacebookAds
         targeting_spec: targeting.to_json,
         optimization_goal: optimization_goal,
         currency: currency
-              }
+      }
       self.class.get("/#{id}/delivery_estimate", query: query, objectify: false)
     end
 
