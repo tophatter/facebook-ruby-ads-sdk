@@ -12,4 +12,15 @@ describe FacebookAds do
       expect(FacebookAds.base_uri.include?('2.10')).to be_truthy
     end
   end
+
+  describe '#api_version' do
+    it 'is currently 2.9' do
+      expect(FacebookAds.api_version).to eq '2.9'
+    end
+
+    it 'can be set to 2.10' do
+      FacebookAds.api_version = '2.10'
+      expect(FacebookAds.api_version).to eq '2.10'
+    end
+  end
 end

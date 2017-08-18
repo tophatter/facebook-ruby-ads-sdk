@@ -66,11 +66,16 @@ module FacebookAds
       AdCreative.paginate("/#{id}/adcreatives", query: { limit: limit })
     end
 
-    def create_ad_creative(creative, creative_type: nil)
-      if creative_type == 'carousel'
+    def create_ad_creative(creative, creative_type: nil, carousel: false)
+      # Support old deprecated carousel param
+      return create_carousel_ad_creative(creative) if carousel
+      case creative_type
+      when 'carousel'
         create_carousel_ad_creative(creative)
-      elsif creative_type == 'link'
+      when 'link'
         create_link_ad_creative(creative)
+      when 'image'
+        create_image_ad_creative(creative)
       else
         create_image_ad_creative(creative)
       end

@@ -210,7 +210,7 @@ carousel_ad_creative = account.create_ad_creative({
   call_to_action_type: 'SHOP_NOW',
   multi_share_optimized: true,
   multi_share_end_card: false
-}, carousel: true)
+}, creative_type: 'carousel')
 ```
 See FacebookAds::AdCreative::CALL_TO_ACTION_TYPES for a list of all call to action types.
 
@@ -224,8 +224,20 @@ image_ad_creative = account.create_ad_creative({
   link_title: 'A link title.',
   image_hash: ad_images.first.hash,
   call_to_action_type: 'SHOP_NOW'
-}, carousel: false)
+}, creative_type: 'image')
 ```
+
+Create a single creative for a web link:
+```ruby
+image_ad_creative = account.create_ad_creative({
+  title: 'Test Link Title', 
+  body: 'Link Description Text', 
+  object_url: 'www.example.com/my-ad-link', 
+  link_url: 'www.example.com/my-ad-link',
+  image_hash: ad_images.first.hash,
+}, creative_type: 'link')
+```
+
 The options will be different depending on the thing being advertised (Android app, iOS app or website).
 
 Find a creative by ID:
@@ -300,7 +312,8 @@ ad_set = campaign.create_ad_set(
   optimization_goal: 'OFFSITE_CONVERSIONS',
   daily_budget: 500, # This is in cents, so the daily budget here is $5.
   billing_event: 'IMPRESSIONS',
-  status: 'PAUSED'
+  status: 'PAUSED',
+  is_autobid: true
 )
 ```
 See FacebookAds::AdSet::OPTIMIZATION_GOALS for a list of all optimization goals.

@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/adsets
+    body:
+      encoding: UTF-8
+      string: campaign_id=120330000008134915&name=Test+Ad+Set&targeting=%7B%22genders%22%3A%5B2%5D%2C%22age_min%22%3A29%2C%22age_max%22%3A65%2C%22geo_locations%22%3A%7B%22countries%22%3A%5B%22US%22%5D%7D%2C%22user_os%22%3A%5B%22Android%22%5D%2C%22user_device%22%3A%5B%22Android_Smartphone%22%2C%22Android_Tablet%22%5D%2C%22app_install_state%22%3A%22not_installed%22%2C%22income%22%3A%5B%5D%7D&promoted_object=%7B%7D&optimization_goal=IMPRESSIONS&billing_event=IMPRESSIONS&status=PAUSED&is_autobid=true&daily_budget=500&access_token=<access_token>&appsecret_proof=<appsecret_proof>
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.3.0 x86_64) ruby/2.3.3p222
+      Content-Length:
+      - '830'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Rev:
+      - '3254203'
+      Content-Type:
+      - application/json
+      X-Fb-Trace-Id:
+      - AYQz85QnotA
+      Facebook-Api-Version:
+      - v<api_version>
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Set-Cookie:
+      - sW=1503706308%3AAaAizVP7gS9ms0C4; path=/; domain=.graph.facebook.com; secure
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - guowTMuCLalfZiCmanFr8qbxLZHnlOWobrgDhIKRUuWElOBhyuTUIA1N2nQmHqOt9Mrv3rtIazsqTt3Uz3vRCA==
+      Date:
+      - Sat, 26 Aug 2017 00:11:50 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '27'
+    body:
+      encoding: UTF-8
+      string: '{"id":"120330000008135715"}'
+    http_version: 
+  recorded_at: Sat, 26 Aug 2017 00:11:50 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v<api_version>/120330000008135715?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,campaign_id,name,status,configured_status,effective_status,is_autobid,bid_amount,billing_event,optimization_goal,pacing_type,daily_budget,budget_remaining,lifetime_budget,promoted_object,targeting,created_time,updated_time
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.3.0 x86_64) ruby/2.3.3p222
+      Host:
+      - graph.facebook.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"6d9be8ff10bb989338e5889d3857393df2f0c885"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Rev:
+      - '3254203'
+      Content-Type:
+      - application/json
+      X-Fb-Trace-Id:
+      - HTjjzIpRtNY
+      Facebook-Api-Version:
+      - v<api_version>
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - fRV1xoGs0FN6MCvd581V6YCJPyCT+n/oidjMnO9nTP6BslqnV2jGXn+hnoTH/1ie7FB2Ofgn+l92BqkDSK4sZw==
+      Date:
+      - Sat, 26 Aug 2017 00:11:50 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '677'
+    body:
+      encoding: UTF-8
+      string: '{"id":"120330000008135715","account_id":"10152335766987003","campaign_id":"120330000008134915","name":"Test
+        Ad Set","status":"PAUSED","configured_status":"PAUSED","effective_status":"PAUSED","is_autobid":true,"billing_event":"IMPRESSIONS","optimization_goal":"IMPRESSIONS","pacing_type":["standard"],"daily_budget":"500","budget_remaining":"0","lifetime_budget":"0","targeting":{"age_max":65,"age_min":29,"app_install_state":"not_installed","genders":[2],"geo_locations":{"countries":["US"],"location_types":["home"]},"user_device":["Android_Smartphone","Android_Tablet"],"user_os":["Android"]},"created_time":"2017-08-25T17:11:47-0700","updated_time":"2017-08-25T17:11:47-0700"}'
+    http_version: 
+  recorded_at: Sat, 26 Aug 2017 00:11:50 GMT
+recorded_with: VCR 3.0.3
