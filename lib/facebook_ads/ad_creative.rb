@@ -3,14 +3,16 @@ module FacebookAds
   # https://developers.facebook.com/docs/marketing-api/reference/ad-creative
   class AdCreative < Base
     FIELDS               = %w[id name object_story_id object_story_spec object_type thumbnail_url].freeze
-    CALL_TO_ACTION_TYPES = %w[SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW].freeze
+    CALL_TO_ACTION_TYPES = %w[SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW NO_BUTTON].freeze
 
     class << self
-      def photo(name:, page_id:, instagram_actor_id: nil, message:, link:, app_link: nil, link_title:, image_hash:, call_to_action_type:)
+      def photo(name:, page_id:, instagram_actor_id: nil, message:, link:, app_link: nil, link_title:, image_hash:, call_to_action_type:, link_description: nil)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
           'instagram_actor_id' => instagram_actor_id, # 503391023081924
           'link_data' => {
+            'name' => link_title,
+            'description' => link_description,
             'link' => link, # https://tophatter.com/, https://itunes.apple.com/app/id619460348, http://play.google.com/store/apps/details?id=com.tophatter
             'message' => message,
             'image_hash' => image_hash,
@@ -19,8 +21,7 @@ module FacebookAds
               'value' => {
                 # 'application' =>,
                 'link' => link,
-                'app_link' => app_link,
-                'link_title' => link_title
+                'app_link' => app_link
               }
             }
           }
