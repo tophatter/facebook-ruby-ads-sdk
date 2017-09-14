@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/act_10152335766987003/adcreatives?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url,run_status&limit=100
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/adcreatives?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url&limit=100
     body:
       encoding: US-ASCII
       string: ''
@@ -35,7 +35,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - GLzFzakfMe1
       Facebook-Api-Version:
-      - v2.8
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
@@ -86,6 +86,6 @@ http_interactions:
         hosts the world''s most exciting and entertaining live auctions feature","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"https:\/\/itunes.apple.com\/app\/id619460348","link_title":"Tophatter"}},"child_attachments":[{"link":"https:\/\/itunes.apple.com\/app\/id619460348","name":"Tophatter","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"https:\/\/itunes.apple.com\/app\/id619460348","link_title":"Tophatter"}}},{"link":"https:\/\/itunes.apple.com\/app\/id619460348","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"https:\/\/itunes.apple.com\/app\/id619460348"}}},{"link":"https:\/\/itunes.apple.com\/app\/id619460348","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"https:\/\/itunes.apple.com\/app\/id619460348"}}}],"multi_share_end_card":true,"multi_share_optimized":true}},"object_type":"INVALID","thumbnail_url":"https:\/\/external.xx.fbcdn.net\/safe_image.php?d=AQBUpgXveulYjAj7&w=64&h=64&url=https\u00253A\u00252F\u00252Fscontent.xx.fbcdn.net\u00252Fv\u00252Ft1.0-9\u00252F13645144_1096106237099328_9186797913597492566_n.png\u00253Foh\u00253Dda1ed4a885401f0e7477cdab5ac334f9\u002526oe\u00253D59796C5C&cfs=1&_nc_hash=AQBLX4jev8NGecY5","run_status":"ACTIVE"},{"id":"6037591146242","name":"Ad
         from a Page post #6,037,591,146,242","object_story_spec":{"page_id":"300664329976860","link_data":{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","message":"Tophatter
         hosts the world''s most exciting and entertaining live auctions feature","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","link_title":"Tophatter"}},"child_attachments":[{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","name":"Tophatter","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","link_title":"Tophatter"}}},{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter"}}},{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","call_to_action":{"type":"INSTALL_MOBILE_APP","value":{"application":"295802707128640","link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter"}}}],"multi_share_end_card":true,"multi_share_optimized":true}},"object_type":"INVALID","thumbnail_url":"https:\/\/external.xx.fbcdn.net\/safe_image.php?d=AQBUpgXveulYjAj7&w=64&h=64&url=https\u00253A\u00252F\u00252Fscontent.xx.fbcdn.net\u00252Fv\u00252Ft1.0-9\u00252F13645144_1096106237099328_9186797913597492566_n.png\u00253Foh\u00253Dda1ed4a885401f0e7477cdab5ac334f9\u002526oe\u00253D59796C5C&cfs=1&_nc_hash=AQBLX4jev8NGecY5","run_status":"ACTIVE"}],"paging":{"cursors":{"before":"NjA0NzMwNzI0NjA0MgZDZD","after":"NjAzNzU5MTE0NjI0MgZDZD"}}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:43 GMT
 recorded_with: VCR 3.0.3

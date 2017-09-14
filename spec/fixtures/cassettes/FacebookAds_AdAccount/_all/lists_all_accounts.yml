@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/me/adaccounts?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,account_status,age,created_time,currency,name
+    uri: https://graph.facebook.com/v<api_version>/me/adaccounts?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,account_status,age,created_time,currency,name
     body:
       encoding: US-ASCII
       string: ''
@@ -35,7 +35,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - AC21JGF/Xzs
       Facebook-Api-Version:
-      - v2.8
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
@@ -53,6 +53,6 @@ http_interactions:
       string: '{"data":[{"id":"act_1223529531023664","account_id":"1223529531023664","account_status":1,"age":141.15273148148,"created_time":"2016-12-02T10:50:57-0800","currency":"USD","name":"International
         II"},{"id":"act_1198305280212756","account_id":"1198305280212756","account_status":1,"age":159.1747337963,"created_time":"2016-11-10T13:50:54-0800","currency":"USD","name":"Retargeting"},{"id":"act_1183122141731070","account_id":"1183122141731070","account_status":1,"age":179.92611111111,"created_time":"2016-10-27T10:55:59-0700","currency":"USD","name":"DollarStart"},{"id":"act_1132789356764349","account_id":"1132789356764349","account_status":1,"age":232.91157407407,"created_time":"2016-08-31T15:14:23-0700","currency":"USD","name":"LuxeJoy"},{"id":"act_1115226431853975","account_id":"1115226431853975","account_status":1,"age":256.05325231481,"created_time":"2016-08-10T17:27:49-0700","currency":"USD","name":"Ruby"},{"id":"act_953255011384452","account_id":"953255011384452","account_status":1,"age":546.76849537037,"created_time":"2015-10-26T09:23:16-0700","currency":"USD","name":"International"},{"id":"act_1051938118182807","account_id":"1051938118182807","account_status":1,"age":361.89405092593,"created_time":"2016-04-28T17:32:07-0700","currency":"USD","name":"Web"},{"id":"act_861827983860489","account_id":"861827983860489","account_status":1,"age":743.01085648148,"created_time":"2015-04-09T16:54:58-0700","currency":"USD","name":"Android"},{"id":"act_39788579","account_id":"39788579","account_status":1,"age":2973.0627199074,"created_time":"2009-03-05T15:04:59-0800","currency":"USD","name":"iOS"},{"id":"act_10152335766987003","account_id":"10152335766987003","account_status":1,"age":466.70608796296,"created_time":"2014-10-24T14:38:31-0700","currency":"USD","name":"Chris
         Estreich"}],"paging":{"cursors":{"before":"MjM4NDI1MjkxNDU2NTAyMTcZD","after":"NjAxODA5MTU2MDA0MgZDZD"}}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:40 GMT
 recorded_with: VCR 3.0.3

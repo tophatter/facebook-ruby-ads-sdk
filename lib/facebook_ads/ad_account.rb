@@ -66,8 +66,19 @@ module FacebookAds
       AdCreative.paginate("/#{id}/adcreatives", query: { limit: limit })
     end
 
-    def create_ad_creative(creative, carousel: true)
-      carousel ? create_carousel_ad_creative(creative) : create_image_ad_creative(creative)
+    def create_ad_creative(creative, creative_type: nil, carousel: false)
+      # Support old deprecated carousel param
+      return create_carousel_ad_creative(creative) if carousel
+      case creative_type
+      when 'carousel'
+        create_carousel_ad_creative(creative)
+      when 'link'
+        create_link_ad_creative(creative)
+      when 'image'
+        create_image_ad_creative(creative)
+      else
+        create_image_ad_creative(creative)
+      end
     end
 
     # has_many ad_sets
@@ -113,6 +124,25 @@ module FacebookAds
         currency: currency
       }
       self.class.get("/#{id}/reachestimate", query: query, objectify: false)
+    end
+
+    def delivery_estimate(targeting:, optimization_goal:, currency: 'USD')
+      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+
+      if targeting.is_a?(AdTargeting)
+        if targeting.validate!
+          targeting = targeting.to_hash
+        else
+          raise Exception, 'The provided targeting spec is not valid.'
+        end
+      end
+
+      query = {
+        targeting_spec: targeting.to_json,
+        optimization_goal: optimization_goal,
+        currency: currency
+      }
+      self.class.get("/#{id}/delivery_estimate", query: query, objectify: false)
     end
 
     # has_many applications
@@ -175,6 +205,18 @@ module FacebookAds
 
       raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
       query = AdCreative.photo(creative)
+      result = AdCreative.post("/#{id}/adcreatives", query: query)
+      AdCreative.find(result['id'])
+    end
+
+    def create_link_ad_creative(creative)
+      required = %i[name title body object_url link_url image_hash]
+
+      unless (keys = required - creative.keys).length.zero?
+        raise Exception, "Creative is missing the following: #{keys.join(', ')}"
+      end
+
+      query = AdCreative.link(creative)
       result = AdCreative.post("/#{id}/adcreatives", query: query)
       AdCreative.find(result['id'])
     end

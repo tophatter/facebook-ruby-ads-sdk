@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://graph.facebook.com/v2.8/act_10152335766987003/campaigns
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/campaigns
     body:
       encoding: UTF-8
       string: name=Test&objective=MOBILE_APP_INSTALLS&status=ACTIVE&access_token=<access_token>
@@ -39,7 +39,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - DMTQYubI/4g
       Facebook-Api-Version:
-      - v2.8
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Set-Cookie:
@@ -57,11 +57,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"6076262393242"}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:41 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/6076262393242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v<api_version>/6076262393242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
     body:
       encoding: US-ASCII
       string: ''
@@ -94,7 +94,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - CrEyPvQAq9U
       Facebook-Api-Version:
-      - v2.8
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
@@ -110,6 +110,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"6076262393242","account_id":"10152335766987003","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"ACTIVE","created_time":"2017-04-25T17:48:41-0700","effective_status":"ACTIVE","name":"Test","objective":"MOBILE_APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2017-04-25T17:48:41-0700"}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:42 GMT
 recorded_with: VCR 3.0.3

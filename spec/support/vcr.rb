@@ -16,4 +16,7 @@ VCR.configure do |c|
   c.filter_sensitive_data('<appsecret_proof>') do
     FacebookAds.appsecret_proof
   end
+  c.filter_sensitive_data('<api_version>') do
+    FacebookAds.api_version
+  end
 end

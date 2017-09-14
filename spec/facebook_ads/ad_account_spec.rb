@@ -65,6 +65,26 @@ describe FacebookAds::AdAccount do
     end
   end
 
+  describe '.create_ad_creative' do
+    it 'creates carousel ad creative', :vcr do
+      ad_images = account.create_ad_images(%w[https://img0.etsystatic.com/108/1/13006112/il_570xN.1047856494_l2gp.jpg https://img1.etsystatic.com/143/0/13344107/il_570xN.1141249285_xciv.jpg])
+      carousel_ad_creative = account.create_ad_creative({
+                                                          name: 'Test Carousel Creative',
+                                                          page_id: '300664329976860', # Add your Facebook Page ID here.
+                                                          link: 'http://play.google.com/store/apps/details?id=com.tophatter', # Add your Play Store ID here.
+                                                          message: 'A message.',
+                                                          assets: [
+                                                            { hash: ad_images[0].hash, title: 'Image #1 Title' },
+                                                            { hash: ad_images[1].hash, title: 'Image #2 Title' }
+                                                          ],
+                                                          call_to_action_type: 'SHOP_NOW',
+                                                          multi_share_optimized: true,
+                                                          multi_share_end_card: false
+                                                        }, creative_type: 'carousel')
+      expect(carousel_ad_creative.id).to eq('120330000008134415')
+    end
+  end
+
   describe '.ad_sets' do
     it 'lists ad sets', :vcr do
       ad_sets = account.ad_sets

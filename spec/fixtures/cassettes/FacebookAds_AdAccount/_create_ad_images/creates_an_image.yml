@@ -1393,11 +1393,11 @@ http_interactions:
         FAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAo
         FAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAo
         FAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoP/Z
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:42 GMT
 - request:
     method: post
-    uri: https://graph.facebook.com/v2.8/act_10152335766987003/adimages
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/adimages
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -2791,7 +2791,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - HnqGGy599D0
       Facebook-Api-Version:
-      - v2.8
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
@@ -2807,11 +2807,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"images":{"13006112.jpg":{"hash":"d8fc613662fb5ef6cf5fb9d1fe779315","url":"https:\/\/scontent.xx.fbcdn.net\/t45.1600-4\/17508518_6076261586842_4063779518672797696_n.png"}}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:43 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v2.8/act_10152335766987003/adimages?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=d8fc613662fb5ef6cf5fb9d1fe779315
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/adimages?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,hash,account_id,name,permalink_url,original_width,original_height&hashes%5B%5D=d8fc613662fb5ef6cf5fb9d1fe779315
     body:
       encoding: US-ASCII
       string: ''
@@ -2844,7 +2844,7 @@ http_interactions:
       X-Fb-Trace-Id:
       - GaqHzzltfli
       Facebook-Api-Version:
-      - v2.8
+      - v<api_version>
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       Vary:
@@ -2860,6 +2860,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"10152335766987003:d8fc613662fb5ef6cf5fb9d1fe779315","hash":"d8fc613662fb5ef6cf5fb9d1fe779315","account_id":"10152335766987003","name":"13006112.jpg","permalink_url":"https:\/\/www.facebook.com\/ads\/image\/?d=AQLp8EY4ZBMuyA2IRu5KoMMGwOwspA0KGY9SK9uTTnraQslGCrCuNBdqGZeyJCuonk6EdxwMdMunNLPPo--FC8MNqYS0wuSON5orNs7iSiai_FE2jCWIN6GjXn2PEWCCmZ5tdn6Z7JYhUoLq1PAN7fUg","original_width":570,"original_height":707}],"paging":{"cursors":{"before":"MTAxNTIzMzU3NjY5ODcwMDM6ZADhmYzYxMzY2MmZAiNWVmNmNmNWZAiOWQxZAmU3NzkzMTUZD","after":"MTAxNTIzMzU3NjY5ODcwMDM6ZADhmYzYxMzY2MmZAiNWVmNmNmNWZAiOWQxZAmU3NzkzMTUZD"}}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Apr 2017 00:48:43 GMT
 recorded_with: VCR 3.0.3
