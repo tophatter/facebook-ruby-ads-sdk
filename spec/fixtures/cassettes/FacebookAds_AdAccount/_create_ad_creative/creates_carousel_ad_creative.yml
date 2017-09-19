@@ -7244,7 +7244,7 @@ http_interactions:
   recorded_at: Fri, 25 Aug 2017 22:08:06 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v<api_version>/120330000008134415?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url
+    uri: https://graph.facebook.com/v<api_version>/120330000008134415?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url,status
     body:
       encoding: US-ASCII
       string: ''
