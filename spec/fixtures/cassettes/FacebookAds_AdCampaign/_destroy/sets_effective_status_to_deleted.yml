@@ -50,7 +50,7 @@ http_interactions:
       - '335'
     body:
       encoding: UTF-8
-      string: '{"id":"6076262142242","account_id":"10152335766987003","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"DELETED","created_time":"2017-04-25T17:34:09-0700","effective_status":"DELETED","name":"Test","objective":"MOBILE_APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2017-04-25T17:35:27-0700"}'
+      string: '{"id":"6076262142242","account_id":"10152335766987003","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"DELETED","created_time":"2017-04-25T17:34:09-0700","effective_status":"DELETED","name":"Test","objective":"APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2017-04-25T17:35:27-0700"}'
     http_version:
   recorded_at: Wed, 26 Apr 2017 00:52:19 GMT
 - request:
@@ -158,7 +158,7 @@ http_interactions:
       - '335'
     body:
       encoding: UTF-8
-      string: '{"id":"6076262142242","account_id":"10152335766987003","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"DELETED","created_time":"2017-04-25T17:34:09-0700","effective_status":"DELETED","name":"Test","objective":"MOBILE_APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2017-04-25T17:35:27-0700"}'
+      string: '{"id":"6076262142242","account_id":"10152335766987003","buying_type":"AUCTION","can_use_spend_cap":true,"configured_status":"DELETED","created_time":"2017-04-25T17:34:09-0700","effective_status":"DELETED","name":"Test","objective":"APP_INSTALLS","start_time":"1969-12-31T15:59:59-0800","updated_time":"2017-04-25T17:35:27-0700"}'
     http_version:
   recorded_at: Wed, 26 Apr 2017 00:52:20 GMT
 recorded_with: VCR 3.0.3
