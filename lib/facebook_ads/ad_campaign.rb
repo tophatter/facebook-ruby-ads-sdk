@@ -30,22 +30,19 @@ module FacebookAds
     ].freeze
 
     OBJECTIVES = %w[
+      APP_INSTALLS
       BRAND_AWARENESS
-      CANVAS_APP_ENGAGEMENT
-      CANVAS_APP_INSTALLS
+      CONVERSIONS
       EVENT_RESPONSES
       LEAD_GENERATION
+      LINK_CLICKS
       LOCAL_AWARENESS
-      MOBILE_APP_ENGAGEMENT
-      MOBILE_APP_INSTALLS
-      NONE
       OFFER_CLAIMS
       PAGE_LIKES
       POST_ENGAGEMENT
-      LINK_CLICKS
-      CONVERSIONS
-      VIDEO_VIEWS
       PRODUCT_CATALOG_SALES
+      REACH
+      VIDEO_VIEWS
     ].freeze
 
     # belongs_to ad_account

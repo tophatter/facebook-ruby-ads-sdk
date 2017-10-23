@@ -7,7 +7,7 @@
   "created_time": "<time>",
   "effective_status": "ACTIVE",
   "name": "Test",
-  "objective": "MOBILE_APP_INSTALLS",
+  "objective": "APP_INSTALLS",
   "start_time": "<time>",
   "updated_time": "<time>"
 }

@@ -37,6 +37,7 @@ module FacebookAds
       NONE
       APP_INSTALLS
       BRAND_AWARENESS
+      AD_RECALL_LIFT
       CLICKS
       ENGAGED_USERS
       EVENT_RESPONSES
@@ -52,6 +53,7 @@ module FacebookAds
       SOCIAL_IMPRESSIONS
       VIDEO_VIEWS
       APP_DOWNLOADS
+      LANDING_PAGE_VIEWS
     ].freeze
 
     # belongs_to ad_account

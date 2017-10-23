@@ -37,7 +37,7 @@ describe FacebookAds::AdAccount do
 
   describe '.create_ad_campaign' do
     it 'creates a new ad campaign', :vcr do
-      ad_campaign = account.create_ad_campaign(name: 'Test', objective: 'MOBILE_APP_INSTALLS')
+      ad_campaign = account.create_ad_campaign(name: 'Test', objective: 'APP_INSTALLS')
       verify(format: :json) { JSON.dump(ad_campaign) }
     end
   end
