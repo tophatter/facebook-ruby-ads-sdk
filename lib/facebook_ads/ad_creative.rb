@@ -91,14 +91,20 @@ module FacebookAds
         }
       end
 
-      def link(name:, title:, body:, object_url:, link_url:, image_hash:)
+      def link(name:, title:, body:, object_url:, link_url:, image_hash:, page_id:)
+        object_story_spec = {
+          'page_id' => page_id,
+          'link_data' => {
+            'name' => title,
+            'message' => body,
+            'link' => link_url,
+            'image_hash' => image_hash,
+          }
+        }
+
         {
           name: name,
-          title: title,
-          body: body,
-          object_url: object_url,
-          link_url: link_url,
-          image_hash: image_hash
+          object_story_spec: object_story_spec.to_json
         }
       end
     end
