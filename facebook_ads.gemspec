@@ -5,7 +5,7 @@
 # gem push facebook_ads-0.6.0.gem
 Gem::Specification.new do |s|
   s.name        = 'facebook_ads'
-  s.version     = '0.6.0'
+  s.version     = '0.6.1'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
