@@ -5,7 +5,7 @@ module FacebookAds
 
     class << self
       def all(query = {})
-        get("/#{FacebookAds.business_id}/product_catalogs", query: query, objectify: true)
+        get("/#{FacebookAds.business_id}/owned_product_catalogs", query: query, objectify: true)
       end
 
       def find_by(conditions)
@@ -18,7 +18,7 @@ module FacebookAds
 
       def create(name:)
         query = { name: name }
-        result = post("/#{FacebookAds.business_id}/product_catalogs", query: query)
+        result = post("/#{FacebookAds.business_id}/owned_product_catalogs", query: query)
         find(result['id'])
       end
     end
