@@ -1,3 +1,6 @@
+## 0.6.3 (2018-05-17)
+  - Replaced deprecated `is_autobid` with new `bid_strategy` field
+
 ## 0.6.2 (2018-05-08)
   - Set Product Catalog path to `/owned_product_catalogs` for API v2.11 compatibility
 

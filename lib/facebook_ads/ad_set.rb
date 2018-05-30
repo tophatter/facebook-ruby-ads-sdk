@@ -10,7 +10,7 @@ module FacebookAds
     #   creative_sequence daily_budget effective_status end_time
     #   frequency_cap frequency_cap_reset_period
     #   frequency_control_specs instagram_actor_id
-    #   is_autobid is_average_price_pacing lifetime_budget
+    #   bid_strategy lifetime_budget
     #   lifetime_frequency_cap lifetime_imps name optimization_goal
     #   pacing_type promoted_object recommendations
     #   recurring_budget_semantics rf_prediction_id rtb_flag
@@ -24,7 +24,7 @@ module FacebookAds
       id account_id campaign_id
       name
       status configured_status effective_status
-      is_autobid bid_amount billing_event optimization_goal pacing_type
+      bid_strategy bid_amount billing_event optimization_goal pacing_type
       daily_budget budget_remaining lifetime_budget
       promoted_object
       targeting
@@ -54,6 +54,11 @@ module FacebookAds
       VIDEO_VIEWS
       APP_DOWNLOADS
       LANDING_PAGE_VIEWS
+    ].freeze
+    BID_STRATEGIES = %w[
+      LOWEST_COST_WITHOUT_CAP
+      LOWEST_COST_WITH_BID_CAP
+      TARGET_COST
     ].freeze
 
     # belongs_to ad_account
