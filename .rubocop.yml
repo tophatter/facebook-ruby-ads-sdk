@@ -22,17 +22,12 @@ Metrics/ParameterLists:
 Lint/EndAlignment:
   Enabled: false
 
-Style/Documentation:
+Layout/IndentationWidth:
   Enabled: false
-Style/IndentationWidth:
-  Enabled: false
-Style/ElseAlignment:
-  Enabled: false
-Style/GuardClause:
-  Enabled: false
-Style/NumericLiterals:
+Layout/ElseAlignment:
   Enabled: false
 
-# This is temporary - it can be remove after updating rubocop to the latest.
-Style/PercentLiteralDelimiters:
+Style/Documentation:
+  Enabled: false
+Style/GuardClause:
   Enabled: false

@@ -2,7 +2,7 @@ module FacebookAds
   # The base class for all ads objects.
   class Base < Hashie::Mash
     class << self
-      def all(query = {})
+      def all(_query = {})
         raise StandardError, 'Subclass must implement `all`.'
       end
 
@@ -62,7 +62,7 @@ module FacebookAds
 
       def paginate(path, query: {})
         query = query.merge(limit: 100) unless query[:limit]
-        query = query.merge(fields: self::FIELDS.join(',')) if self::FIELDS.size > 0
+        query = query.merge(fields: self::FIELDS.join(',')) unless self::FIELDS.empty?
 
         response = get(path, query: query, objectify: false)
         data     = response['data'].nil? ? [] : response['data']
@@ -106,7 +106,7 @@ module FacebookAds
       def pack(hash, objectify:)
         hash = hash.merge(access_token: FacebookAds.access_token)
         hash = hash.merge(appsecret_proof: FacebookAds.appsecret_proof) if FacebookAds.app_secret
-        hash = hash.merge(fields: self::FIELDS.join(',')) if objectify && self::FIELDS.size > 0
+        hash = hash.merge(fields: self::FIELDS.join(',')) if objectify && !self::FIELDS.empty?
         hash.delete_if { |_k, v| v.nil? }
       end
 
