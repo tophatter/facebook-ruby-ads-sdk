@@ -1,5 +1,4 @@
 module FacebookAds
-  # An ad campaign has many ad sets and belongs to an ad account.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
   class AdCampaign < Base
     FIELDS = %w[
@@ -45,13 +44,13 @@ module FacebookAds
       VIDEO_VIEWS
     ].freeze
 
-    # belongs_to ad_account
+    # AdAccount
 
     def ad_account
       @ad_account ||= AdAccount.find("act_#{account_id}")
     end
 
-    # has_many ad_sets
+    # AdSet
 
     def ad_sets(effective_status: ['ACTIVE'], limit: 100)
       AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
@@ -94,15 +93,14 @@ module FacebookAds
       AdSet.find(result['id'])
     end
 
-    # has_many ad_insights
+    # AdInsight
 
     def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
-      query = {
+      AdInsight.paginate("/#{id}/insights", query: {
         level: level,
         time_increment: time_increment,
         time_range: { since: range.first.to_s, until: range.last.to_s }
-      }
-      AdInsight.paginate("/#{id}/insights", query: query)
+      })
     end
   end
 end

@@ -38,7 +38,7 @@ module FacebookAds
   end
 
   def self.api_version
-    @api_version = '2.9' unless defined?(@api_version)
+    @api_version = '3.1' unless defined?(@api_version)
     @api_version
   end
 
@@ -59,11 +59,7 @@ module FacebookAds
   end
 
   def self.appsecret_proof
-    OpenSSL::HMAC.hexdigest(
-      OpenSSL::Digest.new('sha256'),
-      @app_secret,
-      @access_token
-    )
+    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), @app_secret, @access_token)
   end
 
   def self.business_id=(business_id)

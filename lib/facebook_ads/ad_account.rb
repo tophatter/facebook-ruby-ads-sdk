@@ -1,5 +1,4 @@
 module FacebookAds
-  # An ad account has many ad campaigns, ad images, and ad creatives.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-account
   class AdAccount < Base
     FIELDS = %w[id account_id account_status age created_time currency name].freeze
@@ -8,17 +7,21 @@ module FacebookAds
       def all(query = {})
         get('/me/adaccounts', query: query, objectify: true)
       end
-
-      def find_by(conditions)
-        all.detect do |object|
-          conditions.all? do |key, value|
-            object.send(key) == value
-          end
-        end
-      end
     end
 
-    # has_many campaigns
+    # AdvertisableApplication
+
+    def advertisable_applications(limit: 100)
+      AdvertisableApplication.paginate("/#{id}/advertisable_applications", query: { limit: limit })
+    end
+
+    # AdUser
+
+    def ad_users(limit: 100)
+      AdCampaign.paginate("/#{id}/users", query: { limit: limit })
+    end
+
+    # AdCampaign
 
     def ad_campaigns(effective_status: ['ACTIVE'], limit: 100)
       AdCampaign.paginate("/#{id}/campaigns", query: { effective_status: effective_status, limit: limit })
@@ -39,7 +42,19 @@ module FacebookAds
       AdCampaign.find(result['id'])
     end
 
-    # has_many ad_images
+    # AdSet
+
+    def ad_sets(effective_status: ['ACTIVE'], limit: 100)
+      AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+    end
+
+    # Ad
+
+    def ads(effective_status: ['ACTIVE'], limit: 100)
+      Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
+    end
+
+    # AdImage
 
     def ad_images(hashes: nil, limit: 100)
       if !hashes.nil?
@@ -60,7 +75,7 @@ module FacebookAds
       !response['images'].nil? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
     end
 
-    # has_many ad_creatives
+    # AdCreative
 
     def ad_creatives(limit: 100)
       AdCreative.paginate("/#{id}/adcreatives", query: { limit: limit })
@@ -81,25 +96,27 @@ module FacebookAds
       end
     end
 
-    # has_many ad_sets
+    # AdAudience
 
-    def ad_sets(effective_status: ['ACTIVE'], limit: 100)
-      AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
+    def ad_audiences(limit: 100)
+      AdAudience.paginate("/#{id}/customaudiences", query: { limit: limit })
     end
 
-    # has_many ads
+    def create_ad_audience_with_pixel(name:, pixel_id:, event_name:, subtype: 'WEBSITE', retention_days: 15)
+      query = {
+        name: name,
+        pixel_id: pixel_id,
+        subtype: subtype,
+        retention_days: retention_days,
+        rule: { event: { i_contains: event_name } }.to_json,
+        prefill: 1
+      }
 
-    def ads(effective_status: ['ACTIVE'], limit: 100)
-      Ad.paginate("/#{id}/ads", query: { effective_status: effective_status, limit: limit })
+      result = AdAudience.post("/#{id}/customaudiences", query: query)
+      AdAudience.find(result['id'])
     end
 
-    # has_many ad_audiences
-
-    def ad_audiences
-      AdAudience.paginate("/#{id}/customaudiences")
-    end
-
-    # has_many ad_insights
+    # AdInsight
 
     def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
       ad_campaigns.map do |ad_campaign|
@@ -123,6 +140,7 @@ module FacebookAds
         optimize_for: optimization_goal,
         currency: currency
       }
+
       self.class.get("/#{id}/reachestimate", query: query, objectify: false)
     end
 
@@ -142,29 +160,8 @@ module FacebookAds
         optimization_goal: optimization_goal,
         currency: currency
       }
+
       self.class.get("/#{id}/delivery_estimate", query: query, objectify: false)
-    end
-
-    # has_many applications
-
-    def applications
-      self.class.get("/#{id}/advertisable_applications", objectify: false)
-    end
-
-    # hash_many ad_audiences
-
-    def create_ad_audience_with_pixel(name:, pixel_id:, event_name:, subtype: 'WEBSITE', retention_days: 15)
-      query = {
-        name: name,
-        pixel_id: pixel_id,
-        subtype: subtype,
-        retention_days: retention_days,
-        rule: { event: { i_contains: event_name } }.to_json,
-        prefill: 1
-      }
-
-      result = AdAudience.post("/#{id}/customaudiences", query: query)
-      AdAudience.find(result['id'])
     end
 
     private

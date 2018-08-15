@@ -1,5 +1,4 @@
 module FacebookAds
-  # An ad image belongs to an ad account.
   # An image will always produce the same hash.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-image
   class AdImage < Base
@@ -11,10 +10,10 @@ module FacebookAds
       end
     end
 
-    # @TODO:
-    # You are setting a key that conflicts with a built-in method FacebookAds::AdImage#hash defined in Hash.
-    # This can cause unexpected behavior when accessing the key via as a property.
-    # You can still access the key via the #[] method.
+    # @FIXME: You are setting a key that conflicts with a built-in method
+    # FacebookAds::AdImage#hash defined in Hash.
+    disable_warnings
+
     def hash
       self[:hash]
     end

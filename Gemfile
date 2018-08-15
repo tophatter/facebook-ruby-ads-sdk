@@ -5,7 +5,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry'
   gem 'rake'
-  gem 'rubocop', '0.49.0'
+  gem 'rubocop', '~> 0.49'
 end
 
 group :test do

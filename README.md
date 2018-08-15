@@ -49,7 +49,7 @@ It reads the Access Token from a file called test_access_token.
 
 ```bash
 echo [YOUR_ACCESS_TOKEN] > test_access_token
-bin/console
+bin/facebook_ads_console
 ```
 
 ## Usage Examples
@@ -230,9 +230,9 @@ image_ad_creative = account.create_ad_creative({
 Create a single creative for a web link:
 ```ruby
 image_ad_creative = account.create_ad_creative({
-  title: 'Test Link Title', 
-  body: 'Link Description Text', 
-  object_url: 'www.example.com/my-ad-link', 
+  title: 'Test Link Title',
+  body: 'Link Description Text',
+  object_url: 'www.example.com/my-ad-link',
   link_url: 'www.example.com/my-ad-link',
   image_hash: ad_images.first.hash,
 }, creative_type: 'link')

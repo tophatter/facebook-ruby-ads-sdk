@@ -3,11 +3,7 @@
 module RestClient
   class Request
     def default_headers
-      {
-        accept: 'application/json',
-        accept_encoding: 'identity',
-        user_agent: RestClient::Platform.default_user_agent
-      }
+      { accept: 'application/json', accept_encoding: 'identity' }
     end
   end
 end
