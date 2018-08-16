@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets
   class AdSet < Base
@@ -93,12 +95,16 @@ module FacebookAds
 
     # AdInsight
 
-    def ad_insights(range: Date.today..Date.today, level: 'ad', time_increment: 1)
+    # levels = enum {ad, adset, campaign, account}
+    # breakdowns = list<enum {..., product_id, ...}>
+    def ad_insights(range: Date.today..Date.today, level: nil, breakdowns: [], fields: [], limit: 1_000)
       query = {
+        time_range: { since: range.first.to_s, until: range.last.to_s },
         level: level,
-        time_increment: time_increment,
-        time_range: { since: range.first.to_s, until: range.last.to_s }
-      }
+        breakdowns: breakdowns&.join(','),
+        fields: fields&.join(','),
+        limit: limit
+      }.reject { |_key, value| value.nil? || (value.respond_to?(:empty?) && value.empty?) }
 
       AdInsight.paginate("/#{id}/insights", query: query)
     end

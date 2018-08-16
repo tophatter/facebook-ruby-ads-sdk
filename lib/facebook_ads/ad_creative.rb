@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # Ad ad creative has many ad images and belongs to an ad account.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-creative

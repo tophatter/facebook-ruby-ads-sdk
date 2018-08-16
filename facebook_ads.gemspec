@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
 # To publish the next version:
 # gem build facebook_ads.gemspec

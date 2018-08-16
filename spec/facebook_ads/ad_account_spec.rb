@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 # FACEBOOK_ACCESS_TOKEN=... rspec spec/facebook_ads/ad_account_spec.rb

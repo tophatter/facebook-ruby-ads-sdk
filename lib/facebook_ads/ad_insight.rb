@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # Ad insights exist for ad accounts, ad campaigns, ad sets, and ads.
   # A lot more can be done here.

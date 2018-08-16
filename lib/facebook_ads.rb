@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # External requires.
 require 'json'
 require 'rest-client'

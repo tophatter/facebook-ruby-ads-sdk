@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'approvals/rspec'
 
 Approvals.configure do |c|

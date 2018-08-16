@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   class Account < Base
     FIELDS = %w[].freeze

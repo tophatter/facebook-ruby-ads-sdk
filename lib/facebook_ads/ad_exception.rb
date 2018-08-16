@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   class AdException < StandardError
     attr_reader :code, :title, :message

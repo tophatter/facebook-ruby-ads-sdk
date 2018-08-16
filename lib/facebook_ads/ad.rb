@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # An ad belongs to an ad set. It is created using an ad creative.
   # https://developers.facebook.com/docs/marketing-api/reference/adgroup

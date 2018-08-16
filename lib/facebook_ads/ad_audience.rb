@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # https://developers.facebook.com/docs/marketing-api/reference/custom-audience
   class AdAudience < Base

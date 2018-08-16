@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 # rspec spec/facebook_ads/facebook_ads_spec.rb

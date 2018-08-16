@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # An image will always produce the same hash.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-image

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FacebookAds
   # An ad user belongs to an ad account.
   # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
