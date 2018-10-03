@@ -1,3 +1,6 @@
+## 0.6.4 (2018-10-03)
+  - Expose `budget_remaining`, `daily_budget`, `lifetime_budget` for Ad Campaigns. These are needed when we have budgets at the Ad Campaign level and not at the Ad Set level.
+
 ## 0.6.3 (2018-05-17)
   - Replaced deprecated `is_autobid` with new `bid_strategy` field
 
