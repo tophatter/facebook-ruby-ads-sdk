@@ -61,7 +61,7 @@ http_interactions:
   recorded_at: Wed, 26 Apr 2017 00:48:41 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v<api_version>/6076262393242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap
+    uri: https://graph.facebook.com/v<api_version>/6076262393242?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap,budget_remaining,daily_budget,lifetime_budget
     body:
       encoding: US-ASCII
       string: ''
