@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/campaigns?access_token=<access_token>&appsecret_proof=<appsecret_proof>&effective_status%5B%5D=ACTIVE&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap&limit=100
+    uri: https://graph.facebook.com/v<api_version>/act_10152335766987003/campaigns?access_token=<access_token>&appsecret_proof=<appsecret_proof>&effective_status%5B%5D=ACTIVE&fields=id,account_id,buying_type,can_use_spend_cap,configured_status,created_time,effective_status,name,objective,start_time,stop_time,updated_time,spend_cap,budget_remaining,daily_budget,lifetime_budget&limit=100
     body:
       encoding: US-ASCII
       string: ''

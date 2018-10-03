@@ -16,6 +16,7 @@ module FacebookAds
       start_time
       stop_time
       updated_time spend_cap
+      budget_remaining daily_budget lifetime_budget
     ].freeze
 
     STATUSES = %w[
