@@ -97,6 +97,14 @@ module FacebookAds
       di_ad_set_learning_stage_exit
     ].freeze
 
+    def ad_account
+      @ad_account ||= AdAccount.find(account_id)
+    end
+
+    def ad_campaign
+      @campaign ||= AdCampaign.find(campaign_id)
+    end
+
     def ad_set
       @ad_set ||= AdSet.find(ad_set_id)
     end
