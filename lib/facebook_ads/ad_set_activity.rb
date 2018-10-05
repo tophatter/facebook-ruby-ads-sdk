@@ -15,6 +15,19 @@ module FacebookAds
       translated_event_type
     ].freeze
 
+    CATEGORIES = %w[
+      ACCOUNT
+      AD
+      AD_SET
+      AUDIENCE
+      BID
+      BUDGET
+      CAMPAIGN
+      DATE
+      STATUS
+      TARGETING
+    ].freeze
+
     EVENT_TYPES = %w[
       ad_account_update
       spend_limit
