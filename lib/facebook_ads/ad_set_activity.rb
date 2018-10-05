@@ -11,8 +11,6 @@ module FacebookAds
       actor_name
       event_time
       event_type
-      extra_data
-      translated_event_type
     ].freeze
 
     CATEGORIES = %w[

@@ -109,8 +109,9 @@ module FacebookAds
       AdInsight.paginate("/#{id}/insights", query: query)
     end
 
+    # Retrieves activities for ad set in last 24 hours
     def activities
-      AdSetActivity.get("/#{id}/activities", objectify: true)
+      AdSetActivity.get("/#{id}/activities", objectify: true).select { |activity| activity['event_time'] > 1.day.ago }
     end
   end
 end
