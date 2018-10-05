@@ -108,5 +108,9 @@ module FacebookAds
 
       AdInsight.paginate("/#{id}/insights", query: query)
     end
+
+    def activities(fields: AdSetActivity.FIELDS)
+      AdSetActivity.get("/#{id}/activities", query: { fields: fields }, objectify: true)
+    end
   end
 end
