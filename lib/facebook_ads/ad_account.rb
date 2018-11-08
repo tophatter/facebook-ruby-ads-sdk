@@ -209,7 +209,7 @@ module FacebookAds
     end
 
     def create_link_ad_creative(creative)
-      required = %i[name title body object_url link_url image_hash page_id]
+      required = %i[name title body link_url image_hash page_id]
 
       unless (keys = required - creative.keys).length.zero?
         raise Exception, "Creative is missing the following: #{keys.join(', ')}"
