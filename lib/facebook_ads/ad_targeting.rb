@@ -15,8 +15,9 @@ module FacebookAds
     INSTALLED          = 'installed'
     NOT_INSTALLED      = 'not_installed'
     APP_INSTALL_STATES = [INSTALLED, NOT_INSTALLED].freeze
+    PLATFORMS          = %w[facebook instagram messenger audience_network].freeze
 
-    attr_accessor :genders, :age_min, :age_max, :countries, :user_os, :user_device, :app_install_state, :custom_locations, :income
+    attr_accessor :genders, :age_min, :age_max, :countries, :user_os, :user_device, :app_install_state, :custom_locations, :income, :platforms
 
     def initialize
       # self.genders = [WOMEN] # If nil, defaults to all genders.
@@ -38,14 +39,18 @@ module FacebookAds
       end
     end
 
+    def publisher_platforms
+      platforms || ['facebook']
+    end
+
     def validate!
-      { gender: genders, countries: countries, user_os: user_os, user_device: user_device, custom_locations: custom_locations }.each_pair do |key, array|
+      { gender: genders, countries: countries, user_os: user_os, user_device: user_device, custom_locations: custom_locations, platforms: platforms }.each_pair do |key, array|
         if !array.nil? && !array.is_a?(Array)
           raise Exception, "#{self.class.name}: #{key} must be an array"
         end
       end
 
-      { genders: [genders, GENDERS], user_os: [user_os, OSES], user_device: [user_device, DEVICES] }.each_pair do |key, provided_and_acceptable|
+      { genders: [genders, GENDERS], user_os: [user_os, OSES], user_device: [user_device, DEVICES], platforms: [platforms, PLATFORMS] }.each_pair do |key, provided_and_acceptable|
         provided, acceptable = provided_and_acceptable
 
         if !provided.nil? && !(invalid = provided.detect { |value| !acceptable.include?(value) }).nil?
@@ -65,7 +70,8 @@ module FacebookAds
         user_os: user_os,
         user_device: user_device,
         app_install_state: app_install_state,
-        income: income
+        income: income,
+        publisher_platforms: publisher_platforms
       }.reject { |_k, v| v.nil? }
     end
   end
