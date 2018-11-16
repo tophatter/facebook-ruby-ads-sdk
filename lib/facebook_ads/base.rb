@@ -54,8 +54,8 @@ module FacebookAds
         raise StandardError, 'Subclass must implement `all`.'
       end
 
-      def find(id)
-        get("/#{id}", objectify: true)
+      def find(id, query: {})
+        get("/#{id}", objectify: true, query: query)
       end
 
       def find_by(conditions)
@@ -109,7 +109,7 @@ module FacebookAds
       end
 
       def pack(hash, objectify:)
-        hash = hash.merge(access_token: FacebookAds.access_token)
+        hash = hash.merge(access_token: FacebookAds.access_token) if hash[:access_token].blank?
         hash = hash.merge(appsecret_proof: FacebookAds.appsecret_proof) if FacebookAds.app_secret
         hash = hash.merge(fields: self::FIELDS.join(',')) if objectify && !hash[:fields] && !self::FIELDS.empty?
         hash.reject { |_key, value| value.nil? || (value.respond_to?(:empty?) && value.empty?) }
