@@ -1,3 +1,6 @@
+## 0.6.4 (2018-11-26)
+  - Expose `ad_set_activities` for `ad_sets`.
+
 ## 0.6.4 (2018-10-03)
   - Expose `budget_remaining`, `daily_budget`, `lifetime_budget` for Ad Campaigns. These are needed when we have budgets at the Ad Campaign level and not at the Ad Set level.
 
