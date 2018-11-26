@@ -341,6 +341,25 @@ ad_set.destroy
 
 ___
 
+### [Ad Set Activities](https://developers.facebook.com/docs/marketing-api/reference/ad-activity) (Fetch)
+
+You interact with activities via an ad set:
+```ruby
+ad_set = account.ad_sets(effective_status: nil).first
+```
+
+Fetch all activities in last 24 hours for an ad set:
+```ruby
+activities = ad_set.activities
+```
+
+Fetch all activities in last 48 hours for an ad set:
+```ruby
+activities = ad_set.activities(since: 2.days.ago)
+```
+
+___
+
 ### [Ads](https://developers.facebook.com/docs/marketing-api/reference/adgroup) (Fetch, Find, Create, Update, Destroy)
 
 You interact with ads via an ad set:
