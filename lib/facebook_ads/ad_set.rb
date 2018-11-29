@@ -109,8 +109,8 @@ module FacebookAds
       AdInsight.paginate("/#{id}/insights", query: query)
     end
 
-    def activities(since: Date.today.beginning_of_day, until: Date.today.end_of_day)
-      query = { since: since, until: until }
+    def activities(from: Date.today.beginning_of_day, to: Date.today.end_of_day)
+      query = { since: from, until: to }
       AdSetActivity.get("/#{id}/activities", query: query, objectify: true)
     end
   end
