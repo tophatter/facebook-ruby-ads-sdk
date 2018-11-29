@@ -355,7 +355,7 @@ activities = ad_set.activities
 
 Fetch all activities in last 48 hours for an ad set:
 ```ruby
-activities = ad_set.activities(since: 2.days.ago)
+activities = ad_set.activities(from: 2.days.ago, to: Date.today)
 ```
 
 ___
