@@ -1,3 +1,6 @@
+## 0.6.5 (2018-11-29)
+  - Added ability to pass date range when fetching `ad_set_activities`.
+
 ## 0.6.4 (2018-11-26)
   - Expose `ad_set_activities` for `ad_sets`.
 
