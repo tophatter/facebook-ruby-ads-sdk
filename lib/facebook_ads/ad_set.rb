@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module FacebookAds
-  # https://developers.facebook.com/docs/marketing-api/reference/ad-account/adsets
+  # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
   class AdSet < Base
     FIELDS = %w[
       id
@@ -21,6 +21,9 @@ module FacebookAds
       lifetime_budget
       promoted_object
       targeting
+      attribution_spec
+      start_time
+      end_time
       created_time
       updated_time
     ].freeze
