@@ -55,11 +55,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"120330000008135715"}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 26 Aug 2017 00:11:50 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v<api_version>/120330000008135715?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,campaign_id,name,status,configured_status,effective_status,bid_strategy,bid_amount,billing_event,optimization_goal,pacing_type,daily_budget,budget_remaining,lifetime_budget,promoted_object,targeting,created_time,updated_time
+    uri: https://graph.facebook.com/v<api_version>/120330000008135715?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,account_id,campaign_id,name,status,configured_status,effective_status,bid_strategy,bid_amount,billing_event,optimization_goal,pacing_type,daily_budget,budget_remaining,lifetime_budget,promoted_object,targeting,attribution_spec,start_time,end_time,created_time,updated_time
     body:
       encoding: US-ASCII
       string: ''
@@ -109,6 +109,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":"120330000008135715","account_id":"10152335766987003","campaign_id":"120330000008134915","name":"Test
         Ad Set","status":"PAUSED","configured_status":"PAUSED","effective_status":"PAUSED","bid_strategy":"LOWEST_COST_WITHOUT_CAP","billing_event":"IMPRESSIONS","optimization_goal":"IMPRESSIONS","pacing_type":["standard"],"daily_budget":"500","budget_remaining":"0","lifetime_budget":"0","targeting":{"age_max":65,"age_min":29,"app_install_state":"not_installed","genders":[2],"geo_locations":{"countries":["US"],"location_types":["home"]},"user_device":["Android_Smartphone","Android_Tablet"],"user_os":["Android"]},"created_time":"2017-08-25T17:11:47-0700","updated_time":"2017-08-25T17:11:47-0700"}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 26 Aug 2017 00:11:50 GMT
 recorded_with: VCR 3.0.3
