@@ -3,7 +3,7 @@
 
 # To publish the next version:
 # gem build facebook_ads.gemspec
-# gem push facebook_ads-0.6.7.gem
+# gem push facebook_ads-0.6.8.gem
 Gem::Specification.new do |s|
   s.name        = 'facebook_ads'
   s.version     = '0.6.8'

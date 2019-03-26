@@ -1410,7 +1410,7 @@ http_interactions:
         FAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAo
         FAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAo
         FAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoFAoP/Z
-    http_version: 
+    http_version:
   recorded_at: Fri, 25 Aug 2017 22:08:00 GMT
 - request:
     method: get
@@ -3590,7 +3590,7 @@ http_interactions:
         9c0S1VmeeRCnfsCbqPEaJKoK2aCQj7agbSP6Mk9fxqOiJ8wlghAP2uV5GtZB
         b7yazVivBmE8iF0aaM8xz+8Xqba0ZBmWYYmbuY5Ixbctpe341pByy5kpiZ54
         muTfTqv99GatiSRgCzHV8arO2Wl82+tDk//Z
-    http_version: 
+    http_version:
   recorded_at: Fri, 25 Aug 2017 22:08:00 GMT
 - request:
     method: post
@@ -7130,7 +7130,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"images":{"13006112.jpg":{"hash":"d8fc613662fb5ef6cf5fb9d1fe779315","url":"https:\/\/scontent.xx.fbcdn.net\/v\/t45.1600-4\/21011723_120330000008134015_3582640201089941504_n.png?oh=8fad00827a866fcc942b6fe2c0f24b72&oe=5A1A9C86"},"13344107.jpg":{"hash":"e0e0911ba5b8c0f8af4028f81de5c720","url":"https:\/\/scontent.xx.fbcdn.net\/v\/t45.1600-4\/20865059_120330000008133915_2042189771664523264_n.png?oh=d53c6b65a54e4aa904074d36268366f8&oe=5A1F2DDC"}}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 25 Aug 2017 22:08:01 GMT
 - request:
     method: get
@@ -7183,7 +7183,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"10152335766987003:e0e0911ba5b8c0f8af4028f81de5c720","hash":"e0e0911ba5b8c0f8af4028f81de5c720","account_id":"10152335766987003","name":"13344107.jpg","permalink_url":"https:\/\/www.facebook.com\/ads\/image\/?d=AQI4Y9-QB0GJ-LZrkpV4byT7zDzEeo7UvJQehuTGHmWk8dER0caX684Pds3H6D0UeJQcUtyGo4iclh3F5grYsusA133FLxoJ9sZjW1Z2h2HCebq8InTyH3hkt5sgPN6a1FBqmrOE6JtAFCG4bjm4y7cb","original_width":570,"original_height":760},{"id":"10152335766987003:d8fc613662fb5ef6cf5fb9d1fe779315","hash":"d8fc613662fb5ef6cf5fb9d1fe779315","account_id":"10152335766987003","name":"13006112.jpg","permalink_url":"https:\/\/www.facebook.com\/ads\/image\/?d=AQKmX_u0U1Y6Z8F7Z7zdFGQ1fxDKHJzA5VUfXYJvEFl8UQBpwB9vPKjBq4zYWsuPIx29cXaimccuDARdn0cREHTWBu6ZmKFw1GlidOpNKg0uDPl0qa0i_Z3GOt4pCqeNKfzOCh5stTcSDC60AXQWk_b1","original_width":570,"original_height":707}],"paging":{"cursors":{"before":"MTA3MTAxNTcwMDI0Nzg3OmUwZATA5MTFiYTViOGMwZAjhhZAjQwMjhmODFkZATVjNzIw","after":"MTA3MTAxNTcwMDI0Nzg3OmQ4ZAmM2MTM2NjJmYjVlZAjZAjZAjVmYjlkMWZAlNzc5MzE1"}}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 25 Aug 2017 22:08:01 GMT
 - request:
     method: post
@@ -7240,11 +7240,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"120330000008134415"}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 25 Aug 2017 22:08:06 GMT
 - request:
     method: get
-    uri: https://graph.facebook.com/v<api_version>/120330000008134415?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url,status
+    uri: https://graph.facebook.com/v<api_version>/120330000008134415?access_token=<access_token>&appsecret_proof=<appsecret_proof>&fields=id,name,object_story_id,object_story_spec,object_type,thumbnail_url,product_set_id,url_tags,status
     body:
       encoding: US-ASCII
       string: ''
@@ -7296,6 +7296,6 @@ http_interactions:
         message.","call_to_action":{"type":"SHOP_NOW","value":{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter"}},"child_attachments":[{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","image_hash":"e0e0911ba5b8c0f8af4028f81de5c720","name":"Image
         #1 Title","call_to_action":{"type":"SHOP_NOW","value":{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter"}}},{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter","image_hash":"d8fc613662fb5ef6cf5fb9d1fe779315","name":"Image
         #2 Title","call_to_action":{"type":"SHOP_NOW","value":{"link":"http:\/\/play.google.com\/store\/apps\/details?id=com.tophatter"}}}],"multi_share_end_card":false,"multi_share_optimized":true}},"object_type":"SHARE","thumbnail_url":"https:\/\/external.xx.fbcdn.net\/safe_image.php?d=AQCICsW3lahMc5UH&w=64&h=64&url=https\u00253A\u00252F\u00252Fwww.facebook.com\u00252Fads\u00252Fimage\u00252F\u00253Fd\u00253DAQJOXAr-67FM4RpbUwytRBKSydcjusxzU6XhAY05G44THJ6by1ETfyKwVxWv1kTahVTTlpsxNcuvr5ns_xf8MpFlQjufc6k1QJtTl78cV0v2DNAQ11gx064bnXfBUWl6l9pd0gny0VReQzbopFk7cBs5&cfs=1&_nc_hash=AQCUdz3EIJynOrkQ"}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 25 Aug 2017 22:08:07 GMT
 recorded_with: VCR 3.0.3
