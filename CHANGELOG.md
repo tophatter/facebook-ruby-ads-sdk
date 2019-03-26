@@ -1,3 +1,6 @@
+## 0.6.8 (2019-03-25)
+  - Added the following fields to `AdCreative`: `product_set_id` and `url_tags`. (#37, @cte)
+
 ## 0.6.7 (2019-03-07)
   - Added the following fields to `AdSet`: `attribution_spec`, `start_time` and `end_time`. (#36, @cte)
 
