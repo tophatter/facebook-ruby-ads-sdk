@@ -1,4 +1,4 @@
-## 0.6.8 (2019-03-25)
+## 0.6.9 (2019-03-25)
   - Added the following fields to `AdCreative`: `product_set_id` and `url_tags`. (#37, @cte)
 
 ## 0.6.7 (2019-03-07)
