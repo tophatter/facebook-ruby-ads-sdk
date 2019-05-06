@@ -36,7 +36,7 @@ FacebookAds.app_secret = '[YOUR_APP_SECRET]'
 
 ## API Version
 
-This gem currently defauts v3.2 of the Marketing API. You can change the version as desired with the following:
+This gem currently defaults v3.2 of the Marketing API. You can change the version as desired with the following:
 
 ```ruby
 FacebookAds.base_uri = 'https://graph.facebook.com/[desired-version-here]'
