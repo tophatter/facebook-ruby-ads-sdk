@@ -40,7 +40,7 @@ module FacebookAds
   end
 
   def self.api_version
-    @api_version = '3.1' unless defined?(@api_version)
+    @api_version = '3.2' unless defined?(@api_version)
     @api_version
   end
 
