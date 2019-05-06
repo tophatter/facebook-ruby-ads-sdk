@@ -1,3 +1,7 @@
+## 0.6.10 (2019-05-06)
+  - Set default version to 3.2.
+  - Removed `relevance_score` from the list of default fields in `AdInsight`.
+
 ## 0.6.9 (2019-03-25)
   - Added the following fields to `AdCreative`: `product_set_id` and `url_tags`. (#37, @cte)
 
