@@ -1,3 +1,6 @@
+## 0.6.11 (2020-02-28)
+  - Fixed memoization in `FacebookAds::Ad`.
+
 ## 0.6.10 (2019-05-06)
   - Set default version to 3.2.
   - Removed `relevance_score` from the list of default fields in `AdInsight`.

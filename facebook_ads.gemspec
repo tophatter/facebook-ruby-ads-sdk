@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 # frozen_string_literal: true
 
 # To publish the next version:
@@ -6,7 +5,7 @@
 # gem push facebook_ads-0.6.10.gem
 Gem::Specification.new do |s|
   s.name        = 'facebook_ads'
-  s.version     = '0.6.10'
+  s.version     = '0.6.11'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
@@ -17,10 +16,8 @@ Gem::Specification.new do |s|
 
   s.extra_rdoc_files = ['README.md']
 
-  s.required_ruby_version = '~> 2.0'
-
-  s.add_dependency 'rest-client', '>= 1.6'
   s.add_dependency 'hashie', '~> 3.4'
+  s.add_dependency 'rest-client', '>= 1.6'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

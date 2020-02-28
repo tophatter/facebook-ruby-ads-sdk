@@ -10,13 +10,13 @@ module FacebookAds
     # belongs_to ad_account
 
     def ad_account
-      @ad_set ||= AdAccount.find(account_id)
+      @ad_account ||= AdAccount.find(account_id)
     end
 
     # belongs_to ad_campaign
 
     def ad_campaign
-      @ad_set ||= AdCampaign.find(campaign_id)
+      @ad_campaign ||= AdCampaign.find(campaign_id)
     end
 
     # belongs_to ad_set
