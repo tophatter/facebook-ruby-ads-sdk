@@ -16,7 +16,7 @@ gem install facebook_ads
 Or, add the following to your Gemfile:
 
 ```ruby
-gem 'facebook_ads', '~> 0.6'
+gem 'facebook_ads', '~> 0.7'
 ```
 
 ## Permissions
