@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout:
           path: ~/repo
-      - ruby/install-deps
+      - ruby/install-deps:
           with-cache: false
       - ruby/rspec-test
       - ruby/rubocop-check
