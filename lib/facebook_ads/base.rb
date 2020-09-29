@@ -12,7 +12,7 @@ module FacebookAds
         FacebookAds.logger.debug "GET #{uri}"
 
         response = begin
-          RestClient.get(uri, accept: :json, accept_encoding: :identity)
+          RestClient.get(uri, FacebookAds::REQUEST_HEADERS)
         rescue RestClient::Exception => e
           exception(:get, path, e)
         end

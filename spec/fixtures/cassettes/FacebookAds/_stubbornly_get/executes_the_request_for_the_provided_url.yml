@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://worldtimeapi.org/api/ip
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - identity
+      User-Agent:
+      - Ruby
+      Host:
+      - worldtimeapi.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ''
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '401'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cross-Origin-Window-Policy:
+      - deny
+      Date:
+      - Tue, 29 Sep 2020 19:59:09 GMT
+      Server:
+      - Cowboy
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 28a7b795-69b3-423c-b539-08675ebfa8f9
+      X-Runtime:
+      - 16ms
+      X-Xss-Protection:
+      - 1; mode=block
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"abbreviation":"AKDT","client_ip":"66.58.139.118","datetime":"2020-09-29T11:59:09.743279-08:00","day_of_week":2,"day_of_year":273,"dst":true,"dst_from":"2020-03-08T11:00:00+00:00","dst_offset":3600,"dst_until":"2020-11-01T10:00:00+00:00","raw_offset":-32400,"timezone":"America/Anchorage","unixtime":1601409549,"utc_datetime":"2020-09-29T19:59:09.743279+00:00","utc_offset":"-08:00","week_number":40}'
+  recorded_at: Tue, 29 Sep 2020 19:59:09 GMT
+recorded_with: VCR 6.0.0

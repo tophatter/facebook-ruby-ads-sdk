@@ -5,7 +5,7 @@
 module RestClient
   class Request
     def default_headers
-      { accept: 'application/json', accept_encoding: 'identity' }
+      FacebookAds::REQUEST_HEADERS
     end
   end
 end
