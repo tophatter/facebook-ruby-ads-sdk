@@ -1,6 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/facebook_ads.svg)](https://badge.fury.io/rb/facebook_ads)
-[![Build Status](https://travis-ci.org/tophatter/facebook-ruby-ads-sdk.svg?branch=master)](https://travis-ci.org/tophatter/facebook-ruby-ads-sdk)
-[![Coverage Status](https://coveralls.io/repos/github/tophatter/facebook-ruby-ads-sdk/badge.svg?branch=master)](https://coveralls.io/github/tophatter/facebook-ruby-ads-sdk?branch=master)
+[![Build Status](https://circleci.com/gh/tophatter/facebook-ruby-ads-sdk.svg?style=svg&circle-token=3fa538bc2aece310fdc07b82ce77d117758afb02)](https://circleci.com/gh/tophatter/facebook-ruby-ads-sdk)
 
 # [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis) SDK for Ruby
 
@@ -17,7 +16,7 @@ gem install facebook_ads
 Or, add the following to your Gemfile:
 
 ```ruby
-gem 'facebook_ads', '~> 0.6'
+gem 'facebook_ads', '~> 0.7'
 ```
 
 ## Permissions

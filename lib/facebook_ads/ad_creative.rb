@@ -8,7 +8,7 @@ module FacebookAds
     CALL_TO_ACTION_TYPES = %w[SHOP_NOW INSTALL_MOBILE_APP USE_MOBILE_APP SIGN_UP DOWNLOAD BUY_NOW NO_BUTTON].freeze
 
     class << self
-      def photo(name:, page_id:, instagram_actor_id: nil, message:, link:, app_link: nil, link_title:, image_hash:, call_to_action_type:, link_description: nil)
+      def photo(name:, page_id:, message:, link:, link_title:, image_hash:, call_to_action_type:, instagram_actor_id: nil, app_link: nil, link_description: nil)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
           'instagram_actor_id' => instagram_actor_id, # 503391023081924
@@ -36,7 +36,7 @@ module FacebookAds
       end
 
       # https://developers.facebook.com/docs/marketing-api/guides/videoads
-      def carousel(name:, page_id:, instagram_actor_id: nil, link:, app_link: nil, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:)
+      def carousel(name:, page_id:, link:, message:, assets:, call_to_action_type:, multi_share_optimized:, multi_share_end_card:, instagram_actor_id: nil, app_link: nil)
         object_story_spec = {
           'page_id' => page_id, # 300664329976860
           'instagram_actor_id' => instagram_actor_id, # 503391023081924

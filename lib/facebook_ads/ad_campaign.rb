@@ -59,10 +59,10 @@ module FacebookAds
       AdSet.paginate("/#{id}/adsets", query: { effective_status: effective_status, limit: limit })
     end
 
-    def create_ad_set(name:, promoted_object: {}, targeting:, daily_budget: nil, lifetime_budget: nil, end_time: nil, optimization_goal:, billing_event: 'IMPRESSIONS', status: 'ACTIVE', bid_strategy: nil, bid_amount: nil)
-      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
-      raise Exception, "Billing event must be one of: #{AdSet::BILLING_EVENTS.join(', ')}" unless AdSet::BILLING_EVENTS.include?(billing_event)
-      raise Exception, "Bid strategy must be one of: #{AdSet::BID_STRATEGIES.join(', ')}" unless AdSet::BID_STRATEGIES.include?(bid_strategy)
+    def create_ad_set(name:, targeting:, optimization_goal:, promoted_object: {}, daily_budget: nil, lifetime_budget: nil, end_time: nil, billing_event: 'IMPRESSIONS', status: 'ACTIVE', bid_strategy: nil, bid_amount: nil)
+      raise ArgumentError, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+      raise ArgumentError, "Billing event must be one of: #{AdSet::BILLING_EVENTS.join(', ')}" unless AdSet::BILLING_EVENTS.include?(billing_event)
+      raise ArgumentError, "Bid strategy must be one of: #{AdSet::BID_STRATEGIES.join(', ')}" unless AdSet::BID_STRATEGIES.include?(bid_strategy)
 
       if targeting.is_a?(Hash)
         # NOP
@@ -83,9 +83,9 @@ module FacebookAds
         bid_amount: bid_amount
       }
 
-      if daily_budget && lifetime_budget
-        raise Exception 'Only one budget may be set between daily_budget and life_budget'
-      elsif daily_budget
+      raise ArgumentError 'Only one budget may be set between daily_budget and life_budget' if daily_budget && lifetime_budget
+
+      if daily_budget
         query[:daily_budget] = daily_budget
       elsif lifetime_budget
         query[:lifetime_budget] = lifetime_budget

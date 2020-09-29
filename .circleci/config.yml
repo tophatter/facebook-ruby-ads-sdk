@@ -1,0 +1,27 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.2.1
+  ruby: circleci/ruby@1.1.0
+
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:2.7.0-node
+    executor: ruby/default
+    working_directory: ~/repo
+    environment:
+      APP_BUNDLER_VERSION: '2.1.2'
+    steps:
+      - checkout:
+          path: ~/repo
+      - ruby/install-deps:
+          with-cache: false
+      - ruby/rspec-test
+      - ruby/rubocop-check
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test

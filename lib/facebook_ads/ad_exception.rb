@@ -5,6 +5,7 @@ module FacebookAds
     attr_reader :code, :title, :message
 
     def initialize(code:, title:, message:)
+      super(message)
       @code = code
       @title = title
       @message = message

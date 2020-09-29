@@ -19,7 +19,7 @@ rescue Errno::ENOENT
   puts 'Create a test_business_id file and add your Business ID to it.'
 end
 
-FacebookAds.logger = Logger.new(STDOUT)
+FacebookAds.logger = Logger.new($stdout)
 FacebookAds.logger.level = Logger::Severity::DEBUG
 
 require 'awesome_print'

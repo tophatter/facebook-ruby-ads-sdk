@@ -81,7 +81,7 @@ module FacebookAds
     # AdCampaign
 
     def ad_campaign
-      @campaign ||= AdCampaign.find(campaign_id)
+      @ad_campaign ||= AdCampaign.find(campaign_id)
     end
 
     # Ad

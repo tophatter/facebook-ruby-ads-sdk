@@ -14,13 +14,13 @@ module FacebookAds
     # actions
 
     def share(account_id)
-      query = {
-        share_with_object_id: account_id,
-        share_with_object_type: 'Account'
-      }
-      result = AdAccount.post("/#{id}/share_with_objects", query: query)
-      # result['success']
-      result # No idea what this response looks like.
+      AdAccount.post(
+        "/#{id}/share_with_objects",
+        query: {
+          share_with_object_id: account_id,
+          share_with_object_type: 'Account'
+        }
+      )
     end
   end
 end
