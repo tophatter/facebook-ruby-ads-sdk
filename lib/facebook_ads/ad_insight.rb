@@ -10,16 +10,16 @@ module FacebookAds
 
     class << self
       def find(_id)
-        raise Exception, 'NOT IMPLEMENTED'
+        raise NotImplementedError
       end
     end
 
     def update(_data)
-      raise Exception, 'NOT IMPLEMENTED'
+      raise NotImplementedError
     end
 
     def destroy
-      raise Exception, 'NOT IMPLEMENTED'
+      raise NotImplementedError
     end
   end
 end

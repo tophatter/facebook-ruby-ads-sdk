@@ -9,7 +9,23 @@ require 'openssl'
 
 # Internal requires.
 require 'facebook_ads/base'
-Dir[File.expand_path('../facebook_ads/*.rb', __FILE__)].each { |f| require f }
+require 'facebook_ads/account'
+require 'facebook_ads/ad_account'
+require 'facebook_ads/ad_audience'
+require 'facebook_ads/ad_campaign'
+require 'facebook_ads/ad_creative'
+require 'facebook_ads/ad_exception'
+require 'facebook_ads/ad_image'
+require 'facebook_ads/ad_insight'
+require 'facebook_ads/ad_product_catalog'
+require 'facebook_ads/ad_product_feed'
+require 'facebook_ads/ad_product'
+require 'facebook_ads/ad_set_activity'
+require 'facebook_ads/ad_set'
+require 'facebook_ads/ad_targeting'
+require 'facebook_ads/ad_user'
+require 'facebook_ads/ad'
+require 'facebook_ads/advertisable_application'
 
 # The primary namespace for this gem.
 module FacebookAds
@@ -70,5 +86,56 @@ module FacebookAds
 
   def self.business_id
     @business_id
+  end
+
+  # Stubborn network calls.
+
+  RETRYABLE_ERRORS  = [RestClient::ExceptionWithResponse, Errno::ECONNRESET, Errno::ECONNREFUSED].freeze
+  RETRY_LIMIT       = 10
+  REQUEST_HEADERS   = { accept: :json, accept_encoding: :identity }.freeze
+  RECOVERABLE_CODES = [1, 2, 2601].freeze
+
+  def self.stubbornly(retry_limit: RETRY_LIMIT, recoverable_codes: RECOVERABLE_CODES, debug: false)
+    raise ArgumentError unless block_given?
+
+    response    = nil
+    retry_count = 0
+
+    loop do
+      response = yield
+      break
+    rescue *RETRYABLE_ERRORS => e
+      if e.is_a?(RestClient::ExceptionWithResponse)
+        error = begin
+          JSON.parse(e.response)
+        rescue JSON::ParserError
+          nil
+        end
+
+        code = error&.[]('code')
+        raise e if code && !recoverable_codes.include?(code)
+      end
+
+      raise e if retry_count >= retry_limit
+
+      retry_count += 1
+      wait = (retry_count**2) + 15 + (rand(15) * (retry_count + 1))
+      puts "retry ##{retry_count} will start in #{wait}s" if debug
+      sleep wait
+    end
+
+    response
+  end
+
+  def self.stubbornly_get(url, retry_limit: RETRY_LIMIT, recoverable_codes: RECOVERABLE_CODES, debug: false)
+    stubbornly(retry_limit: retry_limit, recoverable_codes: recoverable_codes, debug: debug) do
+      RestClient.get(url, JSON_HEADERS)
+    end
+  end
+
+  def self.stubbornly_post(url, payload, retry_limit: RETRY_LIMIT, recoverable_codes: RECOVERABLE_CODES, debug: false)
+    stubbornly(retry_limit: retry_limit, recoverable_codes: recoverable_codes, debug: debug) do
+      RestClient.post(url, payload, JSON_HEADERS)
+    end
   end
 end

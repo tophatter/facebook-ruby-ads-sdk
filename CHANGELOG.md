@@ -1,3 +1,11 @@
+## 0.7.0 (2020-09-29)
+  - Add stubborn network call helpers.
+  - Update default version to v7.0.
+  - Switch from TravisCI to CircleCI.
+  - Remove coveralls.
+  - Require ruby 2.5+.
+  - Update Rubocop & fix warnings.
+
 ## 0.6.11 (2020-02-28)
   - Fixed memoization in `FacebookAds::Ad`.
 

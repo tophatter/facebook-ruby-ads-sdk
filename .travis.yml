@@ -1,7 +1,0 @@
-language: ruby
-rvm:
- - 2.3
-script:
-  - bundle exec rubocop
-  - bundle exec rake
-cache: bundler

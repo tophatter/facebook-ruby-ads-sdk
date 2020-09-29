@@ -32,9 +32,6 @@ describe FacebookAds::AdCampaign do
     targeting
   end
 
-  xdescribe '.ad_sets' do
-  end
-
   describe '.create_ad_set' do
     it 'creates_valid_ad_set', :vcr do
       ad_set = campaign.create_ad_set(

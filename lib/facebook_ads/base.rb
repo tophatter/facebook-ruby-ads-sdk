@@ -6,7 +6,7 @@ module FacebookAds
     class << self
       # HTTP verbs.
 
-      def get(path, query: {}, objectify:)
+      def get(path, objectify:, query: {})
         query = pack(query, objectify: objectify)
         uri = "#{FacebookAds.base_uri}#{path}?" + build_nested_query(query)
         FacebookAds.logger.debug "GET #{uri}"
@@ -116,19 +116,12 @@ module FacebookAds
       end
 
       def unpack(response, objectify:)
-        raise Exception, 'Invalid nil response' if response.nil?
+        raise ArgumentError, 'Invalid nil response' if response.nil?
         response = response.body if response.is_a?(RestClient::Response)
+        response = JSON.parse(response) if response.is_a?(String)
 
-        if response.is_a?(String)
-          response = begin
-            JSON.parse(response)
-          rescue JSON::ParserError
-            raise Exception, "Invalid JSON response: #{response.inspect}"
-          end
-        end
-
-        raise Exception, "Invalid response: #{response.class.name} #{response.inspect}" unless response.is_a?(Hash)
-        raise Exception, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}" unless response['error'].nil?
+        raise ArgumentError, "Invalid response: #{response.class.name} #{response.inspect}" unless response.is_a?(Hash)
+        raise ArgumentError, "[#{response['error']['code']}] #{response['error']['message']} - raw response: #{response.inspect}" unless response['error'].nil?
         return response unless objectify
 
         if response.key?('data') && (data = response['data']).is_a?(Array)
@@ -138,8 +131,8 @@ module FacebookAds
         end
       end
 
-      def escape(s)
-        URI.encode_www_form_component(s)
+      def escape(str)
+        URI.encode_www_form_component(str)
       end
 
       # https://github.com/rack/rack/blob/master/lib/rack/utils.rb
@@ -190,7 +183,7 @@ module FacebookAds
     def save
       return nil if changes.nil? || changes.length.zero?
       data = {}
-      changes.keys.each { |key| data[key] = self[key] }
+      changes.each_key { |key| data[key] = self[key] }
       return nil unless update(data)
       self.class.find(id)
     end

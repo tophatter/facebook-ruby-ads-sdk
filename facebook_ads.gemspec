@@ -5,7 +5,7 @@
 # gem push facebook_ads-0.6.10.gem
 Gem::Specification.new do |s|
   s.name        = 'facebook_ads'
-  s.version     = '0.6.11'
+  s.version     = '0.6.12'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Chris Estreich']
@@ -16,7 +16,9 @@ Gem::Specification.new do |s|
 
   s.extra_rdoc_files = ['README.md']
 
-  s.add_dependency 'hashie', '~> 3.4'
+  s.required_ruby_version = '>= 2.5'
+
+  s.add_dependency 'hashie'
   s.add_dependency 'rest-client', '>= 1.6'
 
   s.files         = `git ls-files`.split("\n")

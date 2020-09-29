@@ -30,15 +30,15 @@ module FacebookAds
     end
 
     def create_ad_campaign(name:, objective:, status: 'ACTIVE')
-      raise Exception, "Objective must be one of: #{AdCampaign::OBJECTIVES.join(', ')}" unless AdCampaign::OBJECTIVES.include?(objective)
-      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.join(', ')}" unless AdCampaign::STATUSES.include?(status)
+      raise ArgumentError, "Objective must be one of: #{AdCampaign::OBJECTIVES.join(', ')}" unless AdCampaign::OBJECTIVES.include?(objective)
+      raise ArgumentError, "Status must be one of: #{AdCampaign::STATUSES.join(', ')}" unless AdCampaign::STATUSES.include?(status)
       query = { name: name, objective: objective, status: status }
       result = AdCampaign.post("/#{id}/campaigns", query: query)
       AdCampaign.find(result['id'])
     end
 
     def create_dynamic_ad_campaign(name:, product_catalog_id:, status: 'ACTIVE')
-      raise Exception, "Status must be one of: #{AdCampaign::STATUSES.join(', ')}" unless AdCampaign::STATUSES.include?(status)
+      raise ArgumentError, "Status must be one of: #{AdCampaign::STATUSES.join(', ')}" unless AdCampaign::STATUSES.include?(status)
       query = { name: name, objective: 'PRODUCT_CATALOG_SALES', status: status, promoted_object: { product_catalog_id: product_catalog_id } }
       result = AdCampaign.post("/#{id}/campaigns", query: query)
       AdCampaign.find(result['id'])
@@ -73,7 +73,7 @@ module FacebookAds
       end.to_h
 
       response = AdImage.post("/#{id}/adimages", query: files)
-      files.values.each { |file| File.delete(file.path) }
+      files.each_value { |file| File.delete(file.path) }
       !response['images'].nil? ? ad_images(hashes: response['images'].map { |_key, hash| hash['hash'] }) : []
     end
 
@@ -84,8 +84,9 @@ module FacebookAds
     end
 
     def create_ad_creative(creative, creative_type: nil, carousel: false)
-      # Support old deprecated carousel param
+      # Support old deprecated carousel param.
       return create_carousel_ad_creative(creative) if carousel
+
       case creative_type
       when 'carousel'
         create_carousel_ad_creative(creative)
@@ -127,14 +128,11 @@ module FacebookAds
     end
 
     def reach_estimate(targeting:, optimization_goal:, currency: 'USD')
-      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+      raise ArgumentError, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
 
       if targeting.is_a?(AdTargeting)
-        if targeting.validate!
-          targeting = targeting.to_hash
-        else
-          raise Exception, 'The provided targeting spec is not valid.'
-        end
+        raise ArgumentError, 'The provided targeting spec is not valid.' unless targeting.validate!
+        targeting = targeting.to_hash
       end
 
       query = {
@@ -147,14 +145,11 @@ module FacebookAds
     end
 
     def delivery_estimate(targeting:, optimization_goal:, currency: 'USD')
-      raise Exception, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
+      raise ArgumentError, "Optimization goal must be one of: #{AdSet::OPTIMIZATION_GOALS.join(', ')}" unless AdSet::OPTIMIZATION_GOALS.include?(optimization_goal)
 
       if targeting.is_a?(AdTargeting)
-        if targeting.validate!
-          targeting = targeting.to_hash
-        else
-          raise Exception, 'The provided targeting spec is not valid.'
-        end
+        raise ArgumentError, 'The provided targeting spec is not valid.' unless targeting.validate!
+        targeting = targeting.to_hash
       end
 
       query = {
@@ -172,12 +167,12 @@ module FacebookAds
       required = %i[name page_id link message assets call_to_action_type multi_share_optimized multi_share_end_card]
 
       unless (keys = required - creative.keys).length.zero?
-        raise Exception, "Creative is missing the following: #{keys.join(', ')}"
+        raise ArgumentError, "Creative is missing the following: #{keys.join(', ')}"
       end
 
-      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      raise ArgumentError, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
 
-      query = if creative[:product_set_id].present?
+      query = if creative[:product_set_id]
         AdCreative.product_set(
           name: creative[:name],
           page_id: creative[:page_id],
@@ -199,10 +194,10 @@ module FacebookAds
       required = %i[name page_id message link link_title image_hash call_to_action_type]
 
       unless (keys = required - creative.keys).length.zero?
-        raise Exception, "Creative is missing the following: #{keys.join(', ')}"
+        raise ArgumentError, "Creative is missing the following: #{keys.join(', ')}"
       end
 
-      raise Exception, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
+      raise ArgumentError, "Creative call_to_action_type must be one of: #{AdCreative::CALL_TO_ACTION_TYPES.join(', ')}" unless AdCreative::CALL_TO_ACTION_TYPES.include?(creative[:call_to_action_type])
       query = AdCreative.photo(creative)
       result = AdCreative.post("/#{id}/adcreatives", query: query)
       AdCreative.find(result['id'])
@@ -212,7 +207,7 @@ module FacebookAds
       required = %i[name title body object_url link_url image_hash page_id]
 
       unless (keys = required - creative.keys).length.zero?
-        raise Exception, "Creative is missing the following: #{keys.join(', ')}"
+        raise ArgumentError, "Creative is missing the following: #{keys.join(', ')}"
       end
 
       query = AdCreative.link(creative)
