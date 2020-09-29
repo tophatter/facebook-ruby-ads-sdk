@@ -10,6 +10,8 @@ jobs:
       - image: circleci/ruby:2.7.0-node
     executor: ruby/default
     working_directory: ~/repo
+    environment:
+      APP_BUNDLER_VERSION: '2.1.2'
     steps:
       - checkout:
           path: ~/repo
