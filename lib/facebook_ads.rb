@@ -61,7 +61,7 @@ module FacebookAds
   end
 
   def self.api_version
-    @api_version ||= '7.0'
+    @api_version ||= '8.0'
   end
 
   def self.access_token=(access_token)
