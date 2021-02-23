@@ -69,7 +69,8 @@ module FacebookAds
     BID_STRATEGIES = %w[
       LOWEST_COST_WITHOUT_CAP
       LOWEST_COST_WITH_BID_CAP
-      TARGET_COST
+      COST_CAP
+      LOWEST_COST_WITH_MIN_ROAS
     ].freeze
 
     # AdAccount
